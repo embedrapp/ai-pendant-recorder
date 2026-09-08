@@ -1,5 +1,11 @@
 # AI Second Brain Pendant — Original Implementation Plan
 
+Active compact-redesign progress and corrections are tracked in
+[compact-redesign.md](compact-redesign.md). Three preliminary envelope STEP
+references now exist, but do not close the detailed component/assembly-fit gaps
+listed below. Compactness must retain the complete Sense stack and safety/service
+clearances; the current enclosure and board are not the accepted redesign.
+
 ## Current-state findings
 
 - Start from the existing electronics-plus-firmware scaffold without replacing user files.

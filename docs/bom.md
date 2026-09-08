@@ -4,6 +4,17 @@ Prototype procurement list for quantities below 10. Links are India-facing where
 
 ## Product assumptions
 
+**Redesign checkpoint:** see [compact-redesign.md](compact-redesign.md). The
+current Zen design is not yet this complete BOM. C1/C2 MPNs have been reconciled;
+new circuits and their support parts remain pending. Do not procure a complete
+assembly solely from the current generated PCB BOM.
+
+**Motor supply correction required:** the retained QX-1027 datasheet specifies
+2.5–3.5 V operation and 230 mA maximum starting/locked current at 3 V (pp3–4).
+Direct protected BAT+ can reach 4.2 V and is not approved. The D1/BAT+ topology
+below is historical pending a regulated MOTOR+ design; connect flyback cathode
+to the actual motor-positive rail. The Robu motor identity remains unresolved.
+
 - XIAO ESP32S3 Sense retains its camera, microphone, microSD, USB-C, Wi-Fi/BLE radio, antenna connector, and onboard single-cell LiPo charging/power-management path.
 - Battery is a protected NOVA 603450, 3.7 V, 1100 mAh cell. Confirm PCM details, finished envelope, current rating, and connector compatibility before purchase.
 - MAX17048 is installed directly on the redesigned PCB for battery voltage/state-of-charge reporting. It is not a charger or protection circuit.
@@ -27,7 +38,7 @@ Prototype procurement list for quantities below 10. Links are India-facing where
 | 2 | C1/C3 | Murata GCM188R71H104KA57J, 100 nF, 50 V, X7R, 0603 | [DigiKey India](https://www.digikey.in/en/products/detail/murata-electronics/GCM188R71H104KA57J/4380305) | C1 amplifier bypass; C3 local MAX17048 VDD bypass. |
 | 1 | C2 | YAGEO CC0805KRX5R8BB106, 10 µF, 25 V, X5R, 0805 | [Mouser India](https://www.mouser.in/en/ProductDetail/YAGEO/CC0805KRX5R8BB106?qs=CNuWj9FTWYDQ%252BJODP2bXGA%3D%3D) | Selected bulk bypass; confirm DC-bias capacitance and packaging. |
 | 2 | R1/R2 | YAGEO RC0603FR-07100KL, 100 kΩ, 1%, 0603 | [DigiKey India](https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889) | Selected. |
-| 1 | R3 | YAGEO RC0603FR-072KL, 2 kΩ, 1%, 0603 | [DigiKey India](https://www.digikey.in/en/products/detail/yageo/RC0603FR-072KL/727009) | Selected/provisional for existing LED circuitry. |
+| 1 | R3 | YAGEO RC0603FR-072KL, 2 kΩ, 1%, 0603 | [DigiKey India](https://www.digikey.in/en/products/detail/yageo/RC0603FR-072KL/727009) | Existing amplifier-enable series resistor, not an RGB LED resistor. Six RGB current-limiting resistors remain to be specified. |
 | 2 | R4/R5 | YAGEO RC0603FR-074K7L, 4.7 kΩ, 1%, 0603 | [DigiKey India](https://www.digikey.in/en/products/detail/yageo/RC0603FR-074K7L/727212) | I²C SDA/SCL pull-ups to 3.3 V, unless one verified pull-up pair already exists on the bus. |
 | 1 | R6 | YAGEO RC0603FR-074K7L, 4.7 kΩ, 1%, 0603 | [DigiKey India](https://www.digikey.in/en/products/detail/yageo/RC0603FR-074K7L/727212) | Optional populated part for MAX17048 ALRT; otherwise DNP. |
 | 2 | LED1/LED2 | Kingbright APGF0607G32B33R23-05, 0.65 × 0.65 × 0.25 mm full-color RGB SMD LED | [DigiKey India exact page](https://www.digikey.in/en/products/detail/kingbright/APGF0607G32B33R23-05/28948248) | Selected. Place at PCB edge beside small recessed/translucent enclosure light ports; use subtle low-PWM indication, not a large opening. |

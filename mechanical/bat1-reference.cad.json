@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "bat1-reference",
+  "name": "BAT1 provisional 603450 envelope",
+  "source": "mechanical/missing-references.py",
+  "parameters": {"component": {"type": "text", "label": "Reference identity", "value": "battery"}},
+  "assumptions": [{"id": "identity", "label": "Not NOVA-certified", "value": "34 x 50 x 6 mm nominal LiPol drawing envelope only; tolerances +/-0.5, +/-1, +/-0.3 mm. PCM, swelling, wires and plug unresolved.", "confidence": "datasheet", "source": "docs/datasheets/generic-lp603450-1100mah.pdf p1; docs/compact-redesign.md"}],
+  "checks": [{"id": "valid-solids", "label": "Valid reference solid only", "required": true}]
+}

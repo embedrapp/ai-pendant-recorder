@@ -71,20 +71,20 @@ datasheets:
     imageCount: 6
     processedAt: 2026-09-08T07:15:26.992Z
   - id: 46d1f33d6de0c5ff81b80471a1f5973744574150349fc1152e5967f51f017052
-    name: Generic LP603450 1100mAh battery datasheet
+    name: generic-lp603450-1100mah
     chunkCount: 1
     imageCount: 1
-    processedAt: 2026-09-08T07:17:00.400Z
+    processedAt: 2026-09-08T07:32:49.117Z
   - id: 2deded92b54c7650416c99a80187807477e9ba68ca6c65943069f55f4b3c2075
     name: JST SH series datasheet
     chunkCount: 2
     imageCount: 2
     processedAt: 2026-09-08T07:17:01.538Z
   - id: df048d455a0ac039d643118b6b8a421c83d9aae4991b29d47b72a2b80a5d1cd9
-    name: Yageo CC0805KRX5R8BB106 datasheet
+    name: yageo-cc0805krx5r8bb106
     chunkCount: 4
     imageCount: 3
-    processedAt: 2026-09-08T07:17:01.571Z
+    processedAt: 2026-09-08T07:39:00.438Z
   - id: 2d23a2bd5def52869ce95756913f1be4d24d3f8de7961fb45f1161116a705eec
     name: onsemi NSVR0320MW2T1G datasheet
     chunkCount: 4
@@ -106,30 +106,30 @@ datasheets:
     imageCount: 6
     processedAt: 2026-09-08T07:17:02.130Z
   - id: 43d8fc8d3f7e39f0f9c21c2bf722aae6e65334d89e6bc0cbe2543b41e386283e
-    name: Kingbright APGF0607G32B33R23-05 datasheet
+    name: kingbright-apgf0607g32b33r23-05
     chunkCount: 4
     imageCount: 4
-    processedAt: 2026-09-08T07:17:02.133Z
+    processedAt: 2026-09-08T07:35:44.627Z
   - id: 9c60d0b6c1ddc7609a4b788a91181468d8ffe6c3e9ba425c3d8ffc5ba88c5033
     name: AO3400A datasheet
     chunkCount: 5
     imageCount: 5
     processedAt: 2026-09-08T07:17:02.136Z
   - id: 7c9c6ab89d64f98dcc287a2646c8fdceb7bc00973e170807c5de820f69a716bf
-    name: Littelfuse PTS841 datasheet (local)
+    name: pts841
     chunkCount: 3
     imageCount: 3
-    processedAt: 2026-09-08T07:17:02.139Z
+    processedAt: 2026-09-08T07:32:49.225Z
   - id: 7bfcfd0566d5b2068527fc8307d6ce65ada867812a473e3c2e883ec8b1703f8b
     name: 7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module (local)
     chunkCount: 6
     imageCount: 6
     processedAt: 2026-09-08T07:17:02.142Z
   - id: 636a2f1f12dba6d8a8be3817c067e20b3dcb9d23b5924e11af8e5077d5cb5a22
-    name: QX Flat 1027 datasheet
+    name: qx-flat-1027
     chunkCount: 8
     imageCount: 9
-    processedAt: 2026-09-08T07:17:02.147Z
+    processedAt: 2026-09-08T07:32:49.708Z
   - id: 7b6f0ae72708ca4b38126f84b5407a3e970a94cb60bc1a0afdaeb25a23d839bb
     name: Yageo RC series datasheet
     chunkCount: 11
@@ -141,15 +141,15 @@ datasheets:
     imageCount: 15
     processedAt: 2026-09-08T07:17:02.714Z
   - id: 5f73267ddde6c69a4d5b057c51ee04548695805b6f06a52ea3b3765b823d586a
-    name: Seeed XIAO ESP32S3 Sense datasheet
+    name: seeed-xiao-esp32s3-sense-113991115
     chunkCount: 12
     imageCount: 11
-    processedAt: 2026-09-08T07:17:02.863Z
+    processedAt: 2026-09-08T07:33:19.780Z
   - id: 5a29828795fe4b9b8282c7c7fc77e7859fd5e25a64e208257ed25be08ef2402a
-    name: Murata GCM188R71H104KA57J datasheet
+    name: murata-gcm188r71h104ka57j
     chunkCount: 35
     imageCount: 32
-    processedAt: 2026-09-08T07:17:03.215Z
+    processedAt: 2026-09-08T07:39:02.094Z
   - id: 08c8df5d99eda52b415097c2edafd4d78d869db8dfb0a9821d0c23ff1276f251
     name: MAX98357A MAX98357B datasheet
     chunkCount: 45

@@ -1,6 +1,6 @@
 Quantity,References,Populate,Value,Package,Manufacturer,MPN,Supplier,Supplier Part Number,Alternatives,Description,Datasheet,Configuration,Zener Paths
-1,C1,Yes,100nF 50V X7R,0603,Murata,GRM188R71H104KA93D,Farnell,4749383,,100nF 50V X7R,,Configured,ai_pendant_recorder.zen:<root>.C1.C
-1,C2,Yes,10uF 25V X5R,0805,Samsung Electro-Mechanics,CL21A106KAYNNNE,DigiKey,1276-2891-1-ND,,10uF 25V X5R,,Configured,ai_pendant_recorder.zen:<root>.C2.C
+1,C1,Yes,100nF 50V X7R,0603,Murata,GCM188R71H104KA57J,,,,100nF 50V X7R,,Configured,ai_pendant_recorder.zen:<root>.C1.C
+1,C2,Yes,10uF 25V X5R,0805,YAGEO,CC0805KRX5R8BB106,,,,10uF 25V X5R,,Configured,ai_pendant_recorder.zen:<root>.C2.C
 1,J1,Yes,,JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,"J.S.T. Mfg. Co., Ltd.",B2B-PH-K-S,DigiKey,455-1704-ND,,"JST PH series 2-position top-entry shrouded through-hole header, 2.00 mm pitch.",,Configured,ai_pendant_recorder.zen:<root>.J1.J_B2B_PH_K_S
 1,J2,Yes,,BM02B,JST,BM02B-SRSS-TB(LF)(SN),DigiKey,455-1788-1-ND,,,,Configured,ai_pendant_recorder.zen:<root>.J2.J_BM02B_ATTRIBUTED
 2,R1 R2,Yes,100k 100mW,0603,YAGEO,RC0603FR-07100KL,DigiKey,311-100KHRCT-ND,,100k 100mW,,Configured,ai_pendant_recorder.zen:<root>.R1.R | ai_pendant_recorder.zen:<root>.R2.R

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "sw1-reference",
+  "name": "SW1 PTS841GK preliminary body envelope",
+  "source": "mechanical/missing-references.py",
+  "parameters": {"component": {"type": "text", "label": "Reference identity", "value": "switch"}},
+  "assumptions": [{"id": "scope", "label": "Body only, not complete switch CAD", "value": "3.6 x 3.5 x 1.25 mm nominal body. Leads, actuator and travel sweep excluded; not sufficient for actuator alignment acceptance.", "confidence": "datasheet", "source": "docs/datasheets/pts841.pdf pp1-2; GK without pegs/ESD"}],
+  "checks": [{"id": "valid-solids", "label": "Valid reference body only", "required": true}]
+}
