@@ -1,0 +1,14 @@
+"""Bosch BMI270, I2C polling, no secondary interface. BST-BMI270-DS000-08 pp135–145."""
+VDD = io("VDD", Power)
+GND = io("GND", Ground)
+SDA = io("SDA", Net)
+SCL = io("SCL", Net)
+Component(name="IMU", prefix="U",
+    symbol=Symbol(library="BMI270.kicad_sym", name="BMI270"),
+    footprint=File("BMI270.kicad_mod"),
+    part=Part(mpn="BMI270", manufacturer="Bosch Sensortec"),
+    datasheet="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf",
+    pins={"SDO": GND, "ASDx": NotConnected(), "ASCx": NotConnected(),
+          "INT1": NotConnected(), "VDDIO": VDD, "GNDIO": GND, "GND": GND,
+          "VDD": VDD, "INT2": NotConnected(), "OCSB": NotConnected(),
+          "OSDO": NotConnected(), "CSB": VDD, "SCx": SCL, "SDx": SDA})

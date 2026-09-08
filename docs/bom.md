@@ -4,6 +4,24 @@ Prototype procurement list for quantities below 10. Links are India-facing where
 
 ## Product assumptions
 
+### Implemented RGB/haptic schematic additions (supersedes older driver notes)
+
+| Qty | Ref | Exact part | Function |
+|---:|---|---|---|
+| 1 | U5 | NXP PCA9685PW,118 | Shared-I2C PWM driver: six RGB channels and one motor channel |
+| 1 | U6 | Diodes AP2112K-3.3TRG1 | Independent enabled 3.3 V motor regulator, not a charger |
+| 1 | C6 | Murata GCM188R71H104KA57J | PWM supply bypass, 100 nF |
+| 2 | C7/C8 | YAGEO CC0805KRX5R8BB106 | Motor regulator input/output bypass, 10 µF |
+| 6 | R9–R14 | YAGEO RC0603FR-072KL | Six 2 kΩ RGB channel resistors |
+| 1 | R15 | YAGEO RC0603FR-07100KL | Motor regulator enable pulldown, 100 kΩ |
+
+LED1/LED2 and M1 selections remain unchanged. Q1 gate now comes from U5 PWM6
+through R7, not directly from ESP32. ESP32 D0 arms U6. **D1 cathode and J3 pin1
+connect to regulated MOTOR_3V3, never directly to BAT+.** R8 remains gate pulldown.
+R3 is the amplifier-enable resistor, not an LED resistor. See
+[circuit details and limits](rgb-haptics.md). New parts have no live quote/stock
+verification; historical price table is not a complete cost for this revision.
+
 **Redesign checkpoint:** see [compact-redesign.md](compact-redesign.md). The
 current Zen design is not yet this complete BOM. C1/C2 MPNs have been reconciled;
 new circuits and their support parts remain pending. Do not procure a complete
@@ -97,8 +115,14 @@ The Robu battery and motor values are current rendered-page values. The motor id
 
 ## MAX17048 circuit requirements
 
+Schematic revision addition: C4/C5 are two additional Murata
+GCM188R71H104KA57J 100 nF bypass capacitors for BMI270 VDDIO and VDD.
+They share the retained C1/C3 CAD asset; no duplicate STEP is required.
+U4 is now integrated as a bare BMI270 in I2C polling mode, with SDO grounded,
+CSB at 3.3 V, and unused auxiliary/interrupt pins unconnected.
+
 - VDD connects to protected BAT+; GND and CTG connect to protected battery/system negative; exposed pad connects to GND.
-- MAX17048 pin CELL is internally unconnected and must remain electrically unconnected.
+- MAX17048 pin CELL is internally unconnected, but connects externally to protected BAT+ as instructed by the manufacturer pin table (retained datasheet p6).
 - C3 is placed directly between VDD and GND.
 - QSTRT is tied to GND for normal software-controlled operation.
 - SDA/SCL connect to XIAO I²C and use one effective 3.3 V pull-up pair only.

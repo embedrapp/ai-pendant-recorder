@@ -1,0 +1,5 @@
+K = io("K", Power)
+A = io("A", Net)
+Component(name="D", prefix="D", symbol=Symbol(library="NSVR0320.kicad_sym", name="NSVR0320"),
+    footprint=File("NSVR0320.kicad_mod"), part=Part(mpn="NSVR0320MW2T1G", manufacturer="onsemi"),
+    pins={"K": K, "A": A})

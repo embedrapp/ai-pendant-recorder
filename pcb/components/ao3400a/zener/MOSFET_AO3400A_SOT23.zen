@@ -1,0 +1,31 @@
+"""Alpha & Omega Semiconductor AO3400A SOT-23 N-channel MOSFET."""
+
+G = input(Net, help="Gate drive input. Keep VGS within +/-12 V.")
+S = io(Net("SOURCE"), help="Source terminal, commonly circuit ground for low-side switching.")
+D = io(Net("DRAIN"), help="Drain/load-side switched terminal.")
+
+Component(
+    name="Q_AO3400A",
+    prefix="Q",
+    description="Alpha & Omega Semiconductor AO3400A 30 V N-channel MOSFET in SOT-23",
+    symbol=Symbol(
+        library="../assets/Q_NMOS_GSD.kicad_sym",
+        name="Q_NMOS_GSD",
+    ),
+    footprint=File("../assets/SOT-23.kicad_mod"),
+    part=Part(mpn="AO3400A", manufacturer="Alpha & Omega Semiconductor"),
+    datasheet="https://www.aosmd.com/res/datasheets/AO3400A.pdf",
+    pins={
+        "G": G,
+        "S": S,
+        "D": D,
+    },
+    properties={
+        "package": "SOT-23",
+        "vds_max": "30 V",
+        "vgs_max": "+/-12 V",
+        "id_at_vgs_10v": "5.7 A",
+        "rds_on_10v": "26.5 mohm max",
+        "rds_on_4v5": "32 mohm max",
+    },
+)

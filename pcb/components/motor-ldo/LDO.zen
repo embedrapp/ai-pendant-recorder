@@ -1,0 +1,7 @@
+VIN = io("VIN", Power)
+VOUT = io("VOUT", Power)
+GND = io("GND", Ground)
+EN = io("EN", Net)
+Component(name="LDO", prefix="U", symbol=Symbol(library="AP2112K_3V3.kicad_sym", name="AP2112K_3V3"),
+    footprint=File("AP2112K_3V3.kicad_mod"), part=Part(mpn="AP2112K-3.3TRG1", manufacturer="Diodes Incorporated"),
+    pins={"VIN": VIN, "VOUT": VOUT, "GND": GND, "EN": EN})

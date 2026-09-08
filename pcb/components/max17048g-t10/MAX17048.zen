@@ -1,0 +1,14 @@
+"""MAX17048G+T10 polling circuit. Footprint pending ADI 90-0065 comparison.
+Do not release PCB from this draft package.
+"""
+VBAT = io("VBAT", Power)
+GND = io("GND", Ground)
+SDA = io("SDA", Net)
+SCL = io("SCL", Net)
+Component(name="FG", prefix="U",
+    symbol=Symbol(library="assets/kicad_symbol.kicad_sym", name="MAX17048G_T10"),
+    footprint=File("assets/kicad_footprint.kicad_mod"),
+    part=Part(mpn="MAX17048G+T10", manufacturer="Analog Devices"),
+    pins={"CTG": GND, "CELL": VBAT, "VDD": VBAT,
+          "GND": GND, "EP": GND, "QSTRT": GND,
+          "SDA": SDA, "SCL": SCL, "~{ALRT}": NotConnected()})

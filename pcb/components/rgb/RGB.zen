@@ -1,0 +1,7 @@
+A = io("A", Power)
+R = io("R", Net)
+G = io("G", Net)
+B = io("B", Net)
+Component(name="RGB", prefix="D", symbol=Symbol(library="APGF0607.kicad_sym", name="APGF0607"),
+    footprint=File("APGF0607.kicad_mod"), part=Part(mpn="APGF0607G32B33R23-05", manufacturer="Kingbright"),
+    pins={"A": A, "R": R, "G": G, "B": B})

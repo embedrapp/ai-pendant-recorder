@@ -1,5 +1,44 @@
 # Compact redesign — active engineering checkpoint
 
+## RGB/haptic integration — newest checkpoint
+
+The previous missing-RGB/haptic statements below are historical. Both circuits
+are now integrated; see [rgb-haptics.md](rgb-haptics.md) for exact mapping,
+datasheet corrections and remaining engineering limits. Source builds with 43
+components/65 nets. ERC passes with 0 errors, 0 warnings, 70 naming-only advice
+entries (`style.redundant_name`). Pin/net renderer inspection confirms separate
+LED resistor nets, regulated motor positive, low-side Q1 and flyback polarity.
+Screenshot review still finds long crossings and crowded labels; 29 rendered
+envelope overlaps remain, with zero body overlaps. This is not drawing-readability
+or physical-assembly acceptance. Existing board remains untouched, stale and
+unrouted (33 DRC missing connections, two warnings). Firmware unchanged by request.
+
+## Latest schematic validation checkpoint (supersedes older checkpoints below)
+
+- Integrated bare BMI270 U4 and separate C4/C5 100 nF bypass capacitors.
+  Local symbol/14-land footprint follows Bosch DS000-08 pp135,137,143,145.
+  Both supply pins connect to 3.3 V; both grounds to GND; CSB high; SDO low;
+  auxiliary and interrupt pins NC. Physical footprint review remains open.
+- Corrected MAX17048 CELL to protected BAT+ following the manufacturer p6
+  instruction, despite its internally unconnected implementation. Updated BOM.
+- Package sync and source build pass: 24 components, 39 nets. Renderer pin
+  inspection shows U1 D4/U3 SDA/U4 SDx on FG_SDA, U1 D5/U3 SCL/U4 SCx on
+  FG_SCL, R4/R5 supply ends on V3V3. The screenshot's apparently floating
+  pull-up rail is not a source disconnection, but its presentation needs repair.
+- Independent check reports ERC 0 errors/0 warnings, 49 advice entries, all
+  `style.redundant_name`. These are naming advice, not electrical failures.
+  Existing unsynchronized physical board reports 33 missing connections and
+  two warnings; it is NOT the new schematic's validated physical implementation.
+- Schematic screenshots now work. Visual review still finds crowded labels,
+  unreadable passive values and long crossings; after one broad placement pass
+  the renderer reports 15 envelope overlaps (zero component-body overlaps).
+- RGB indicators/PWM driver and regulated haptics remain missing. PCA9685PW
+  assets and AO3400A package were obtained for evaluation, not integrated or
+  approved as compact final selections. AP2112 library metadata gives suspect
+  EN/GND numbering and must be compared to manufacturer data before use.
+- Firmware/board remain unchanged and incompatible with AMP_ENABLE on D2.
+  This is partial progress, not completion or assembly approval.
+
 This redesign supersedes the camera-free direction in historical status notes.
 Retain the exact XIAO Sense camera/microphone/microSD stack, bottom USB-C,
 onboard charger, bare MAX17048 and BMI270, two RGB indicators, physical controls,
@@ -57,6 +96,26 @@ silently reverted to the original generic DevKit target.
 Status: inspection/reconciliation in progress; final assembly is not validated.
 
 ## Implemented checkpoint
+
+### Schematic update checkpoint
+
+Added U3 MAX17048 polling circuit, C3 bypass, R4/R5 shared 3.3 V I2C pull-ups,
+and TP3/TP4. D4/D5 now carry I2C; AMP_ENABLE moved to D2. Existing firmware
+and physical board are NOT synchronized to that pin change and must not be used
+as a matched revision. Camera/microphone/microSD remain internal to U1.
+
+Sync and root build passed with 21 components; netlist inventory inspected.
+U3 uses the materialized library footprint provisionally: its description cites
+an ST DFN package, so comparison with ADI land pattern 90-0065 is a release gate.
+The datasheet pin table calls CELL internally unconnected but also says connect
+to battery; this draft retains the BOM's NC choice pending reconciliation.
+
+Saved agent-chosen positions for all 21 schematic components. Renderer reports
+zero body overlaps but 15 rendered overlaps (including power symbols and labels).
+Both screenshot attempts returned blank images despite nonzero component/wire
+counts. Visual review is blocked; no schematic-readability acceptance is claimed.
+BMI270, RGB indicators/PWM support and regulated motor circuit are still absent.
+The full original-plan schematic request is not complete.
 
 - C1/C2 Zen MPNs now match bom.md. Obsolete supplier SKUs were removed rather
   than transferred to different parts. Automatic lint/evaluation and the managed

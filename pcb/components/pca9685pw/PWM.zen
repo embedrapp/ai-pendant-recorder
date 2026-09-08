@@ -1,0 +1,20 @@
+VDD = io("VDD", Power)
+GND = io("GND", Ground)
+SDA = io("SDA", Net)
+SCL = io("SCL", Net)
+O0 = io("O0", Net)
+O1 = io("O1", Net)
+O2 = io("O2", Net)
+O3 = io("O3", Net)
+O4 = io("O4", Net)
+O5 = io("O5", Net)
+O6 = io("O6", Net)
+OUT = [O0, O1, O2, O3, O4, O5, O6]
+pins = {"VDD": VDD, "VSS": GND, "SDA": SDA, "SCL": SCL, "OE": GND, "EXTCLK": GND}
+for i in range(6):
+    pins["A" + str(i)] = GND
+for i in range(16):
+    pins["LED" + str(i)] = OUT[i] if i < len(OUT) else NotConnected()
+Component(name="PWM", prefix="U", symbol=Symbol(library="PCA9685PW_corrected.kicad_sym", name="PCA9685PW_corrected"),
+    footprint=File("assets/TSSOP-28_4.4x9.7mm_P0.65mm.kicad_mod"),
+    part=Part(mpn="PCA9685PW,118", manufacturer="NXP"), pins=pins)
