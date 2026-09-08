@@ -1,0 +1,44 @@
+"""C&K PTS645SM43SMTR92 LFS 6 mm SMD tactile switch.
+
+SPST normally-open top-actuated tactile switch. The package has four gull-wing
+leads, but the KiCad footprint duplicates them as two electrical pad numbers:
+two pads named 1 and two pads named 2.
+"""
+
+SW1 = io(Net("SW1"))
+SW2 = io(Net("SW2"))
+
+Component(
+    name="SW_PTS645",
+    prefix="SW",
+    description="C&K PTS645SM43SMTR92 LFS 6 mm SMD tactile switch, SPST-NO, 4.3 mm actuator height",
+    symbol=Symbol(library="../assets/SW_Push.kicad_sym", name="SW_Push"),
+    footprint=File("../assets/SW_SPST_PTS645Sx43SMTR92.kicad_mod"),
+    part=Part(
+        mpn="PTS645SM43SMTR92 LFS",
+        manufacturer="C&K",
+        qualifications=[
+            "PTS645 series",
+            "surface-mount G-type",
+            "gull-wing tape-and-reel",
+            "4.3 mm actuator height",
+        ],
+    ),
+    pins={
+        "1": SW1,
+        "2": SW2,
+    },
+    properties={
+        "series": "PTS645",
+        "contact_arrangement": "SPST normally-open",
+        "switch_function": "momentary, off-(on)",
+        "contact_rating": "50 mA at 12 VDC",
+        "actuation_force": "1.6 N nominal",
+        "mechanical_life": "100000 operations",
+        "electrical_travel": "0.30 mm +0.10/-0.15",
+        "body_size": "6.0 x 6.0 mm",
+        "actuator_height": "4.3 mm from PCB",
+        "terminal_style": "gull wing",
+        "physical_leads": "4 leads grouped as pads 1,1,2,2",
+    },
+)

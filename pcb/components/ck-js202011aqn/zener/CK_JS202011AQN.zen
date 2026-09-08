@@ -1,0 +1,36 @@
+"""C&K JS202011AQN right-angle through-hole DPDT ON-ON slide switch."""
+
+POLE1_THROW_A = io("POLE1_THROW_A", Net, optional=True)
+POLE1_COMMON = io("POLE1_COMMON", Net, optional=True)
+POLE1_THROW_B = io("POLE1_THROW_B", Net, optional=True)
+POLE2_THROW_A = io("POLE2_THROW_A", Net, optional=True)
+POLE2_COMMON = io("POLE2_COMMON", Net, optional=True)
+POLE2_THROW_B = io("POLE2_THROW_B", Net, optional=True)
+
+Component(
+    name="SW_JS202011AQN",
+    prefix="SW",
+    description="C&K JS202011AQN DPDT ON-ON slide switch, right-angle THT, 0.3 A at 6 VDC",
+    symbol=Symbol(
+        library="../assets/CK_JS202011AQN.kicad_sym",
+        name="CK_JS202011AQN",
+    ),
+    footprint=File("../assets/SW_CK_JS202011AQN_DPDT_Angled.kicad_mod"),
+    part=Part(mpn="JS202011AQN", manufacturer="C&K"),
+    datasheet="https://www.ckswitches.com/media/1422/js.pdf",
+    pins={
+        "A1": POLE1_THROW_A,
+        "C1": POLE1_COMMON,
+        "B1": POLE1_THROW_B,
+        "A2": POLE2_THROW_A,
+        "C2": POLE2_COMMON,
+        "B2": POLE2_THROW_B,
+    },
+    properties={
+        "switch_function": "DPDT ON-ON",
+        "contact_rating": "0.3 A at 6 VDC; 0.1 A at 30 VDC",
+        "mounting": "right-angle through-hole",
+        "electrical_life": "5,000 make-and-break cycles at 0.3 A / 6 VDC",
+        "project_usage": "Use one pole in series with the positive 1S LiPo lead; common pins are 2 and 5.",
+    },
+)

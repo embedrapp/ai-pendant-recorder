@@ -1,0 +1,76 @@
+"""Seeed Studio XIAO ESP32S3 Sense development-board assembly.
+
+This wrapper uses Seeed Studio's exact XIAO ESP32-S3 SMD symbol and footprint.
+The detachable Sense expansion board supplies the digital microphone, camera
+connector, and microSD socket; those are internal to the purchased assembly.
+"""
+
+GND = io("GND", Ground)
+VBUS = io("VBUS", Power, optional=True)
+VBAT = io("VBAT", Power, optional=True)
+V3V3 = io("V3V3", Power, optional=True)
+D0 = io("D0", Net, optional=True)
+D1 = io("D1", Net, optional=True)
+D2 = io("D2", Net, optional=True)
+D3 = io("D3", Net, optional=True)
+D4_SDA = io("D4_SDA", Net, optional=True)
+D5_SCL = io("D5_SCL", Net, optional=True)
+D6_TX = io("D6_TX", Net, optional=True)
+D7_RX = io("D7_RX", Net, optional=True)
+D8_SCK = io("D8_SCK", Net, optional=True)
+D9_MISO = io("D9_MISO", Net, optional=True)
+D10_MOSI = io("D10_MOSI", Net, optional=True)
+MTDI = io("MTDI", Net, optional=True)
+MTDO = io("MTDO", Net, optional=True)
+EN = io("EN", Net, optional=True)
+MTMS = io("MTMS", Net, optional=True)
+MTCK = io("MTCK", Net, optional=True)
+USB_DN = io("USB_DN", Net, optional=True)
+USB_DP = io("USB_DP", Net, optional=True)
+PAD_25 = io("PAD_25", Net, optional=True)
+
+Component(
+    name="U_XIAO_ESP32S3_SENSE",
+    prefix="U",
+    description="Seeed Studio XIAO ESP32S3 Sense, SKU 113991115, with microphone and microSD expansion board",
+    symbol=Symbol(
+        library="../assets/Seeed_XIAO_ESP32S3_Sense.kicad_sym",
+        name="Seeed_XIAO_ESP32S3_Sense",
+    ),
+    footprint=File("../assets/XIAO-ESP32-S3-SMD.kicad_mod"),
+    part=Part(mpn="113991115", manufacturer="Seeed Studio"),
+    datasheet="https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/",
+    pins={
+        "D0": D0,
+        "D1": D1,
+        "D2": D2,
+        "D3": D3,
+        "D4": D4_SDA,
+        "D5": D5_SCL,
+        "D6": D6_TX,
+        "D7": D7_RX,
+        "D8": D8_SCK,
+        "D9": D9_MISO,
+        "D10": D10_MOSI,
+        "3V3_OUT": V3V3,
+        "GND": GND,
+        "VBUS": VBUS,
+        "MTDI": MTDI,
+        "MTDO": MTDO,
+        "EN": EN,
+        "MTMS": MTMS,
+        "MTCK": MTCK,
+        "USB_DN": USB_DN,
+        "USB_DP": USB_DP,
+        "VBAT": VBAT,
+        "PAD": PAD_25,
+    },
+    properties={
+        "sku": "113991115",
+        "processor": "ESP32-S3R8 dual-core Xtensa LX7 up to 240 MHz",
+        "memory": "8 MB PSRAM and 8 MB flash",
+        "wireless": "2.4 GHz Wi-Fi and Bluetooth Low Energy 5.0",
+        "sense_expansion": "digital microphone, camera connector, microSD socket",
+        "module_dimensions": "21.0 x 17.8 mm; approximately 15 mm assembled height",
+    },
+)

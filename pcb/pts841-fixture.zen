@@ -1,0 +1,7 @@
+Switch = Module("./components/pts841gksmtr/PTS841.zen")
+Connector = Module("./components/jst-bm02b-srss-tb/BM02B.zen")
+A = Net()
+B = Net()
+Switch(name="SW1", SW1=A, SW2=B)
+Connector(name="J1", PIN_1=A, PIN_2=B)
+Board(name="pts841_fixture", layout_path="pts841-fixture-layout", layers=2)

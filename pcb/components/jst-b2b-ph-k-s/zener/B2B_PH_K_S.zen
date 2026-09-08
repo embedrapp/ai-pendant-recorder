@@ -1,0 +1,21 @@
+"""JST B2B-PH-K-S two-position PH top-entry through-hole header."""
+
+PIN_1 = io("PIN_1", Net)
+PIN_2 = io("PIN_2", Net)
+
+Component(
+    name="J_B2B_PH_K_S",
+    prefix="J",
+    symbol=Symbol(
+        library="../assets/Conn_01x02.official.kicad_sym",
+        name="Conn_01x02",
+    ),
+    footprint=File("../assets/JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical.kicad_mod"),
+    part=Part(mpn="B2B-PH-K-S", manufacturer="J.S.T. Mfg. Co., Ltd."),
+    description="JST PH series 2-position top-entry shrouded through-hole header, 2.00 mm pitch.",
+    pins={
+        "Pin_1": PIN_1,
+        "Pin_2": PIN_2,
+    },
+    type="connector",
+)

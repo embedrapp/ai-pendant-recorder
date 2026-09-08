@@ -1,0 +1,11 @@
+Quantity,References,Populate,Value,Package,Manufacturer,MPN,Supplier,Supplier Part Number,Alternatives,Description,Datasheet,Configuration,Zener Paths
+1,C1,Yes,100nF 6.3V,0603,,,,,,100nF 6.3V,,Needs part details,ai_pendant_recorder.zen:<root>.C1.C
+1,C2,Yes,10uF 6.3V,0805,,,,,,10uF 6.3V,,Needs part details,ai_pendant_recorder.zen:<root>.C2.C
+1,J1,Yes,,JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,"J.S.T. Mfg. Co., Ltd.",B2B-PH-K-S,,,,"JST PH series 2-position top-entry shrouded through-hole header, 2.00 mm pitch.",,Configured,ai_pendant_recorder.zen:<root>.J1.J_B2B_PH_K_S
+1,J2,Yes,,BM02B,JST,BM02B-SRSS-TB(LF)(SN),,,,,,Configured,ai_pendant_recorder.zen:<root>.J2.J_BM02B_ATTRIBUTED
+2,R1 R2,Yes,100k,0603,,,,,,100k,,Needs part details,ai_pendant_recorder.zen:<root>.R1.R | ai_pendant_recorder.zen:<root>.R2.R
+1,R3,Yes,2k,0603,,,,,,2k,,Needs part details,ai_pendant_recorder.zen:<root>.R3.R
+1,SW1,Yes,,PTS841GK,C&K,PTS841GKSMTR LFS,,,,,,Configured,ai_pendant_recorder.zen:<root>.SW1.SW_PTS841
+1,SW2,Yes,,SW_CK_JS202011AQN_DPDT_Angled,C&K,JS202011AQN,,,,"C&K JS202011AQN DPDT ON-ON slide switch, right-angle THT, 0.3 A at 6 VDC",https://www.ckswitches.com/media/1422/js.pdf,Configured,ai_pendant_recorder.zen:<root>.SW2.SW_JS202011AQN
+1,U1,Yes,,XIAO-ESP32-S3-SMD,Seeed Studio,113991115,,,,"Seeed Studio XIAO ESP32S3 Sense, SKU 113991115, with microphone and microSD expansion board",https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/,Configured,ai_pendant_recorder.zen:<root>.U1.U_XIAO_ESP32S3_SENSE
+1,U2,Yes,,kicad_footprint,Analog Devices,MAX98357AETE+T,,,,Analog Devices MAX98357AETE+T I2S mono Class-D amplifier,https://www.analog.com/media/en/technical-documentation/data-sheets/MAX98357A-MAX98357B.pdf,Configured,ai_pendant_recorder.zen:<root>.U2.MAX98357AETE_T

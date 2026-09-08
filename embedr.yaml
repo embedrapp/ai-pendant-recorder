@@ -1,0 +1,63 @@
+manifest_version: 1
+name: ai_pendant_recorder
+version: 0.1.0
+board:
+  platform: espressif32
+  board: seeed_xiao_esp32s3
+  framework: arduino
+build:
+  build_flags: []
+  lib_deps: []
+  monitor_speed: 115200
+project:
+  id: acfc6a9e-d7ba-4831-a7be-59411fc41cc7
+source:
+  entry: src/main.cpp
+  source_dirs:
+    - src
+  include_dirs: []
+capabilities:
+  firmware:
+    enabled: true
+    provider: embedr-cli
+    target_id: seeed_xiao_esp32s3
+    environment: esp32-s3
+    active_target: seeed_xiao_esp32s3
+    targets:
+      seeed_xiao_esp32s3:
+        label: Seeed Studio XIAO ESP32S3
+        provider: embedr-cli
+        target_id: seeed_xiao_esp32s3
+        environment: esp32-s3
+        board:
+          platform: espressif32
+          board: seeed_xiao_esp32s3
+          framework: arduino
+        build:
+          build_flags: []
+          lib_deps: []
+          monitor_speed: 115200
+        actions: {}
+    actions: {}
+  pcb:
+    enabled: true
+    provider: pcb-sidecar
+    workspace: pcb
+    actions: {}
+components: []
+connections: []
+datasheets:
+  - id: ea3071ca5ee5a6069eba534fa39a10f34c9fb742ee42135a69ab4156bfa0f5de
+    name: JST SH manufacturer series drawing
+    chunkCount: 4
+    imageCount: 0
+    processedAt: 2026-09-07T12:53:21.121Z
+  - id: ds_6387b39722da309d0fd7
+    name: pts841
+    originalFilename: Littelfuse-CK-Tactile-PTS841-Series-Datasheet.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_6387b39722da309d0fd7
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_6387b39722da309d0fd7/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_6387b39722da309d0fd7/search
+    chunkCount: 11
+    imageCount: 14
+    processedAt: 2026-09-07T12:57:05.896Z

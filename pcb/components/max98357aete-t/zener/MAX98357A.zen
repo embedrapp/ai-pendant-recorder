@@ -1,0 +1,22 @@
+"""Exact Analog Devices MAX98357AETE+T, TQFN-16 EP audio amplifier."""
+
+DIN = io("DIN", Net)
+GAIN_SLOT = io("GAIN_SLOT", Net, optional=True)
+GND = io("GND", Ground)
+SD_MODE = io("SD_MODE", Net, optional=True)
+VDD = io("VDD", Power)
+OUTP = io("OUTP", Net)
+OUTN = io("OUTN", Net)
+LRCLK = io("LRCLK", Net)
+BCLK = io("BCLK", Net)
+PAD = io("PAD", Ground)
+
+Component(name="MAX98357AETE_T", prefix="U",
+    description="Analog Devices MAX98357AETE+T I2S mono Class-D amplifier",
+    symbol=Symbol(library="../assets/kicad_symbol.kicad_sym", name="MAX98357A"),
+    footprint=File("../assets/kicad_footprint.kicad_mod"),
+    part=Part(mpn="MAX98357AETE+T", manufacturer="Analog Devices"),
+    datasheet="https://www.analog.com/media/en/technical-documentation/data-sheets/MAX98357A-MAX98357B.pdf",
+    pins={"DIN": DIN, "GAIN_SLOT": GAIN_SLOT, "GND": GND,
+          "~{SD_MODE}": SD_MODE, "VDD": VDD, "OUTP": OUTP,
+          "OUTN": OUTN, "LRCLK": LRCLK, "BCLK": BCLK, "PAD": PAD})

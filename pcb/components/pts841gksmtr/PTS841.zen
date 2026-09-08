@@ -1,0 +1,11 @@
+"""PTS841GKSMTR LFS: four-terminal, no-peg, no-ESD side tactile switch."""
+SW1 = io(Net("SW1"))
+SW2 = io(Net("SW2"))
+Component(
+    name="SW_PTS841",
+    prefix="SW",
+    symbol=Symbol(library="PTS841.kicad_sym", name="PTS841"),
+    footprint=File("PTS841GK.kicad_mod"),
+    part=Part(mpn="PTS841GKSMTR LFS", manufacturer="C&K"),
+    pins={"A": SW1, "B": SW2},
+)
