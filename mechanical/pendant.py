@@ -59,7 +59,7 @@ def gen_step() -> Compound:
     lid += cyl(2.4, 0.9, mx, my, seam-0.9)
     lid -= cyl(0.6, t+1.3, mx, my, seam-1.0)
     # Fine 0.9 mm dot field over the speaker; blind gasket seat underneath.
-    sy = -23
+    sy = p.get('speaker_y', -16)
     for row in range(-2, 3):
         for col in range(-4, 5):
             x, y = col*1.6, row*1.6
@@ -134,6 +134,13 @@ def gen_step() -> Compound:
     tail_depth = p.get('tail_below_board', 2.5)
     cell_top = floor + 1.15 + cell_height
     assert -tail_depth-cell_top >= 1.0, 'Battery/solder-tail clearance below 1 mm'
+    # Reserve a conservative mated battery-connector volume. Its height and
+    # lead exit remain assembly acceptance limits, not measured part facts.
+    j1 = next(c for c in context['components'] if c['ref'] == 'J1')
+    e = j1['envelope2d']
+    plug = box(e['maxX']-e['minX']+1, e['maxY']-e['minY']+2,
+               9, (e['maxX']+e['minX'])/2, (e['maxY']+e['minY'])/2, 1.62)
+    assert volume_of(lid & plug) < 0.001, 'Mated battery connector intersects lid'
     for c in context['components']:
         for pad in c.get('pads', []):
             if pad.get('padType') == 'thru_hole':

@@ -61,3 +61,107 @@ datasheets:
     chunkCount: 11
     imageCount: 14
     processedAt: 2026-09-07T12:57:05.896Z
+  - id: ds_d1cc6c97cc87d2511ece
+    name: 7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module
+    originalFilename: 7semi-max17048-breakout.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_d1cc6c97cc87d2511ece
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_d1cc6c97cc87d2511ece/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_d1cc6c97cc87d2511ece/search
+    chunkCount: 4
+    imageCount: 6
+    processedAt: 2026-09-08T07:15:26.992Z
+  - id: 46d1f33d6de0c5ff81b80471a1f5973744574150349fc1152e5967f51f017052
+    name: Generic LP603450 1100mAh battery datasheet
+    chunkCount: 1
+    imageCount: 1
+    processedAt: 2026-09-08T07:17:00.400Z
+  - id: 2deded92b54c7650416c99a80187807477e9ba68ca6c65943069f55f4b3c2075
+    name: JST SH series datasheet
+    chunkCount: 2
+    imageCount: 2
+    processedAt: 2026-09-08T07:17:01.538Z
+  - id: df048d455a0ac039d643118b6b8a421c83d9aae4991b29d47b72a2b80a5d1cd9
+    name: Yageo CC0805KRX5R8BB106 datasheet
+    chunkCount: 4
+    imageCount: 3
+    processedAt: 2026-09-08T07:17:01.571Z
+  - id: 2d23a2bd5def52869ce95756913f1be4d24d3f8de7961fb45f1161116a705eec
+    name: onsemi NSVR0320MW2T1G datasheet
+    chunkCount: 4
+    imageCount: 4
+    processedAt: 2026-09-08T07:17:01.584Z
+  - id: 4e41351f09263b950a29282923e6f6ef7c5bc95b538fe8db9d1d1e4a8c082918
+    name: Sunrom JST PH harness datasheet
+    chunkCount: 5
+    imageCount: 3
+    processedAt: 2026-09-08T07:17:01.705Z
+  - id: 447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96
+    name: JST PH series datasheet
+    chunkCount: 5
+    imageCount: 5
+    processedAt: 2026-09-08T07:17:01.772Z
+  - id: 854cef1bdd425960960004eff3d349d25336df7faa065dccf9fd64be6cbcf0bf
+    name: Same Sky CMS-16093-078X datasheet
+    chunkCount: 6
+    imageCount: 6
+    processedAt: 2026-09-08T07:17:02.130Z
+  - id: 43d8fc8d3f7e39f0f9c21c2bf722aae6e65334d89e6bc0cbe2543b41e386283e
+    name: Kingbright APGF0607G32B33R23-05 datasheet
+    chunkCount: 4
+    imageCount: 4
+    processedAt: 2026-09-08T07:17:02.133Z
+  - id: 9c60d0b6c1ddc7609a4b788a91181468d8ffe6c3e9ba425c3d8ffc5ba88c5033
+    name: AO3400A datasheet
+    chunkCount: 5
+    imageCount: 5
+    processedAt: 2026-09-08T07:17:02.136Z
+  - id: 7c9c6ab89d64f98dcc287a2646c8fdceb7bc00973e170807c5de820f69a716bf
+    name: Littelfuse PTS841 datasheet (local)
+    chunkCount: 3
+    imageCount: 3
+    processedAt: 2026-09-08T07:17:02.139Z
+  - id: 7bfcfd0566d5b2068527fc8307d6ce65ada867812a473e3c2e883ec8b1703f8b
+    name: 7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module (local)
+    chunkCount: 6
+    imageCount: 6
+    processedAt: 2026-09-08T07:17:02.142Z
+  - id: 636a2f1f12dba6d8a8be3817c067e20b3dcb9d23b5924e11af8e5077d5cb5a22
+    name: QX Flat 1027 datasheet
+    chunkCount: 8
+    imageCount: 9
+    processedAt: 2026-09-08T07:17:02.147Z
+  - id: 7b6f0ae72708ca4b38126f84b5407a3e970a94cb60bc1a0afdaeb25a23d839bb
+    name: Yageo RC series datasheet
+    chunkCount: 11
+    imageCount: 11
+    processedAt: 2026-09-08T07:17:02.452Z
+  - id: ddb26ebfb6b0f88321f77bbc8f3ca328b3369e1de92cb3bb4d766251cfa4bae4
+    name: C&K JS series JS202011AQN datasheet
+    chunkCount: 15
+    imageCount: 15
+    processedAt: 2026-09-08T07:17:02.714Z
+  - id: 5f73267ddde6c69a4d5b057c51ee04548695805b6f06a52ea3b3765b823d586a
+    name: Seeed XIAO ESP32S3 Sense datasheet
+    chunkCount: 12
+    imageCount: 11
+    processedAt: 2026-09-08T07:17:02.863Z
+  - id: 5a29828795fe4b9b8282c7c7fc77e7859fd5e25a64e208257ed25be08ef2402a
+    name: Murata GCM188R71H104KA57J datasheet
+    chunkCount: 35
+    imageCount: 32
+    processedAt: 2026-09-08T07:17:03.215Z
+  - id: 08c8df5d99eda52b415097c2edafd4d78d869db8dfb0a9821d0c23ff1276f251
+    name: MAX98357A MAX98357B datasheet
+    chunkCount: 45
+    imageCount: 38
+    processedAt: 2026-09-08T07:17:04.115Z
+  - id: 70dc8eef0e012276dcdc58b6dce64af08258304bcf865ceace64e856b8029330
+    name: MAX17048 MAX17049 datasheet
+    chunkCount: 24
+    imageCount: 19
+    processedAt: 2026-09-08T07:17:04.457Z
+  - id: f68ce3c74f011a80bbe4b0279c4abe9609a71a5dcda75a951381d77112e005fb
+    name: Bosch BMI270 datasheet
+    chunkCount: 169
+    imageCount: 150
+    processedAt: 2026-09-08T07:17:09.273Z

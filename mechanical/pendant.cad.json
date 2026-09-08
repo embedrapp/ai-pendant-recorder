@@ -6,6 +6,7 @@
   "source": "mechanical/pendant.py",
   "inputs": {"board": {"path": "pcb/layout/layout.kicad_pcb"}},
   "parameters": {
+    "speaker_y": {"type":"number","label":"Speaker center Y, clear of battery connector","value":-16,"unit":"mm","min":-17,"max":-14,"step":0.5},
     "cord_loop_width": {"type":"number","label":"Neck cord loop outer width","value":12,"unit":"mm","min":12,"max":16,"step":0.5},
     "cord_loop_opening": {"type":"number","label":"Neck cord opening width","value":6,"unit":"mm","min":4,"max":6,"step":0.5},
     "cord_loop_thickness": {"type":"number","label":"Neck cord loop thickness","value":3,"unit":"mm","min":3,"max":4,"step":0.5},

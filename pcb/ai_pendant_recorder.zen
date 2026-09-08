@@ -31,11 +31,21 @@ MAX98357A(name="U2", VDD=VBAT, GND=GND, DIN=I2S_DIN,
     BCLK=I2S_BCLK, LRCLK=I2S_LRCLK, SD_MODE=AMP_SD,
     OUTP=SPK_P, OUTN=SPK_N, PAD=GND)
 
-Capacitor(name="C1", value="100nF", package="0603", P1=VBAT, P2=GND)
-Capacitor(name="C2", value="10uF", package="0805", P1=VBAT, P2=GND)
-Resistor(name="R1", value="100kohm", package="0603", P1=RECORD_BUTTON, P2=V3V3)
-Resistor(name="R2", value="100kohm", package="0603", P1=AMP_SD, P2=GND)
-Resistor(name="R3", value="2kohm", package="0603", P1=AMP_ENABLE, P2=AMP_SD)
+# Exact purchasable passives; preserve existing component IDs and footprints.
+# C1: Farnell 4749383, https://uk.farnell.com/murata/grm188r71h104ka93d/capacitor-mlcc-0-1uf-50v-0603/dp/4749383
+# C2: DigiKey 1276-2891-1-ND, https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL21A106KAYNNNE/3888549
+# R1/R2: DigiKey 311-100KHRCT-ND; R3: 311-2.00KHRCT-ND.
+# These are supplier identities, not a live stock or price guarantee.
+Capacitor(name="C1", value="100nF", package="0603", voltage="50V", dielectric="X7R",
+    mpn="GRM188R71H104KA93D", manufacturer="Murata", P1=VBAT, P2=GND)
+Capacitor(name="C2", value="10uF", package="0805", voltage="25V", dielectric="X5R",
+    mpn="CL21A106KAYNNNE", manufacturer="Samsung Electro-Mechanics", P1=VBAT, P2=GND)
+Resistor(name="R1", value="100kohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=RECORD_BUTTON, P2=V3V3)
+Resistor(name="R2", value="100kohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=AMP_SD, P2=GND)
+Resistor(name="R3", value="2kohm", package="0603", power="100mW",
+    mpn="RC0603FR-072KL", manufacturer="YAGEO", P1=AMP_ENABLE, P2=AMP_SD)
 
 # Harness polarity is explicit, not implied by JST housing shape.
 B2B_PH_K_S(name="J1", PIN_1=VBAT, PIN_2=GND)
@@ -48,7 +58,29 @@ CK_JS202011AQN(name="SW2", POLE1_COMMON=MCU_EN, POLE1_THROW_A=GND,
 for i in range(4):
     MountingHole(name="H" + str(i + 1), diameter="M2", plating="Mechanical")
 
-Board(name="ai_pendant_recorder", layout_path="layout", layers=2)
+def sourced_passives(c):
+    if not hasattr(c, "mpn"):
+        return
+    sources = {
+        "GRM188R71H104KA93D": ("Murata", "Farnell", "4749383"),
+        "CL21A106KAYNNNE": ("Samsung Electro-Mechanics", "DigiKey", "1276-2891-1-ND"),
+        "RC0603FR-07100KL": ("YAGEO", "DigiKey", "311-100KHRCT-ND"),
+        "RC0603FR-072KL": ("YAGEO", "DigiKey", "311-2.00KHRCT-ND"),
+        "113991115": ("Seeed Studio", "DigiKey", "1597-113991115-ND"),
+        "PTS841GKSMTR LFS": ("C&K", "DigiKey", "108-PTS841GKSMTRLFSCT-ND"),
+        "JS202011AQN": ("C&K", "DigiKey", "401-2000-ND"),
+        "B2B-PH-K-S": ("J.S.T. Mfg. Co., Ltd.", "DigiKey", "455-1704-ND"),
+        "BM02B-SRSS-TB(LF)(SN)": ("JST", "DigiKey", "455-1788-1-ND"),
+    }
+    if c.mpn in sources:
+        mfr, supplier, sku = sources[c.mpn]
+        c.part = Part(mpn=c.mpn, manufacturer=mfr)
+        c.supplier = supplier
+        c.supplier_part_number = sku
+        c.properties["supplier"] = supplier
+        c.properties["supplier_part_number"] = sku
+
+Board(name="ai_pendant_recorder", layout_path="layout", layers=2, modifiers=[sourced_passives])
 
 # Physical draft coordinates; retain current board on regeneration.
 # pcb:brd U1.U_XIAO_ESP32S3_SENSE x=91.0830 y=87.0000 rot=0 side=top
