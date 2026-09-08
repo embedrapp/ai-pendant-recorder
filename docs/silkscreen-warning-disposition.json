@@ -1,0 +1,9 @@
+{
+  "boardSha256": "603e4063f2eb6049fc6aba0b6d4d31e2fab530e9a42179f2f1ad86a098743166",
+  "pad_positions_sizes_shapes_nets_drills_unchanged": true,
+  "accepted_warnings": {
+    "U1": "Silkscreen graphics moved to F.Fab; no pad changes",
+    "U2": "Silkscreen graphics moved to F.Fab; no pad changes"
+  },
+  "unresolved": "33 missing connections; mechanical and routing review pending"
+}

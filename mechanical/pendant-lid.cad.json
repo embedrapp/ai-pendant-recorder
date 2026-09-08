@@ -63,10 +63,10 @@
     "rear_z": {
       "type": "number",
       "label": "Rear depth below PCB",
-      "value": 9,
+      "value": 13,
       "unit": "mm",
-      "min": 9,
-      "max": 12,
+      "min": 13,
+      "max": 16,
       "step": 0.5
     },
     "fit_gap": {
@@ -118,6 +118,24 @@
       "type": "boolean",
       "label": "Exploded assembly preview",
       "value": false
+    },
+    "battery_reserved_height": {
+      "type": "number",
+      "label": "Provisional cell height including expansion reserve",
+      "value": 6,
+      "unit": "mm",
+      "min": 5,
+      "max": 7,
+      "step": 0.1
+    },
+    "tail_below_board": {
+      "type": "number",
+      "label": "Maximum assembled solder-tail projection (must inspect)",
+      "value": 2.5,
+      "unit": "mm",
+      "min": 1,
+      "max": 3,
+      "step": 0.1
     }
   },
   "assumptions": [

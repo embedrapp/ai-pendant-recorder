@@ -128,6 +128,18 @@ def gen_step() -> Compound:
     for a, b in [('rear-shell', 'lid'), ('rear-shell', 'battery-tray'),
                  ('rear-shell', 'clothing-backer'), ('lid', 'battery-tray')]:
         assert volume_of(parts[a] & parts[b]) < 0.001, a + '/' + b + ': interference'
+    # Reserved cell envelope includes provisional expansion allowance, not a
+    # supplier-certified pack dimension. Reject builds with insufficient tail gap.
+    cell_height = p.get('battery_reserved_height', 6.0)
+    tail_depth = p.get('tail_below_board', 2.5)
+    cell_top = floor + 1.15 + cell_height
+    assert -tail_depth-cell_top >= 1.0, 'Battery/solder-tail clearance below 1 mm'
+    for c in context['components']:
+        for pad in c.get('pads', []):
+            if pad.get('padType') == 'thru_hole':
+                x, y = pad['center']['x'], pad['center']['y']
+                tail = cyl(0.8, tail_depth, x, y, -tail_depth)
+                assert volume_of(tray & tail) < 0.001, 'Tail intersects tray: ' + c['ref']
     selected = p.get('export_part', 'assembly')
     if selected != 'assembly':
         part = parts[selected]
