@@ -2,8 +2,8 @@ manifest_version: 1
 name: ai_pendant_recorder
 version: 0.1.0
 board:
-  platform: espressif32
-  board: seeed_xiao_esp32s3
+  platform: atmelsam
+  board: zeroUSB
   framework: arduino
 build:
   build_flags: []
@@ -20,24 +20,8 @@ capabilities:
   firmware:
     enabled: true
     provider: embedr-cli
-    target_id: seeed_xiao_esp32s3
+    target_id: zeroUSB
     environment: esp32-s3
-    active_target: seeed_xiao_esp32s3
-    targets:
-      seeed_xiao_esp32s3:
-        label: Seeed Studio XIAO ESP32S3
-        provider: embedr-cli
-        target_id: seeed_xiao_esp32s3
-        environment: esp32-s3
-        board:
-          platform: espressif32
-          board: seeed_xiao_esp32s3
-          framework: arduino
-        build:
-          build_flags: []
-          lib_deps: []
-          monitor_speed: 115200
-        actions: {}
     actions: {}
   pcb:
     enabled: true
@@ -170,3 +154,18 @@ datasheets:
     chunkCount: 19
     imageCount: 18
     processedAt: 2026-09-08T15:15:21.903Z
+  - id: 8224252d259a7ab09d19748a461970627f8b28029857a224c747e0de25040c0c
+    name: XIAO ESP32S3 Sense expansion board schematic v1.0
+    chunkCount: 1
+    imageCount: 1
+    processedAt: 2026-09-08T16:15:41.829Z
+  - id: 15993097cd695d177af352f4664ca91290a99c833f51d122d1165ef222f9923c
+    name: Base XIAO ESP32S3 v1.4 schematic
+    chunkCount: 5
+    imageCount: 4
+    processedAt: 2026-09-09T03:45:16.009Z
+  - id: a19b36c3a960f67ebf0ab7fc5220423ca427c167cbb38a53e619b14226e8955d
+    name: Hirose DM3 socket catalog
+    chunkCount: 13
+    imageCount: 12
+    processedAt: 2026-09-09T03:45:18.251Z

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "CUI_CMC-4013-SMT.kicad_mod",
+    "path": "Sensor_Audio.pretty/CUI_CMC-4013-SMT.kicad_mod",
+    "sha": "e4622682435a01a22e7ed8a7511e04d8aa264130",
+    "size": 1204,
+    "url": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/CUI_CMC-4013-SMT.kicad_mod?ref=master",
+    "html_url": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/CUI_CMC-4013-SMT.kicad_mod",
+    "git_url": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/e4622682435a01a22e7ed8a7511e04d8aa264130",
+    "download_url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Sensor_Audio.pretty/CUI_CMC-4013-SMT.kicad_mod",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/CUI_CMC-4013-SMT.kicad_mod?ref=master",
+      "git": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/e4622682435a01a22e7ed8a7511e04d8aa264130",
+      "html": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/CUI_CMC-4013-SMT.kicad_mod"
+    }
+  },
+  {
+    "name": "Infineon_PG-LLGA-5-1.kicad_mod",
+    "path": "Sensor_Audio.pretty/Infineon_PG-LLGA-5-1.kicad_mod",
+    "sha": "91f43f928483f7447173fdd28924293215b30770",
+    "size": 9039,
+    "url": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/Infineon_PG-LLGA-5-1.kicad_mod?ref=master",
+    "html_url": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/Infineon_PG-LLGA-5-1.kicad_mod",
+    "git_url": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/91f43f928483f7447173fdd28924293215b30770",
+    "download_url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Sensor_Audio.pretty/Infineon_PG-LLGA-5-1.kicad_mod",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/Infineon_PG-LLGA-5-1.kicad_mod?ref=master",
+      "git": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/91f43f928483f7447173fdd28924293215b30770",
+      "html": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/Infineon_PG-LLGA-5-1.kicad_mod"
+    }
+  },
+  {
+    "name": "Knowles_LGA-5_3.5x2.65mm.kicad_mod",
+    "path": "Sensor_Audio.pretty/Knowles_LGA-5_3.5x2.65mm.kicad_mod",
+    "sha": "76584ec5a32c5b5c4ab18c701a7bc969587a182c",
+    "size": 2892,
+    "url": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/Knowles_LGA-5_3.5x2.65mm.kicad_mod?ref=master",
+    "html_url": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/Knowles_LGA-5_3.5x2.65mm.kicad_mod",
+    "git_url": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/76584ec5a32c5b5c4ab18c701a7bc969587a182c",
+    "download_url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Sensor_Audio.pretty/Knowles_LGA-5_3.5x2.65mm.kicad_mod",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/Knowles_LGA-5_3.5x2.65mm.kicad_mod?ref=master",
+      "git": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/76584ec5a32c5b5c4ab18c701a7bc969587a182c",
+      "html": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/Knowles_LGA-5_3.5x2.65mm.kicad_mod"
+    }
+  },
+  {
+    "name": "ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod",
+    "path": "Sensor_Audio.pretty/ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod",
+    "sha": "fc57d49d416341d16bb7ab73cb04fe1af6758327",
+    "size": 2257,
+    "url": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod?ref=master",
+    "html_url": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod",
+    "git_url": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/fc57d49d416341d16bb7ab73cb04fe1af6758327",
+    "download_url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Sensor_Audio.pretty/ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/KiCad/kicad-footprints/contents/Sensor_Audio.pretty/ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod?ref=master",
+      "git": "https://api.github.com/repos/KiCad/kicad-footprints/git/blobs/fc57d49d416341d16bb7ab73cb04fe1af6758327",
+      "html": "https://github.com/KiCad/kicad-footprints/blob/master/Sensor_Audio.pretty/ST_HLGA-6_3.76x4.72mm_P1.65mm.kicad_mod"
+    }
+  }
+]

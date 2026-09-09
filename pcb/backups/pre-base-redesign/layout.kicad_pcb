@@ -28806,7 +28806,7 @@
 		(locked yes)
 		(layer "F.Cu")
 		(uuid "efd2f3dc-a55b-4916-92c2-3d3c80bb43d1")
-		(at 113.5 86 90)
+		(at 113.3 86 90)
 		(descr "C&K sub miniature slide switch, JS series, DPDT, right angle, http://www.ckswitches.com/media/1422/js.pdf")
 		(tags "switch DPDT")
 		(property

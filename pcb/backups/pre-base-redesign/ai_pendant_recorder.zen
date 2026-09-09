@@ -1,0 +1,306 @@
+# embedr:schematic-graphic {"id":"controller-title","type":"text","x":1700,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","text":"02  CONTROLLER / RECORD / STANDBY","fontSize":32,"bold":true}
+# embedr:schematic-graphic {"id":"audio-title","type":"text","x":3450,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","text":"03  I2S AUDIO / BTL SPEAKER","fontSize":32,"bold":true}
+# embedr:schematic-graphic {"id":"motor-title","type":"text","x":3450,"y":1500,"strokeWidth":1.5,"lineStyle":"solid","text":"06  REGULATED HAPTICS","fontSize":32,"bold":true}
+# embedr:schematic-graphic {"id":"fg-title","type":"text","x":0,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","text":"01  BATTERY / FUEL GAUGE / I2C","fontSize":32,"bold":true}
+# embedr:schematic-graphic {"id":"imu-title","type":"text","x":0,"y":1100,"strokeWidth":1.5,"lineStyle":"solid","text":"04  MOTION SENSOR","fontSize":32,"bold":true}
+# embedr:schematic-graphic {"id":"pwm-title","type":"text","x":0,"y":2050,"strokeWidth":1.5,"lineStyle":"solid","text":"05  EDGE RGB INDICATORS / PWM","fontSize":32,"bold":true}
+# embedr:schematic-graphic {"id":"holes-title","type":"text","x":3400,"y":3400,"strokeWidth":1.5,"lineStyle":"solid","text":"07  M2 MOUNTING","fontSize":28,"bold":true}
+"""AI Second Brain pendant: XIAO Sense recorder and I2S speaker output."""
+
+Capacitor = Module("@stdlib/generics/Capacitor.zen")
+Resistor = Module("@stdlib/generics/Resistor.zen")
+SEEED_XIAO_ESP32S3_SENSE = Module("./components/seeed-xiao-esp32s3-sense/zener/SEEED_XIAO_ESP32S3_SENSE.zen")
+MAX98357A = Module("./components/max98357aete-t/zener/MAX98357A.zen")
+B2B_PH_K_S = Module("./components/jst-b2b-ph-k-s/zener/B2B_PH_K_S.zen")
+BM02B = Module("./components/jst-bm02b-srss-tb/BM02B.zen")
+CK_JS202011AQN = Module("./components/ck-js202011aqn/zener/CK_JS202011AQN.zen")
+PTS841GKSMTR = Module("./components/pts841gksmtr/PTS841.zen")
+MountingHole = Module("@stdlib/generics/MountingHole.zen")
+MAX17048 = Module("./components/max17048g-t10/MAX17048.zen")
+TestPoint = Module("@stdlib/generics/TestPoint.zen")
+BMI270 = Module("./components/bmi270/BMI270.zen")
+RGB = Module("./components/rgb/RGB.zen")
+PWM = Module("./components/pca9685pw/PWM.zen")
+MotorLDO = Module("./components/motor-ldo/LDO.zen")
+Flyback = Module("./components/motor-diode/Diode.zen")
+MOSFET_AO3400A_SOT23 = Module("./components/ao3400a/zener/MOSFET_AO3400A_SOT23.zen")
+
+GND = Ground()
+VBAT = Power(voltage="3.7V")
+V3V3 = Power(voltage="3.3V")
+I2S_BCLK = Net()
+I2S_LRCLK = Net()
+I2S_DIN = Net()
+AMP_SD = Net()
+AMP_ENABLE = Net()
+MCU_EN = Net()
+SPK_P = Net()
+SPK_N = Net()
+RECORD_BUTTON = Net()
+FG_SDA = Net()
+FG_SCL = Net()
+HAPTIC_ARM = Net()
+MOTOR_GATE = Net()
+MOTOR_N = Net()
+MOTOR_3V3 = Power(voltage="3.3V")
+PWM_OUT = [Net("PWM_" + str(i)) for i in range(7)]
+
+SEEED_XIAO_ESP32S3_SENSE(name="U1", GND=GND, VBAT=VBAT, V3V3=V3V3,
+    D0=HAPTIC_ARM, D1=RECORD_BUTTON, D6_TX=I2S_LRCLK, D7_RX=I2S_DIN,
+    D3=I2S_BCLK, D2=AMP_ENABLE, D4_SDA=FG_SDA, D5_SCL=FG_SCL, EN=MCU_EN)
+MAX98357A(name="U2", VDD=VBAT, GND=GND, DIN=I2S_DIN,
+    BCLK=I2S_BCLK, LRCLK=I2S_LRCLK, SD_MODE=AMP_SD,
+    OUTP=SPK_P, OUTN=SPK_N, PAD=GND)
+
+# Shared 3.3 V I2C bus. MAX17048 address 0x36; polling, ALRT unconnected.
+# R6 omitted (DNP option). CELL tied to BAT+ per datasheet pin table p6,
+# despite being internally unconnected on MAX17048.
+MAX17048(name="U3", VBAT=VBAT, GND=GND, SDA=FG_SDA, SCL=FG_SCL)
+Capacitor(name="C3", value="100nF", package="0603", voltage="50V", dielectric="X7R",
+    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=VBAT, P2=GND)
+Resistor(name="R4", value="4.7kohm", package="0603", power="100mW",
+    mpn="RC0603FR-074K7L", manufacturer="YAGEO", P1=FG_SDA, P2=V3V3)
+Resistor(name="R5", value="4.7kohm", package="0603", power="100mW",
+    mpn="RC0603FR-074K7L", manufacturer="YAGEO", P1=FG_SCL, P2=V3V3)
+TestPoint(name="TP3", variant="Pad_D1.0mm", P1=FG_SDA)
+TestPoint(name="TP4", variant="Pad_D1.0mm", P1=FG_SCL)
+
+# BMI270 I2C polling at 0x68; no use of Sense camera/mic/SD pins.
+BMI270(name="U4", VDD=V3V3, GND=GND, SDA=FG_SDA, SCL=FG_SCL)
+Capacitor(name="C4", value="100nF", package="0603", voltage="50V", dielectric="X7R",
+    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=V3V3, P2=GND)
+Capacitor(name="C5", value="100nF", package="0603", voltage="50V", dielectric="X7R",
+    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=V3V3, P2=GND)
+
+# Exact purchasable passives; preserve existing component IDs and footprints.
+PWM(name="U5", VDD=V3V3, GND=GND, SDA=FG_SDA, SCL=FG_SCL,
+    O0=PWM_OUT[0], O1=PWM_OUT[1], O2=PWM_OUT[2], O3=PWM_OUT[3],
+    O4=PWM_OUT[4], O5=PWM_OUT[5], O6=PWM_OUT[6])
+Capacitor(name="C6", value="100nF", package="0603", voltage="50V", dielectric="X7R",
+    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=V3V3, P2=GND)
+# Common anodes on the SAME 3.3 V supply as the push-pull PWM driver.
+# Sink-active RGB channels; channel 6 is source-active motor PWM.
+for led in range(2):
+    cathodes = [Net("LED" + str(led+1) + "_" + color) for color in ["R", "G", "B"]]
+    RGB(name="LED" + str(led+1), A=V3V3, R=cathodes[0], G=cathodes[1], B=cathodes[2])
+    for channel in range(3):
+        Resistor(name="R" + str(9+led*3+channel), value="2kohm", package="0603", power="100mW",
+            mpn="RC0603FR-072KL", manufacturer="YAGEO", P1=cathodes[channel], P2=PWM_OUT[led*3+channel])
+# Independent arm gates the motor supply, so reset cannot retain a running motor.
+MotorLDO(name="U6", VIN=VBAT, VOUT=MOTOR_3V3, GND=GND, EN=HAPTIC_ARM)
+Resistor(name="R15", value="100kohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=HAPTIC_ARM, P2=GND)
+for ref, rail in [("C7", VBAT), ("C8", MOTOR_3V3)]:
+    Capacitor(name=ref, value="10uF", package="0805", voltage="25V", dielectric="X5R",
+        mpn="CC0805KRX5R8BB106", manufacturer="YAGEO", P1=rail, P2=GND)
+Resistor(name="R7", value="100ohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100RL", manufacturer="YAGEO", P1=PWM_OUT[6], P2=MOTOR_GATE)
+Resistor(name="R8", value="100kohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=MOTOR_GATE, P2=GND)
+MOSFET_AO3400A_SOT23(name="Q1", G=MOTOR_GATE, S=GND, D=MOTOR_N)
+Flyback(name="D1", K=MOTOR_3V3, A=MOTOR_N)
+B2B_PH_K_S(name="J3", PIN_1=MOTOR_3V3, PIN_2=MOTOR_N)
+
+# C1/C2: exact MPNs from docs/bom.md and retained manufacturer datasheets.
+# R1/R2: DigiKey 311-100KHRCT-ND; R3: 311-2.00KHRCT-ND.
+# These are supplier identities, not a live stock or price guarantee.
+Capacitor(name="C1", value="100nF", package="0603", voltage="50V", dielectric="X7R",
+    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=VBAT, P2=GND)
+Capacitor(name="C2", value="10uF", package="0805", voltage="25V", dielectric="X5R",
+    mpn="CC0805KRX5R8BB106", manufacturer="YAGEO", P1=VBAT, P2=GND)
+Resistor(name="R1", value="100kohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=RECORD_BUTTON, P2=V3V3)
+Resistor(name="R2", value="100kohm", package="0603", power="100mW",
+    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=AMP_SD, P2=GND)
+Resistor(name="R3", value="2kohm", package="0603", power="100mW",
+    mpn="RC0603FR-072KL", manufacturer="YAGEO", P1=AMP_ENABLE, P2=AMP_SD)
+
+# Harness polarity is explicit, not implied by JST housing shape.
+B2B_PH_K_S(name="J1", PIN_1=VBAT, PIN_2=GND)
+BM02B(name="J2", PIN_1=SPK_P, PIN_2=SPK_N)
+PTS841GKSMTR(name="SW1", SW1=RECORD_BUTTON, SW2=GND)
+# Standby switch only: OFF grounds reset and amplifier shutdown. It does NOT
+# disconnect the cell/charger. Do not route full load through 0.3 A contacts.
+CK_JS202011AQN(name="SW2", POLE1_COMMON=MCU_EN, POLE1_THROW_A=GND,
+    POLE2_COMMON=AMP_SD, POLE2_THROW_A=GND)
+for i in range(4):
+    MountingHole(name="H" + str(i + 1), diameter="M2", plating="Mechanical")
+
+def sourced_passives(c):
+    if not hasattr(c, "mpn"):
+        return
+    sources = {
+        "RC0603FR-07100KL": ("YAGEO", "DigiKey", "311-100KHRCT-ND"),
+        "RC0603FR-072KL": ("YAGEO", "DigiKey", "311-2.00KHRCT-ND"),
+        "113991115": ("Seeed Studio", "DigiKey", "1597-113991115-ND"),
+        "PTS841GKSMTR LFS": ("C&K", "DigiKey", "108-PTS841GKSMTRLFSCT-ND"),
+        "JS202011AQN": ("C&K", "DigiKey", "401-2000-ND"),
+        "B2B-PH-K-S": ("J.S.T. Mfg. Co., Ltd.", "DigiKey", "455-1704-ND"),
+        "BM02B-SRSS-TB(LF)(SN)": ("JST", "DigiKey", "455-1788-1-ND"),
+    }
+    if c.mpn in sources:
+        mfr, supplier, sku = sources[c.mpn]
+        c.part = Part(mpn=c.mpn, manufacturer=mfr)
+        c.supplier = supplier
+        c.supplier_part_number = sku
+        c.properties["supplier"] = supplier
+        c.properties["supplier_part_number"] = sku
+
+Board(name="ai_pendant_recorder", layout_path="layout", layers=2, modifiers=[sourced_passives])
+
+# Physical draft coordinates; retain current board on regeneration.
+
+# pcb:sch C1.C x=3000.0000 y=200.0000 rot=0
+# pcb:sch C2.C x=3450.0000 y=200.0000 rot=0
+# pcb:sch C3.C x=400.0000 y=1800.0000 rot=0
+# pcb:sch C4.C x=2000.0000 y=1800.0000 rot=0
+# pcb:sch C5.C x=2450.0000 y=1800.0000 rot=0
+# pcb:sch C6.C x=3600.0000 y=1550.0000 rot=0
+# pcb:sch C7.C x=4650.0000 y=200.0000 rot=0
+# pcb:sch C8.C x=5250.0000 y=200.0000 rot=0
+# pcb:sch D1.D x=5500.0000 y=1400.0000 rot=90
+# pcb:sch GND.1 x=127.0000 y=419.1000 rot=0
+# pcb:sch GND.2 x=127.0000 y=914.4000 rot=0
+# pcb:sch GND.3 x=596.9000 y=88.9000 rot=0
+# pcb:sch GND.4 x=635.0000 y=1790.7000 rot=0
+# pcb:sch GND.5 x=635.0000 y=622.3000 rot=0
+# pcb:sch GND.6 x=1143.0000 y=292.1000 rot=0
+# pcb:sch GND.7 x=1143.0000 y=914.4000 rot=0
+# pcb:sch H1.MH x=500.0000 y=3200.0000 rot=0
+# pcb:sch H2.MH x=950.0000 y=3200.0000 rot=0
+# pcb:sch H3.MH x=1400.0000 y=3200.0000 rot=0
+# pcb:sch H4.MH x=1850.0000 y=3200.0000 rot=0
+# pcb:sch J1.J_B2B_PH_K_S x=1300.0000 y=1100.0000 rot=0
+# pcb:sch J2.J_B2B_PH_K_S x=1778.0000 y=127.0000 rot=0
+# pcb:sch J2.J_BM02B_ATTRIBUTED x=3900.0000 y=700.0000 rot=0
+# pcb:sch J3.J_B2B_PH_K_S x=5750.0000 y=750.0000 rot=90
+# pcb:sch LED1.RGB x=2900.0000 y=2850.0000 rot=0
+# pcb:sch LED2.RGB x=3850.0000 y=2850.0000 rot=0
+# pcb:sch Q1.Q_AO3400A x=5500.0000 y=2100.0000 rot=0
+# pcb:sch R1.R x=500.0000 y=400.0000 rot=0
+# pcb:sch R2.R x=2600.0000 y=1050.0000 rot=0
+# pcb:sch R3.R x=2600.0000 y=500.0000 rot=90
+# pcb:sch R4.R x=1000.0000 y=1850.0000 rot=90
+# pcb:sch R5.R x=1450.0000 y=1850.0000 rot=90
+# pcb:sch R7.R x=4850.0000 y=2100.0000 rot=90
+# pcb:sch R8.R x=4950.0000 y=2600.0000 rot=0
+# pcb:sch R9.R x=2800.0000 y=3300.0000 rot=0
+# pcb:sch R10.R x=3100.0000 y=3300.0000 rot=0
+# pcb:sch R11.R x=3400.0000 y=3300.0000 rot=0
+# pcb:sch R12.R x=3800.0000 y=3300.0000 rot=0
+# pcb:sch R13.R x=4100.0000 y=3300.0000 rot=0
+# pcb:sch R14.R x=4400.0000 y=3300.0000 rot=0
+# pcb:sch R15.R x=4700.0000 y=1150.0000 rot=0
+# pcb:sch SW1.SW_PTS645 x=1384.3000 y=381.0000 rot=0
+# pcb:sch SW1.SW_PTS841 x=500.0000 y=850.0000 rot=0
+# pcb:sch SW2.SW_JS202011AQN x=900.0000 y=150.0000 rot=0
+# pcb:sch TP3.TP x=1100.0000 y=2600.0000 rot=0
+# pcb:sch TP4.TP x=1550.0000 y=2600.0000 rot=0
+# pcb:sch U1.U_XIAO_ESP32S3_SENSE x=1600.0000 y=450.0000 rot=0
+# pcb:sch U1.VBUS.1 x=1130.3000 y=88.9000 rot=0
+# pcb:sch U2.MAX98357AETE_T x=3100.0000 y=650.0000 rot=0
+# pcb:sch U3.FG x=400.0000 y=2300.0000 rot=0
+# pcb:sch U4.IMU x=2000.0000 y=2300.0000 rot=0
+# pcb:sch U5.PWM x=3600.0000 y=2000.0000 rot=0
+# pcb:sch U6.LDO x=4700.0000 y=650.0000 rot=0
+# pcb:sch V3V3.1 x=1308.1000 y=215.9000 rot=0
+# pcb:sch V3V3.2 x=1117.6000 y=635.0000 rot=180
+# pcb:sch VBAT.1 x=139.7000 y=266.7000 rot=0
+# pcb:sch VBAT.2 x=139.7000 y=762.0000 rot=0
+# pcb:sch VBAT.3 x=571.5000 y=596.9000 rot=0
+# pcb:sch VBAT.4 x=647.7000 y=660.4000 rot=0
+
+# Inspected compact candidate; outline is preserved in layout.kicad_pcb.
+
+# pcb:sch C1.C x=3800.0000 y=200.0000 rot=0
+# pcb:sch C2.C x=4200.0000 y=200.0000 rot=0
+# pcb:sch C3.C x=400.0000 y=200.0000 rot=0
+# pcb:sch C4.C x=200.0000 y=1300.0000 rot=0
+# pcb:sch C5.C x=1100.0000 y=1300.0000 rot=0
+# pcb:sch C6.C x=2950.0000 y=2400.0000 rot=0
+# pcb:sch C7.C x=3450.0000 y=1750.0000 rot=0
+# pcb:sch C8.C x=4350.0000 y=1750.0000 rot=0
+# pcb:sch D1.D x=4750.0000 y=2200.0000 rot=0
+# pcb:sch H1.MH x=3450.0000 y=3550.0000 rot=0
+# pcb:sch H2.MH x=3850.0000 y=3550.0000 rot=0
+# pcb:sch H3.MH x=4250.0000 y=3550.0000 rot=0
+# pcb:sch H4.MH x=4650.0000 y=3550.0000 rot=0
+# pcb:sch J1.J_B2B_PH_K_S x=0.0000 y=550.0000 rot=0
+# pcb:sch J2.J_BM02B_ATTRIBUTED x=4900.0000 y=650.0000 rot=0
+# pcb:sch J3.J_B2B_PH_K_S x=5400.0000 y=2200.0000 rot=0
+# pcb:sch LED1.RGB x=300.0000 y=2350.0000 rot=0
+# pcb:sch LED2.RGB x=300.0000 y=3150.0000 rot=0
+# pcb:sch Q1.Q_AO3400A x=4850.0000 y=2800.0000 rot=0
+# pcb:sch R1.R x=1700.0000 y=650.0000 rot=0
+# pcb:sch R2.R x=3450.0000 y=1100.0000 rot=0
+# pcb:sch R3.R x=3450.0000 y=650.0000 rot=0
+# pcb:sch R4.R x=1150.0000 y=250.0000 rot=0
+# pcb:sch R5.R x=1450.0000 y=250.0000 rot=0
+# pcb:sch R7.R x=4200.0000 y=2750.0000 rot=0
+# pcb:sch R8.R x=4500.0000 y=3200.0000 rot=0
+# pcb:sch R9.R x=900.0000 y=2250.0000 rot=0
+# pcb:sch R10.R x=1200.0000 y=2500.0000 rot=0
+# pcb:sch R11.R x=1500.0000 y=2250.0000 rot=0
+# pcb:sch R12.R x=900.0000 y=3050.0000 rot=0
+# pcb:sch R13.R x=1200.0000 y=3300.0000 rot=0
+# pcb:sch R14.R x=1500.0000 y=3050.0000 rot=0
+# pcb:sch R15.R x=3450.0000 y=2450.0000 rot=0
+# pcb:sch SW1.SW_PTS841 x=1700.0000 y=1100.0000 rot=0
+# pcb:sch SW2.SW_JS202011AQN x=2400.0000 y=550.0000 rot=0
+# pcb:sch TP3.TP x=1150.0000 y=750.0000 rot=0
+# pcb:sch TP4.TP x=1450.0000 y=950.0000 rot=0
+# pcb:sch U1.U_XIAO_ESP32S3_SENSE x=2400.0000 y=1300.0000 rot=0
+# pcb:sch U2.MAX98357AETE_T x=4000.0000 y=650.0000 rot=0
+# pcb:sch U3.FG x=650.0000 y=550.0000 rot=0
+# pcb:sch U4.IMU x=650.0000 y=1450.0000 rot=0
+# pcb:sch U5.PWM x=2400.0000 y=2600.0000 rot=0
+# pcb:sch U6.LDO x=3800.0000 y=2050.0000 rot=0
+
+# Inspected compact candidate; outline is preserved in layout.kicad_pcb.
+
+# Inspected compact candidate; outline is preserved in layout.kicad_pcb.
+
+# Inspected compact candidate; outline is preserved in layout.kicad_pcb.
+# pcb:brd C1.C x=99.5000 y=76.1000 rot=0 side=top
+# pcb:brd C2.C x=96.0000 y=77.0000 rot=270 side=top
+# pcb:brd C3.C x=85.2000 y=61.1000 rot=90 side=top
+# pcb:brd C4.C x=89.5000 y=85.6000 rot=0 side=top
+# pcb:brd C5.C x=92.9000 y=83.5000 rot=90 side=top
+# pcb:brd C6.C x=99.0000 y=90.6000 rot=0 side=top
+# pcb:brd C7.C x=98.7000 y=60.8000 rot=270 side=top
+# pcb:brd C8.C x=105.3000 y=60.8000 rot=270 side=top
+# pcb:brd D1.D x=112.0000 y=58.8000 rot=0 side=top
+# pcb:brd H1.MH x=85.5000 y=47.5000 rot=0 side=top
+# pcb:brd H2.MH x=114.5000 y=47.5000 rot=0 side=top
+# pcb:brd H3.MH x=85.5000 y=126.5000 rot=0 side=top
+# pcb:brd H4.MH x=114.5000 y=126.5000 rot=0 side=top
+# pcb:brd J1.J_B2B_PH_K_S x=92.0000 y=49.0000 rot=0 side=top
+# pcb:brd J2.J_BM02B_ATTRIBUTED x=107.0000 y=73.0000 rot=270 side=top
+# pcb:brd J3.J_B2B_PH_K_S x=105.0000 y=49.0000 rot=0 side=top
+# pcb:brd LED1.RGB x=83.5000 y=109.0000 rot=0 side=top
+# pcb:brd LED2.RGB x=83.5000 y=113.0000 rot=0 side=top
+# pcb:brd Q1.Q_AO3400A x=111.0000 y=62.0000 rot=0 side=top
+# pcb:brd R1.R x=111.0000 y=101.0000 rot=90 side=top
+# pcb:brd R10.R x=88.0000 y=95.0000 rot=0 side=top
+# pcb:brd R11.R x=88.0000 y=97.0000 rot=0 side=top
+# pcb:brd R12.R x=88.0000 y=99.0000 rot=0 side=top
+# pcb:brd R13.R x=88.0000 y=101.0000 rot=0 side=top
+# pcb:brd R14.R x=88.0000 y=103.0000 rot=0 side=top
+# pcb:brd R15.R x=99.0000 y=64.3000 rot=0 side=top
+# pcb:brd R2.R x=94.7000 y=73.0000 rot=90 side=top
+# pcb:brd R3.R x=94.7000 y=69.8000 rot=90 side=top
+# pcb:brd R4.R x=98.0000 y=84.0000 rot=90 side=top
+# pcb:brd R5.R x=101.0000 y=84.0000 rot=90 side=top
+# pcb:brd R7.R x=107.5000 y=65.5000 rot=0 side=top
+# pcb:brd R8.R x=111.0000 y=65.0000 rot=0 side=top
+# pcb:brd R9.R x=88.0000 y=93.0000 rot=0 side=top
+# pcb:brd SW1.SW_PTS841 x=115.3500 y=100.0000 rot=90 side=top
+# pcb:brd SW2.SW_JS202011AQN x=113.3000 y=86.0000 rot=90 side=top
+# pcb:brd TP3.TP x=87.0000 y=114.0000 rot=0 side=top
+# pcb:brd TP4.TP x=87.0000 y=118.0000 rot=0 side=top
+# pcb:brd U1.U_XIAO_ESP32S3_SENSE x=108.9170 y=107.0000 rot=180 side=top
+# pcb:brd U2.MAX98357AETE_T x=99.0000 y=73.0000 rot=0 side=top
+# pcb:brd U3.FG x=88.0000 y=60.5000 rot=0 side=top
+# pcb:brd U4.IMU x=90.0000 y=83.0000 rot=0 side=top
+# pcb:brd U5.PWM x=96.0000 y=97.0000 rot=0 side=top
+# pcb:brd U6.LDO x=102.0000 y=61.0000 rot=0 side=top

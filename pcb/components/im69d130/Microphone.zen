@@ -1,0 +1,11 @@
+"""IM69D130V01XTSA1 prototype candidate; full datasheet review remains open."""
+VDD = io("VDD", Power)
+GND = io("GND", Ground)
+CLOCK = io("CLOCK", Net)
+DATA = io("DATA", Net)
+Component(name="MIC", prefix="MK",
+    symbol=Symbol(library="IM69D130.kicad_sym", name="IM69D130"),
+    footprint=File("IM69D130.kicad_mod"),
+    part=Part(mpn="IM69D130V01XTSA1", manufacturer="Infineon"),
+    datasheet="https://www.infineon.com/row/public/documents/24/49/infineon-im69d130-datasheet-en.pdf",
+    pins={"DATA": DATA, "VDD": VDD, "CLOCK": CLOCK, "SELECT": GND, "GND": GND})

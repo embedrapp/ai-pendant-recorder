@@ -1,0 +1,35 @@
+"""Base XIAO ESP32S3 113991114. Official whole-board SMD interface, no Sense."""
+GND = io("GND", Ground)
+VBAT = io("VBAT", Power)
+V3V3 = io("V3V3", Power)
+D0 = io("D0", Net)
+D1 = io("D1", Net)
+D2 = io("D2", Net)
+D3 = io("D3", Net)
+D4_SDA = io("D4_SDA", Net)
+D5_SCL = io("D5_SCL", Net)
+D6_TX = io("D6_TX", Net)
+D7_RX = io("D7_RX", Net)
+D8_SCK = io("D8_SCK", Net)
+D9_MISO = io("D9_MISO", Net)
+D10_MOSI = io("D10_MOSI", Net)
+MTDI = io("MTDI", Net)
+MTDO = io("MTDO", Net)
+MTMS = io("MTMS", Net)
+MTCK = io("MTCK", Net)
+EN = io("EN", Net)
+Component(name="XIAO", prefix="U",
+    symbol=Symbol(library="XIAO.kicad_sym", name="Seeed_XIAO_ESP32S3_Sense"),
+    footprint=File("XIAO.kicad_mod"),
+    part=Part(mpn="113991114", manufacturer="Seeed Studio"),
+    description="Base XIAO ESP32S3, no Sense expansion, direct-solder SMD",
+    datasheet="https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/",
+    pins={"D0": D0, "D1": D1, "D2": D2, "D3": D3,
+          "D4": D4_SDA, "D5": D5_SCL, "D6": D6_TX, "D7": D7_RX,
+          "D8": D8_SCK, "D9": D9_MISO, "D10": D10_MOSI,
+          "3V3_OUT": V3V3, "GND": GND, "VBAT": VBAT,
+          "MTDI": MTDI, "MTDO": MTDO, "MTMS": MTMS, "MTCK": MTCK,
+          "EN": EN, "VBUS": NotConnected(), "USB_DN": NotConnected(),
+          "USB_DP": NotConnected(), "PAD": NotConnected()},
+    properties={"assembly": "113991114 base only; no headers or expansion",
+                "validation": "See docs/base-redesign.md; underside clearance pending"})
