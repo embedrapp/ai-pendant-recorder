@@ -3,7 +3,8 @@
 **Not released for purchase/assembly.** Supersedes the Sense/603450/RGB BOM.
 Generated from `pcb/bom.csv`; electrical source refs may differ from physical KiCad refs.
 Prior BOM and historical prices: `pcb/backups/pre-base-redesign/bom.md`.
-No live stock or prices checked in this revision. See [validation and GPIO map](base-redesign.md).
+Live stock and price were checked only for BAT1 at selection time; all sourcing
+remains time-sensitive. See [validation and GPIO map](base-redesign.md).
 
 ## Carrier PCB components
 
@@ -35,7 +36,7 @@ No live stock or prices checked in this revision. See [validation and GPIO map](
 
 | Qty | Item | Requirement / source status |
 |---:|---|---|
-| 1 | BAT1 protected 1S LiPo, exact MPN TBD | 300–500 mAh, 11–18 mm finished width, <=4–5.5 mm thick, 45–65 mm long; >=500 mA continuous plus documented pulse, 4.20 V charge, PCM, preferred 10k NTC. **New link and manufacturer drawing required.** |
+| 1 | BAT1 Adafruit 1578 / PKCELL LP-503035 family, protected 1S LiPo | 3.7 V nominal, 500 mAh, 4.2 V CC/CV, 1C / 500 mA maximum continuous discharge, PCM and two-wire JST-PH lead. Conservative CAD pack envelope 30.1 x 36.0 x 5.1 mm; tray reserves 30.1 x 36.0 x 6.1 mm including 1 mm expansion allowance. No NTC. [Adafruit product 1578](https://www.adafruit.com/product/1578) (USD 7.95 and in stock when selected); [manufacturer datasheet](https://cdn-shop.adafruit.com/product-files/1578/Datasheet.pdf); [India distributor family listing](https://www.fabtolab.com/lithium-polmer-1s-battery) (exact 1578 option stock/price must be confirmed). **Selected for tray design, not yet purchase-approved.** |
 | 1 | SPK1 Same Sky CMS-16093-078L100 | Retained provisionally, 8 ohm / 0.7 W; existing Mouser link in archived BOM. R24 selects 3 dB gain; output limit and cavity bench validation required. |
 | 1 | M1 exact vibration motor TBD | Old Robu 1027 URL served 1034. **Replacement exact link with start/stall current and dimensions required.** Must tolerate regulated 3.3 V. |
 | 1 | microSD card, exact MPN/capacity TBD | Prefer traceable high-endurance 16–32 GB FAT32 for prototype; **link needed**. Qualify write latency and peak/standby current. |
@@ -46,6 +47,19 @@ No live stock or prices checked in this revision. See [validation and GPIO map](
 ## Changes and purchasing cautions
 
 - Removed Sense 113991115 expansion/camera/SD/mic assembly, camera mechanics, NOVA 603450 battery, PCA9685, two RGB LEDs, C6 and R9–R14.
+- Selected BAT1 Adafruit 1578 as the active tray basis. Adafruit documents
+  overcharge, over-discharge and short-circuit protection; the supplier drawing
+  shows a 1S PCM. Exact overcurrent threshold remains a procurement gate.
+- Adafruit states that this pack has no thermistor. Existing two-pin J1 supports
+  VBAT and GND only, so it cannot monitor an NTC. Confirm charger compatibility,
+  delivered connector polarity, and current before energizing the assembly.
+- Adafruit lists 29 x 36 x 4.75 mm while its attached pack drawing shows
+  30 +/-0.1 x 35 +/-0.1 x 5 +/-0.1 mm. The mechanical design uses the
+  conservative union rather than treating either nominal description as exact.
+- BAT1 documentation: indexed datasheet `ds_dcee32f4e0c985211bc8`, tray STEP
+  `mechanical/exports/pendant-battery-tray-adafruit-1578.step`, and design notes
+  `mechanical/front-battery-notes.md`. UN38.3/MSDS applicability, India shipping,
+  delivered-pack metrology and load/thermal testing remain required.
 - Added base 113991114, candidate IM69D130V01XTSA1, DM3D-SF socket, C9/C10/C11, R16–R24.
 - New unique resistors needing links: RC0603FR-0733RL (33 ohm, 2 pcs), RC0603FR-0747KL (47k, 5 pcs).
 - AP2112K-3.3TRG1 was already in the circuit but lacks a saved sourcing link.

@@ -1,9 +1,45 @@
 # Front battery / top speaker prototype
 
-Battery moved from rear Z to front Z alongside the camera in Y. PCB stays at its exact existing origin, four holes and USB end. Shell grows only at the neck end: 49 x 92 mm, center Y13.5, lower edge Y-32.5. Rear depth reduces from 13 to 5.5 mm. Front face Z20. This reduces depth, not width; 44 mm PCB prevents a narrow shell without PCB redesign.
+## Selected battery
 
-Tray floor Z9.5..10.7 clears assumed 7 mm connector bodies on board top Z1.62 by 0.88 mm. Battery nominal envelope 34 x 50 x 6 with 1 mm expansion reserve starts Z11, includes 0.3 mm adhesive allowance. Top reserve ends Z18, lid underside Z18.4. Continuous 1.2 mm printed floor isolates battery from components. Lower tray wall Y-6.5..-5.5 separates camera/module (envelope ends Y-7.8995); side walls locate cell without squeezing it. Use battery-compatible removable adhesive strips, not hard glue or solvent adhesive directly on pouch. Leave a pull tab and never compress the expansion allowance.
+The tray is now designed around **Adafruit product 1578**, a protected 1S
+3.7 V, 500 mAh Li-polymer pack. Adafruit listed it in stock at selection time
+for USD 7.95, and Fab.to.Lab lists the Adafruit battery family for Indian
+ordering. Purchase and local variant availability are not assumed.
 
-Tray has two screw tabs on shell shelves, separate from four PCB screw positions; screw access must be checked on a trial assembly. Battery lead exits the upper tray wall; actual PCM, lead routing and adhesive specification remain procurement gates. PCB mounts stay unchanged. Speaker is rotated 90 degrees to the +Y top wall, with coaxial seat/clamp and centered 9x5 grille. Antenna shelf is moved to upper-left side, motor cradle below the extended tray; antenna RF and motor identity remain unverified.
+The PKCELL datasheet identifies a 500 mAh pack with PCM, 4.2 V CC/CV charge,
+and 1C (500 mA) maximum continuous discharge. Adafruit specifies a JST-PH lead,
+overcharge/over-discharge/short-circuit protection and no thermistor. The current
+PCB J1 is two-pin only (pin 1 VBAT, pin 2 GND), so it cannot monitor an NTC.
+Verify connector polarity against J1 before connection.
 
-CAD asserts selected tray/cell/lid/shell/component-envelope clearances and top speaker clearances. Component heights, speaker and battery are provisional envelopes, not complete purchased-part fit validation. Assembly: mount PCB, connect leads, screw tray to side shelves, apply removable adhesive and battery, attach top speaker clamp, close lid. Trial-print, confirm screw/driver access, insulation, no sharp solder tails or battery pinch, then test acoustics and temperature before wearing.
+## Authoritative envelope and tray
+
+The Adafruit page reports 29 x 36 x 4.75 mm. The attached pack drawing reports
+30 +/-0.1 x 35 +/-0.1 x 5 +/-0.1 mm. CAD therefore uses the conservative union
+**30.1 x 36.0 x 5.1 mm**, including the PCM/taped pack body, and reserves
+**30.1 x 36.0 x 6.1 mm** to provide 1.0 mm expansion allowance.
+
+The removable tray has a 30.6 x 36.5 mm rectangular cavity, 0.25 mm nominal
+clearance per side, a 32.2 x 38.1 mm floor/rim design, a low non-compressive
+locating rim, and a 10 mm lead notch. The 100 mm lead is service-looped; no lead
+bend radius or connector body is counted as part of the pouch cavity.
+
+Use a solid insulating floor and battery-compatible pull-release adhesive. Do
+not clamp the pouch faces, place sharp solder tails against it, or obstruct the
+expansion reserve. PCB placement, shell size and mounting holes remain unchanged.
+
+## Validation and remaining gates
+
+Cloud CAD built the isolated tray as revision
+`rev-648ce205ca8252e6307f1d42659a1ad77af3a73062552ee70042cac07e545eed`.
+The STEP contains inspectable valid solids and is exported at
+`mechanical/exports/pendant-battery-tray-adafruit-1578.step`. The complete
+assembly and cutaway also built without asserted tray/battery/lid/shell or
+provisional component-envelope interference.
+
+This is a CAD fit prototype, not purchase or production approval. Before use,
+confirm the delivered pack dimensions and polarity, charger current/behavior,
+PCM protection details, UN38.3/MSDS applicability, India shipping, actual peak
+device current, assembled component heights, cable routing, insulation and
+thermal/RF clearance. Trial-fit a non-energized sample before charging.

@@ -47,8 +47,14 @@ silently reverted to the original generic DevKit target.
 
 ## Constraints and acceptance
 
+- Battery checkpoint: the active tray now targets stocked Adafruit product 1578,
+  a protected 1S 3.7 V 500 mAh pack with JST-PH. CAD reserves a conservative
+  30.1 x 36.0 x 6.1 mm envelope (5.1 mm maximum documented body plus 1 mm
+  expansion allowance). See `mechanical/front-battery-notes.md`. This supersedes
+  the older 34 x 50 x 6 mm provisional tray statements below; purchase and
+  electrical/thermal validation remain open.
 - Compactness is a priority, but no final envelope is accepted yet. The selected
-  battery alone is nominally 34 × 50 × 6 mm; the old 26 × 42 mm tray cannot fit it.
+  battery body is approximately 30 x 36 x 5 mm; the old 26 × 42 mm tray cannot fit it.
 - Start with two copper layers and top-side assembly; reconsider sides only with
   explicit battery, solder-tail, and module-stack clearance checks.
 - Preserve the existing board before synchronization. Initial board SHA-256:
@@ -78,9 +84,9 @@ silently reverted to the original generic DevKit target.
    starting/locked maximum at 3 V (p4). Direct 4.2 V BAT+ is not approved.
    Resolve a regulated motor supply and transient/current budget; PWM alone is
    not proof of voltage compatibility. D1 cathode must follow MOTOR+.
-5. The retained battery drawing is LiPol, not NOVA, with a three-wire Molex/NTC
-   assembly, not a verified two-wire JST-PH pack. Only a provisional dimensional
-   envelope may be modeled from it; PCM, swelling and lead exit remain unknown.
+5. Superseded: the retained NOVA/LiPol three-wire drawing is no longer the active
+   tray basis. Adafruit 1578 is the selected two-wire JST-PH protected candidate;
+   delivered-pack polarity, PCM details, shipping and sample metrology remain gates.
 6. The retained motor drawing is QX-1027-3.0-07, not proof of the Robu part.
    Model it as a reference variant, not a confirmed purchased component.
 7. SW1 GK has neither pegs nor the ESD pin. Use the exact variant in its model.
