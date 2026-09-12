@@ -1,4 +1,4 @@
-"""IM69D130V01XTSA1 prototype candidate; full datasheet review remains open."""
+"""IM69D130V01XTSA1; pins and supply checked against Infineon datasheet v1.0."""
 VDD = io("VDD", Power)
 GND = io("GND", Ground)
 CLOCK = io("CLOCK", Net)
@@ -8,4 +8,5 @@ Component(name="MIC", prefix="MK",
     footprint=File("IM69D130.kicad_mod"),
     part=Part(mpn="IM69D130V01XTSA1", manufacturer="Infineon"),
     datasheet="https://www.infineon.com/row/public/documents/24/49/infineon-im69d130-datasheet-en.pdf",
+    description="Bottom-port PDM microphone; SELECT low; place 100nF at VDD and provide PCB acoustic opening",
     pins={"DATA": DATA, "VDD": VDD, "CLOCK": CLOCK, "SELECT": GND, "GND": GND})

@@ -165,7 +165,63 @@ datasheets:
     imageCount: 4
     processedAt: 2026-09-09T03:45:16.009Z
   - id: a19b36c3a960f67ebf0ab7fc5220423ca427c167cbb38a53e619b14226e8955d
-    name: Hirose DM3 socket catalog
+    name: Hirose DM3 Series Catalog
     chunkCount: 13
     imageCount: 12
-    processedAt: 2026-09-09T03:45:18.251Z
+    processedAt: 2026-09-09T08:58:55.287Z
+  - id: a9958dc4cbb34664c42799ed79b2e08c5e536d176f371610089f8af730265c67
+    name: Seeed XIAO ESP32S3 Schematic v1.1
+    chunkCount: 1
+    imageCount: 1
+    processedAt: 2026-09-09T08:58:53.374Z
+  - id: f017a729dc45a900d6f05c0e446c914bf601c52b138ed0b1acf81544c147dcf5
+    name: Seeed XIAO ESP32S3 SKU 113991114 Product Datasheet
+    chunkCount: 8
+    imageCount: 8
+    processedAt: 2026-09-09T08:58:53.524Z
+  - id: 7d6c2bebd1da22cec7376747a6cad97b2d1548825e917f51ba3b73939bd8b541
+    name: Infineon IM69D130 Datasheet v1.0
+    chunkCount: 17
+    imageCount: 16
+    processedAt: 2026-09-09T08:59:48.084Z
+  - id: 3f3ea398038f586862c09cf68f420018c90617aa54c198a5827d783849b226ee
+    name: WLY 104050 3.7V 2500mAh datasheet 2024-10-15
+    chunkCount: 16
+    imageCount: 16
+    processedAt: 2026-09-09T15:49:36.260Z
+  - id: ds_b7fb91f2061f12331cfb
+    name: 601145/3.7V/300mAh Rechargeable Li-ion Battery
+    originalFilename: R177590.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_b7fb91f2061f12331cfb
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_b7fb91f2061f12331cfb/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_b7fb91f2061f12331cfb/search
+    chunkCount: 40
+    imageCount: 17
+    processedAt: 2026-09-12T14:02:16.690Z
+  - id: ds_0e23a8409cdb4cf03c15
+    name: LP 451860 3.7V 500mAh LiPo Battery Pack with PCM
+    originalFilename: DNK451860-3.7V-500mAh-Lipo-Battery-Specification.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_0e23a8409cdb4cf03c15
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_0e23a8409cdb4cf03c15/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_0e23a8409cdb4cf03c15/search
+    chunkCount: 11
+    imageCount: 12
+    processedAt: 2026-09-12T14:19:51.338Z
+  - id: ds_6d584bb85d5bf7cad8f9
+    name: Li-Polymer 503562 1200mAh 3.7V with PCM
+    originalFilename: C101-_Li-Polymer_503562_1200mAh_3.7V_with_PCM_APPROVED_8.18.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_6d584bb85d5bf7cad8f9
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_6d584bb85d5bf7cad8f9/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_6d584bb85d5bf7cad8f9/search
+    chunkCount: 21
+    imageCount: 9
+    processedAt: 2026-09-12T15:01:36.254Z
+  - id: ds_dcee32f4e0c985211bc8
+    name: PKCELL LP-523334 500mAh 3.7V Li-Polymer Battery with PCM
+    originalFilename: Datasheet.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_dcee32f4e0c985211bc8
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_dcee32f4e0c985211bc8/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_dcee32f4e0c985211bc8/search
+    chunkCount: 20
+    imageCount: 9
+    processedAt: 2026-09-12T18:22:38.959Z

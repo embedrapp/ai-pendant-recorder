@@ -98,14 +98,25 @@ def gen_step():
         lid+=baffle
         insert=bore(.45,front-2.9,x,y,2.9)
         insert.label='LED light insert '+str(y);inserts.append(insert)
-    # Front battery, beside the camera stack. Solid insulating floor with
-    # adhesive landing; 7 mm reserved cell envelope includes expansion space.
-    by=p.get('battery_y',20); tz=p.get('tray_z',9.5)
-    tray=Pos(0,by,0)*roundbox(37,53,2,tz,1.2)
-    rim=roundbox(37,53,2,tz+1.2,7.4)-roundbox(35,51,1,tz+1.1,7.6)
+    # Front battery tray for stocked Adafruit 1578 / PKCELL 500 mAh pack,
+    # stacked above the PCB. The supplier page reports 29 x 36 x 4.75 mm,
+    # while its pack drawing gives 30 +/-0.1 x 35 +/-0.1 x 5 +/-0.1 mm.
+    # Use the conservative union: 30.1 x 36.0 x 5.1 mm. The 6.1 mm Z
+    # envelope adds 1.0 mm expansion allowance; the low rim
+    # locates the pack without clamping its broad faces or swollen pouch.
+    by=p.get('battery_y',20); tz=p.get('tray_z',5.2)
+    battery_w,battery_l,battery_h=30.1,36.0,6.1
+    cavity_w,cavity_l=30.6,36.5
+    tray_w,tray_l=32.2,38.1
+    tray=Pos(0,by,0)*roundbox(tray_w,tray_l,2,tz,1.2)
+    # Keep the cavity rectangular so the complete maximum drawing envelope,
+    # including its corners, remains clear of the locating rim.
+    rim=roundbox(tray_w,tray_l,2,tz+1.2,1.6)-block(cavity_w,cavity_l,1.8,0,0,tz+1.1)
     tray+=Pos(0,by,0)*rim
-    tray-=block(8,4,5,0,by+26,tz+3) # lead exit above adhesive bed
-    # Full-height camera divider is the lower tray wall, Y=-6.5..-5.5.
+    # Lead notch faces J1/speaker end. The 100 mm lead is service-looped in
+    # the shell; the pouch tabs and PCM remain supported by the tray floor.
+    tray-=block(10,5,4,0,by+tray_l/2,tz+1.2)
+    # The lower rim remains separated from the camera aperture envelope.
     # Pull-release adhesive strips go on the floor, not on pouch edges.
     for h in holes:
         tray-=bore(2.65,12,h['center']['x'],h['center']['y'],tz-.1)
@@ -216,7 +227,7 @@ def gen_step():
     pcb=Pos(0,frame_shift,0)*roundbox(bounds['maxX']-bounds['minX'],bounds['maxY']-bounds['minY'],3,0,c['board']['thickness']['value'])
     for h in holes:
         pcb-=bore(h['drillDiameter']/2,2,h['center']['x'],h['center']['y'],-.1)
-    battery=block(34,50,7,0,by,tz+1.5)
+    battery=block(battery_w,battery_l,battery_h,0,by,tz+1.2)
     refs=[pcb,battery,speaker_envelope]
     for comp in c['components']:
         if comp['ref'].startswith('H') or comp['ref'].startswith('TP'): continue
@@ -253,8 +264,8 @@ def gen_step():
             if h['ref'] not in ('H1','H2','H3','H4'):
                 dummy_pcb-=bore(h['drillDiameter']/2,2,h['center']['x'],h['center']['y'],-.1)
         kit['REFERENCE-PCB']=dummy_pcb
-        kit['REFERENCE-battery-nominal-34x50x6']=block(34,50,6,0,0,0)
-        kit['REFERENCE-battery-reserved-34x50x7']=block(34,50,7,0,0,0)
+        kit['REFERENCE-Adafruit-1578-max-30.1x36x5.1']=block(30.1,36,5.1,0,0,0)
+        kit['REFERENCE-Adafruit-1578-reserved-30.1x36x6.1']=block(30.1,36,6.1,0,0,0)
         kit['REFERENCE-speaker-16.6x9.6x3.5']=block(16.6,9.6,3.5,0,0,0)
         kit['REFERENCE-motor-10x2.7']=bore(5,2.7,0,0,0)
         for comp in sorted(c['components'],key=lambda a:a['ref']):

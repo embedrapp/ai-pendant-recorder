@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "pendant-unified-pcb",
   "name": "Unified populated PCB reference",
-  "description": "36x86 battery-width carrier; 41 mm shell. Provisional purchased battery, cable and Sense stack envelopes; fit prototype.",
+  "description": "Unified PCB reference aligned to the Adafruit 1578 protected 1S battery tray.",
   "source": "mechanical/compact-pendant.py",
   "inputs": {
     "board": {
@@ -161,8 +161,8 @@
     },
     "battery_reserved_height": {
       "type": "number",
-      "label": "Provisional cell height including expansion reserve",
-      "value": 6,
+      "label": "Adafruit 1578 conservative maximum thickness plus 1 mm expansion reserve",
+      "value": 6.1,
       "unit": "mm",
       "min": 5,
       "max": 7,
@@ -258,9 +258,9 @@
     {
       "id": "battery",
       "label": "Cell nominal envelope",
-      "value": "34 x 50 x 6 mm; 1 mm expansion reserve",
-      "confidence": "assumed",
-      "source": "603450 generic reference, purchased NOVA PCM unknown"
+      "value": "30.1 x 36.0 x 5.1 mm conservative pack envelope; 30.1 x 36.0 x 6.1 mm reserved envelope",
+      "confidence": "datasheet",
+      "source": "Adafruit product 1578 listing and PKCELL pack drawing; conservative union of conflicting axes; datasheet ds_dcee32f4e0c985211bc8"
     },
     {
       "id": "ports",

@@ -1,4 +1,4 @@
-"""Hirose DM3D-SF microSD socket, SPI; card detection not used."""
+"""Hirose DM3D-SF microSD socket, SPI; normally-open card detection not used."""
 VDD = io("VDD", Power)
 GND = io("GND", Ground)
 CLK = io("CLK", Net)
@@ -11,7 +11,8 @@ Component(name="SD", prefix="J",
     symbol=Symbol(library="DM3D-SF.kicad_sym", name="DM3D_SF"),
     footprint=File("DM3D-SF.kicad_mod"),
     part=Part(mpn="DM3D-SF", manufacturer="Hirose"),
-    datasheet="https://www.hirose.com/en/product/series/DM3",
+    datasheet="https://www.hirose.com/product/document?clcode=CL0609-0033-6-00&productname=DM3AT-SF-PEJ2M5&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en",
+    description="Top-mount push-pull microSD socket; preserve manufacturer no-conductive-trace regions",
     pins={"DAT2": DAT2, "DAT3_CS": CS, "CMD_MOSI": MOSI, "VDD": VDD,
           "CLK": CLK, "VSS": GND, "DAT0_MISO": MISO, "DAT1": DAT1,
           "DETECT_A": NotConnected(), "DETECT_B": NotConnected(), "SHIELD": GND})

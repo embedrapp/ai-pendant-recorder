@@ -12,9 +12,10 @@ NOT a physical implementation of this revision; no regeneration or rerouting.
 - PDM prototype candidate IM69D130V01XTSA1 (69 dBA, 130 dBSPL AOP,
   4 x 3 x 1.2 mm). IM69D128SV01 is thinner (0.98 mm), 69 dBA, 128 dBSPL,
   520 uA high-performance / 180 uA low-power and deserves later comparison.
-  IM69D130 has an exact established KiCad PG-LLGA-5-1 footprint. Manufacturer
-  PDF retrieval is blocked by WAF; full indexed electrical/package review is
-  still required before approval. This is not an acoustically validated choice.
+  IM69D130 has an established KiCad PG-LLGA-5-1 footprint. The manufacturer
+  datasheet is now retained and indexed; pin, supply, timing, package, and land
+  pattern were reviewed in docs/schematic-datasheet-review.md. This is still not
+  an acoustically validated final choice.
 - Hirose DM3D-SF push-pull microSD, 1.55 mm high. SPI, no live removal during
   writing. 3.3 V always supplied; flush/sleep card before deep sleep. No claim
   of hardware power gating, hot-plug ESD qualification or zero standby current.
@@ -68,9 +69,9 @@ firmware deep sleep. IMU wake works only in software sleep, not held reset.
   no-trace regions. Upstream KiCad pad widths differ from latest recommendation;
   asset needs reconciliation and no-trace keepouts before layout acceptance.
 - Infineon manufacturer IM69D130 datasheet v1.0 (2017-12-19), sections 2–6;
-  web extraction confirms acoustic specs; KiCad Sensor_Audio.lib IM69D120 alias
-  IM69D130 confirms DATA1/VDD2/CLOCK3/SELECT4/GND5. Full manufacturer pin,
-  voltage, timing and land-pattern verification remains open.
+  indexed review confirms DATA1/VDD2/CLOCK3/SELECT4/GND5, 1.62–3.6 V supply,
+  PDM timing, local 100 nF bypass, package geometry, and the 0.8 mm acoustic
+  opening. Acoustic integration and final physical placement remain open.
 
 ## Power / acceptance
 No runtime promise. Provisional peak envelope: radio/controller 350 mA,
