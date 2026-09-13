@@ -1,0 +1,36 @@
+"""Texas Instruments TPS22918DBV 2 A load switch."""
+
+VIN = io(Power(voltage="1V - 5.5V"))
+VOUT = io(Power(voltage="0V - 5.5V"))
+GND = io(Ground)
+ON = io(Net("TPS22918_ON"))
+CT = io(Net("TPS22918_CT"))
+QOD = io(Net("TPS22918_QOD"))
+
+Component(
+    name="U_TPS22918",
+    prefix="U",
+    description="TI TPS22918DBVR 1 V to 5.5 V, 2 A, 52 mOhm load switch",
+    symbol=Symbol(
+        library="../assets/TPS22918DBV.kicad_sym",
+        name="TPS22918DBV",
+    ),
+    footprint=File("../assets/SOT-23-6.kicad_mod"),
+    part=Part(mpn="TPS22918DBVR", manufacturer="Texas Instruments"),
+    datasheet="https://www.ti.com/lit/gpn/TPS22918",
+    pins={
+        "VIN": VIN,
+        "GND": GND,
+        "ON": ON,
+        "CT": CT,
+        "QOD": QOD,
+        "VOUT": VOUT,
+    },
+    properties={
+        "topology": "single-channel high-side load switch",
+        "input_range": "1 V to 5.5 V",
+        "output_current": "2 A maximum",
+        "on_resistance": "52 mOhm typical at VIN = 5 V",
+        "package": "DBV SOT-23-6",
+    },
+)

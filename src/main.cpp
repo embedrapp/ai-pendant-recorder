@@ -2,13 +2,21 @@
 #include <SD.h>
 #include <SPI.h>
 #include <Preferences.h>
+#include <Adafruit_NeoPixel.h>
 #include "driver/i2s.h"
 #include "audio_format.h"
 
 namespace {
-constexpr int recordButton=2, micClock=42, micData=41, ampEnable=5;
-// Sense expansion: verify CS=21 against the purchased hardware revision.
-constexpr int sdCS=21, sdSCK=7, sdMISO=8, sdMOSI=9;
+// Base XIAO ESP32S3 carrier contract; keep synchronized with pcb/ai_pendant_recorder.zen.
+constexpr int recordButton=2, micClock=42, micData=41;
+constexpr int ledEnable=3, ledData=4;
+constexpr int hapticDrive=1;
+constexpr int sdCS=39, sdSCK=7, sdMISO=8, sdMOSI=9;
+constexpr uint16_t pixelCount=25;
+// 25 low-current pixels can theoretically draw 375 mA. Keep animation output
+// far below that until whole-system current and thermal limits are bench-tested.
+constexpr uint8_t pixelBrightnessCap=24;
+Adafruit_NeoPixel pixels(pixelCount,ledData,NEO_GRB+NEO_KHZ800);
 struct Block { uint16_t size; uint8_t data[1024]; };
 QueueHandle_t blocks;
 EventGroupHandle_t events;
@@ -157,7 +165,45 @@ void writer(void*) {
     } else if (!recording && !(xEventGroupGetBits(events)&ACTIVE) && uxQueueMessagesWaiting(blocks)==0) {
       healthy=finishChunk();
     }
-    if (!healthy) { digitalWrite(ampEnable,LOW); vTaskDelay(pdMS_TO_TICKS(100)); }
+    if (!healthy) { digitalWrite(ledEnable,LOW); vTaskDelay(pdMS_TO_TICKS(100)); }
+  }
+}
+
+uint16_t matrixIndex(uint8_t x,uint8_t y) {
+  return uint16_t(y)*5U+((y&1U)?(4U-x):x);
+}
+
+void animator(void*) {
+  uint8_t phase=0;
+  digitalWrite(ledData,LOW);
+  vTaskDelay(pdMS_TO_TICKS(2));
+  digitalWrite(ledEnable,HIGH);
+  vTaskDelay(pdMS_TO_TICKS(8)); // boost start plus TPS22918 CT-controlled ramp
+  pixels.begin(); pixels.setBrightness(pixelBrightnessCap); pixels.clear(); pixels.show();
+  for (;;) {
+    EventBits_t state=xEventGroupGetBits(events);
+    if (state&FAULT) {
+      pixels.clear(); pixels.show(); digitalWrite(ledEnable,LOW);
+      vTaskDelay(pdMS_TO_TICKS(100)); continue;
+    }
+    pixels.clear();
+    if (state&RUN) {
+      // Low-current red recording pulse: center plus four nearest neighbors.
+      uint8_t level=uint8_t(10U+((phase<32?phase:63-phase)*2U));
+      pixels.setPixelColor(matrixIndex(2,2),pixels.Color(level,0,0));
+      pixels.setPixelColor(matrixIndex(2,1),pixels.Color(level/3,0,0));
+      pixels.setPixelColor(matrixIndex(3,2),pixels.Color(level/3,0,0));
+      pixels.setPixelColor(matrixIndex(2,3),pixels.Color(level/3,0,0));
+      pixels.setPixelColor(matrixIndex(1,2),pixels.Color(level/3,0,0));
+    } else {
+      // Dim blue orbit around the perimeter; one lit pixel minimizes load.
+      static const uint8_t orbit[16][2]={{0,0},{1,0},{2,0},{3,0},{4,0},{4,1},{4,2},{4,3},
+        {4,4},{3,4},{2,4},{1,4},{0,4},{0,3},{0,2},{0,1}};
+      const uint8_t* p=orbit[(phase/4U)%16U];
+      pixels.setPixelColor(matrixIndex(p[0],p[1]),pixels.Color(0,6,28));
+    }
+    pixels.show(); phase=(phase+1U)&63U;
+    vTaskDelay(pdMS_TO_TICKS(40));
   }
 }
 }
@@ -165,7 +211,9 @@ void writer(void*) {
 void setup() {
   Serial.begin(115200);
   pinMode(recordButton,INPUT_PULLUP);
-  pinMode(ampEnable,OUTPUT); digitalWrite(ampEnable,LOW);
+  pinMode(ledData,OUTPUT); digitalWrite(ledData,LOW);
+  pinMode(ledEnable,OUTPUT); digitalWrite(ledEnable,LOW);
+  pinMode(hapticDrive,OUTPUT); digitalWrite(hapticDrive,LOW);
   // No camera initialization, Wi-Fi connection, upload or automatic deletion.
   SPI.begin(sdSCK,sdMISO,sdMOSI,sdCS);
   if (!prefs.begin("recorder",false) || !SD.begin(sdCS,SPI,10000000) ||
@@ -180,6 +228,9 @@ void setup() {
   }
   if (xTaskCreatePinnedToCore(writer,"storage",8192,nullptr,2,nullptr,0)!=pdPASS) {
     vTaskDelete(acquisition); Serial.println("startup:fault:storage-task"); return;
+  }
+  if (xTaskCreatePinnedToCore(animator,"rgb",4096,nullptr,1,nullptr,0)!=pdPASS) {
+    xEventGroupSetBits(events,FAULT); Serial.println("startup:fault:rgb-task"); return;
   }
   Serial.println("ready:press-to-toggle;sync-not-implemented");
 }

@@ -1,10 +1,10 @@
 # Quiet pendant — DEVELOPMENT, not manufacturing release
 
-**Exact-part selection:** See `../docs/pendant-parts-selection.md` for the proposed
-500 mAh protected pack, wired speaker, side record switch, keyed connector split
-and magnets. These require tray/seat/control changes; they are NOT incorporated
-in CAD yet. Current `pendant.py` is camera-free; older camera-bore notes below
-describe historical geometry.
+**Active redesign notice:** the wired speaker and complete audio-output chain are
+removed. The selected battery basis is Adafruit 1578 / protected PKCELL 1S
+500 mAh. A centered 5x5 WS2812C-2020-V1 matrix now requires a new diffuser/light
+guide and enclosure opening. Existing generators still contain legacy speaker
+geometry and remain historical until rebuilt against the revised PCB.
 
 **PCB update notice:** The carrier now has 15 footprints, a 28 x 70 mm chamfered
 outline and four aligned mounting holes. This enclosure revision has NOT been
@@ -32,8 +32,8 @@ current flattened-compound export workaround.
 - Front camera bore: 6.6 mm with 8.2 mm shallow bezel.
 - Microphone: 1.2 mm dedicated bore and underside gasket land; its X/Y are explicit
   provisional parameters, NOT aligned to a measured microphone location.
-- Speaker: 0.9 mm dot grid at 1.6 mm pitch, over a 16 mm nominal speaker seat;
-  underside locating ring includes a wire escape.
+- Legacy speaker dot grid/seat remains in old CAD source only and must be removed;
+  reserve the front center for the RGB diffuser and optical isolation instead.
 - Top USB opening, recessed right-side switch/button openings.
 - microSD: lid-off service, deliberately no exposed dust-catching external slot.
 - Four PCB standoffs and front screw channels, slip-fit cover skirt.
@@ -47,10 +47,10 @@ current flattened-compound export workaround.
 2. Fit insulated cell in tray; use a non-compressive strap and route leads out the notch.
 3. Lower tray into locators, then install carrier PCB onto standoffs. Keep underside
    components, solder points and battery wires outside the cell envelope.
-4. Fit speaker rim gasket/adhesive retention and acoustically resistive grille mesh;
-   connect speaker with enough service slack to lift the cover without tearing leads.
+4. Fit the RGB diffuser/light guide only after LED pitch, cover gap, isolation-wall
+   geometry and material transmission are validated on the revised PCB.
 5. Fit a closed-cell mic gasket from the REAL microphone sound inlet to its dedicated
-   cover land. Do not couple the mic to the common speaker cavity.
+   cover land. Keep the microphone acoustically isolated from enclosure cavities.
 6. Verify camera lens depth/FOV, cable clearance and control travel before closing.
 7. Fit cover and qualified small plastic-thread screws. Pilot bores are provisional;
    screw MPN, length, torque and cycle life are not released.

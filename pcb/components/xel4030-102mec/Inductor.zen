@@ -1,0 +1,10 @@
+"""Coilcraft XEL4030-102MEC, 1 uH shielded power inductor."""
+P1 = io("P1", Net)
+P2 = io("P2", Net)
+Component(name="L", prefix="L",
+    symbol=Symbol(library="XEL4030_102MEC.kicad_sym", name="XEL4030_102MEC"),
+    footprint=File("XEL4030_102MEC.kicad_mod"),
+    part=Part(mpn="XEL4030-102MEC", manufacturer="Coilcraft"),
+    datasheet="https://www.coilcraft.com/getmedia/8245f050-f190-4295-8c41-7c03d662ee3d/xel4030.pdf",
+    description="1 uH +/-20%, 9 A Isat, 9.78 mOhm max DCR shielded inductor",
+    pins={"1": P1, "2": P2})

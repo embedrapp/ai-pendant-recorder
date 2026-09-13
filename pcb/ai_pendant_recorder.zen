@@ -1,22 +1,20 @@
-# embedr:schematic-graphic {"id":"revision-warning","type":"note","x":0,"y":3850,"strokeWidth":1.5,"lineStyle":"solid","width":5500,"height":200,"text":"BASE XIAO 113991114 • NO SENSE / CAMERA / PCA9685 / EXTERNAL RGB. DATASHEET REVIEWED SCHEMATIC DRAFT; NEW PLACEMENT / ROUTING STILL REQUIRED. Old routed board is NOT this revision. See docs/schematic-datasheet-review.md.","fontSize":23,"bold":false}
+# embedr:schematic-graphic {"id":"revision-warning","type":"note","x":0,"y":3850,"strokeWidth":1.5,"lineStyle":"solid","width":8300,"height":200,"text":"BASE XIAO 113991114 • SPEAKER CHAIN REMOVED • 5x5 ADDRESSABLE RGB MATRIX ADDED • ADAFRUIT 1578 / PKCELL PROTECTED 500 mAh 1S. New physical placement/routing still required; preserved routed PCB is obsolete.","fontSize":23,"bold":false}
 # embedr:schematic-graphic {"id":"battery-section","type":"section","x":-100,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":1800,"height":1150,"text":"01  BATTERY / FUEL GAUGE / I2C","fontSize":28,"bold":true}
-# embedr:schematic-graphic {"id":"controller-section","type":"section","x":1800,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":1600,"height":2000,"text":"02  CONTROLLER / RECORD / STANDBY","fontSize":12,"bold":true}
-# embedr:schematic-graphic {"id":"audio-section","type":"section","x":3500,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":2200,"height":1500,"text":"03  I2S AUDIO / BTL SPEAKER","fontSize":28,"bold":true}
+# embedr:schematic-graphic {"id":"controller-section","type":"section","x":1800,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":1600,"height":2000,"text":"02  CONTROLLER / RECORD / STANDBY","fontSize":28,"bold":true}
+# embedr:schematic-graphic {"id":"audio-section","type":"section","x":5400,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":3000,"height":3100,"text":"03  5x5 ADDRESSABLE RGB MATRIX / 5 V BOOST","fontSize":28,"bold":true}
 # embedr:schematic-graphic {"id":"motion-section","type":"section","x":-100,"y":1100,"strokeWidth":1.5,"lineStyle":"solid","width":1800,"height":950,"text":"04  MOTION SENSOR","fontSize":28,"bold":true}
 # embedr:schematic-graphic {"id":"microphone-section","type":"section","x":-100,"y":2150,"strokeWidth":1.5,"lineStyle":"solid","width":1800,"height":1350,"text":"05  PDM MICROPHONE (CANDIDATE)","fontSize":28,"bold":true}
 # embedr:schematic-graphic {"id":"storage-section","type":"section","x":1750,"y":2050,"strokeWidth":1.5,"lineStyle":"solid","width":1650,"height":1500,"text":"06  CARRIER microSD / SPI","fontSize":28,"bold":true}
 # embedr:schematic-graphic {"id":"haptics-section","type":"section","x":3450,"y":1450,"strokeWidth":1.5,"lineStyle":"solid","width":2250,"height":1900,"text":"07  REGULATED HAPTICS","fontSize":28,"bold":true}
-# embedr:schematic-graphic {"id":"mounting-section","type":"section","x":3450,"y":3400,"strokeWidth":1.5,"lineStyle":"solid","width":2250,"height":350,"text":"MOUNTING — POSITION TBD","fontSize":25,"bold":true}
+# embedr:schematic-graphic {"id":"mounting-section","type":"section","x":3450,"y":3400,"strokeWidth":1.5,"lineStyle":"solid","width":4950,"height":350,"text":"MOUNTING — POSITION TBD","fontSize":25,"bold":true}
 """Base-XIAO audio carrier schematic draft; see docs/base-redesign.md validation gates."""
 
 Capacitor = Module("@stdlib/generics/Capacitor.zen")
 Resistor = Module("@stdlib/generics/Resistor.zen")
 XIAO = Module("./components/xiao-base/XIAO.zen")
 Microphone = Module("./components/im69d130/Microphone.zen")
-MicroSD = Module("./components/dm3d-sf/Socket.zen")
-MAX98357A = Module("./components/max98357aete-t/zener/MAX98357A.zen")
+MicroSD = Module("./components/molex-104031-0811/Socket.zen")
 B2B_PH_K_S = Module("./components/jst-b2b-ph-k-s/zener/B2B_PH_K_S.zen")
-BM02B = Module("./components/jst-bm02b-srss-tb/BM02B.zen")
 CK_JS202011AQN = Module("./components/ck-js202011aqn/zener/CK_JS202011AQN.zen")
 PTS841GKSMTR = Module("./components/pts841gksmtr/PTS841.zen")
 MountingHole = Module("@stdlib/generics/MountingHole.zen")
@@ -26,23 +24,19 @@ BMI270 = Module("./components/bmi270/BMI270.zen")
 MotorLDO = Module("./components/motor-ldo/LDO.zen")
 Flyback = Module("./components/motor-diode/Diode.zen")
 MOSFET_AO3400A_SOT23 = Module("./components/ao3400a/zener/MOSFET_AO3400A_SOT23.zen")
+RGBPixel = Module("./components/ws2812c-2020-v1/LED.zen")
+Boost = Module("./components/tps61023/zener/BOOST_CONVERTER_TPS61023_DRL.zen")
+LoadSwitch = Module("./components/tps22918/zener/LOAD_SWITCH_TPS22918_DBV.zen")
+BoostInductor = Module("./components/xel4030-102mec/Inductor.zen")
 
 GND = Ground()
 VBAT = Power(voltage="3.7V")
 V3V3 = Power(voltage="3.3V")
-I2S_BCLK = Net()
-I2S_LRCLK = Net()
-I2S_DIN = Net()
-AMP_SD = Net()
-AMP_ENABLE = Net()
-AMP_GAIN = Net()
 MCU_EN = Net()
-SPK_P = Net()
-SPK_N = Net()
 RECORD_BUTTON = Net()
 FG_SDA = Net()
 FG_SCL = Net()
-HAPTIC_ARM = Net()
+HAPTIC_DRIVE = Net()
 MOTOR_GATE = Net()
 MOTOR_N = Net()
 MOTOR_3V3 = Power(voltage="3.3V")
@@ -57,102 +51,345 @@ SD_MISO = Net()
 SD_DAT1 = Net()
 SD_DAT2 = Net()
 IMU_INT = Net()
+LED_ENABLE = Net()
+LED_DATA_MCU = Net()
+LED_DATA = Net()
+BOOST_5V = Power(voltage="5V")
+LED_5V = Power(voltage="5V")
+LED_SW = Power()
+LED_FB = Net()
+LED_RISE = Net()
 
-XIAO(name="U1", GND=GND, VBAT=VBAT, V3V3=V3V3,
-    D0=HAPTIC_ARM, D1=RECORD_BUTTON, D6_TX=I2S_LRCLK, D7_RX=I2S_DIN,
-    D3=I2S_BCLK, D2=AMP_ENABLE, D4_SDA=FG_SDA, D5_SCL=FG_SCL, EN=MCU_EN,
-    D8_SCK=SD_CLK_MCU, D9_MISO=SD_MISO, D10_MOSI=SD_MOSI,
-    MTCK=SD_CS, MTDO=IMU_INT, MTDI=PDM_DATA, MTMS=PDM_CLK_MCU)
-MAX98357A(name="U2", VDD=VBAT, GND=GND, DIN=I2S_DIN,
-    BCLK=I2S_BCLK, LRCLK=I2S_LRCLK, SD_MODE=AMP_SD,
-    OUTP=SPK_P, OUTN=SPK_N, PAD=GND, GAIN_SLOT=AMP_GAIN)
-# Datasheet p5: 100k to VDD selects 3 dB, avoiding floating 9 dB default.
-Resistor(name="R24", value="100kohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=AMP_GAIN, P2=VBAT)
+XIAO(
+    name="U1",
+    GND=GND,
+    VBAT=VBAT,
+    V3V3=V3V3,
+    D0=HAPTIC_DRIVE,
+    D1=RECORD_BUTTON,
+    D2=LED_ENABLE,
+    D3=LED_DATA_MCU,
+    D4_SDA=FG_SDA,
+    D5_SCL=FG_SCL,
+    EN=MCU_EN,
+    D8_SCK=SD_CLK_MCU,
+    D9_MISO=SD_MISO,
+    D10_MOSI=SD_MOSI,
+    MTCK=SD_CS,
+    MTDO=IMU_INT,
+    MTDI=PDM_DATA,
+    MTMS=PDM_CLK_MCU,
+)
+
+# 5x5 central addressable RGB matrix. Worldsemi WS2812C-2020-V1 is the
+# low-current 5 mA/channel variant, powered from a switched 5 V boost rail.
+# Datasheet: 3.7-5.3 V supply, VIH >=2.7 V, 100 nF local bypass per pixel.
+# Firmware must keep LED_ENABLE low at reset, drive LED_DATA low before enable,
+# globally cap brightness, and never run full-white LEDs with the vibration motor.
+Boost(name="U5", VIN=VBAT, VOUT=BOOST_5V, GND=GND, SW=LED_SW, EN=LED_ENABLE, FB=LED_FB)
+BoostInductor(name="L1", P1=VBAT, P2=LED_SW)
+Resistor(
+    name="R25",
+    value="732kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07732KL",
+    manufacturer="YAGEO",
+    P1=BOOST_5V,
+    P2=LED_FB,
+)
+Resistor(
+    name="R26",
+    value="100kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07100KL",
+    manufacturer="YAGEO",
+    P1=LED_FB,
+    P2=GND,
+)
+Resistor(
+    name="R27",
+    value="100kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07100KL",
+    manufacturer="YAGEO",
+    P1=LED_ENABLE,
+    P2=GND,
+)
+Resistor(
+    name="R28",
+    value="470ohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07470RL",
+    manufacturer="YAGEO",
+    P1=LED_DATA_MCU,
+    P2=LED_DATA,
+)
+Capacitor(
+    name="C12",
+    value="10uF",
+    package="0805",
+    voltage="25V",
+    dielectric="X5R",
+    mpn="CC0805KRX5R8BB106",
+    manufacturer="YAGEO",
+    P1=VBAT,
+    P2=GND,
+)
+for ref in ["C13", "C14"]:
+    Capacitor(
+        name=ref,
+        value="22uF",
+        package="0805",
+        voltage="10V",
+        dielectric="X5R",
+        mpn="GRM21BR61A226ME44L",
+        manufacturer="Murata",
+        P1=BOOST_5V,
+        P2=GND,
+    )
+# U7 adds a positively controlled rail boundary after the boost. Both U5 EN and
+# U7 ON use LED_ENABLE, which is held low at reset. C40 gives about 2.9 ms
+# nominal 10%-90% rise at 5 V (TPS22918 SR = 0.55*CT[pF]+30 us/V).
+# QOD is tied directly to the switched output for defined discharge when off.
+LoadSwitch(name="U7", VIN=BOOST_5V, VOUT=LED_5V, GND=GND, ON=LED_ENABLE, CT=LED_RISE, QOD=LED_5V)
+Capacitor(
+    name="C40",
+    value="1nF",
+    package="0402",
+    voltage="25V",
+    dielectric="C0G",
+    mpn="GRM1555C1E102JA01D",
+    manufacturer="Murata",
+    P1=LED_RISE,
+    P2=GND,
+)
+pixel_chain = [Net("LED_CHAIN_" + str(i + 1)) for i in range(24)]
+pixel_data = LED_DATA
+for pixel in range(25):
+    next_data = pixel_chain[pixel] if pixel < 24 else NotConnected()
+    RGBPixel(name="LED" + str(pixel + 1), DI=pixel_data, DO=next_data, VDD=LED_5V, GND=GND)
+    Capacitor(
+        name="C" + str(15 + pixel),
+        value="100nF",
+        package="0402",
+        voltage="16V",
+        dielectric="X7R",
+        mpn="GRM155R71C104KA88D",
+        manufacturer="Murata",
+        P1=LED_5V,
+        P2=GND,
+    )
+    pixel_data = next_data
 
 # Shared 3.3 V I2C bus. MAX17048 address 0x36; polling, ALRT unconnected.
 # R6 omitted (DNP option). CELL tied to BAT+ per datasheet pin table p6,
 # despite being internally unconnected on MAX17048.
 MAX17048(name="U3", VBAT=VBAT, GND=GND, SDA=FG_SDA, SCL=FG_SCL)
-Capacitor(name="C3", value="100nF", package="0603", voltage="50V", dielectric="X7R",
-    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=VBAT, P2=GND)
-Resistor(name="R4", value="4.7kohm", package="0603", power="100mW",
-    mpn="RC0603FR-074K7L", manufacturer="YAGEO", P1=FG_SDA, P2=V3V3)
-Resistor(name="R5", value="4.7kohm", package="0603", power="100mW",
-    mpn="RC0603FR-074K7L", manufacturer="YAGEO", P1=FG_SCL, P2=V3V3)
+Capacitor(
+    name="C3",
+    value="100nF",
+    package="0603",
+    voltage="50V",
+    dielectric="X7R",
+    mpn="GCM188R71H104KA57J",
+    manufacturer="Murata",
+    P1=VBAT,
+    P2=GND,
+)
+Resistor(
+    name="R4",
+    value="4.7kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-074K7L",
+    manufacturer="YAGEO",
+    P1=FG_SDA,
+    P2=V3V3,
+)
+Resistor(
+    name="R5",
+    value="4.7kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-074K7L",
+    manufacturer="YAGEO",
+    P1=FG_SCL,
+    P2=V3V3,
+)
 TestPoint(name="TP3", variant="Pad_D1.0mm", P1=FG_SDA)
 TestPoint(name="TP4", variant="Pad_D1.0mm", P1=FG_SCL)
 
 # BMI270 I2C 0x68. Configure active-high push-pull INT1 for software-sleep wake.
 BMI270(name="U4", VDD=V3V3, GND=GND, SDA=FG_SDA, SCL=FG_SCL, INT1=IMU_INT)
-Capacitor(name="C4", value="100nF", package="0603", voltage="50V", dielectric="X7R",
-    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=V3V3, P2=GND)
-Capacitor(name="C5", value="100nF", package="0603", voltage="50V", dielectric="X7R",
-    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=V3V3, P2=GND)
+Capacitor(
+    name="C4",
+    value="100nF",
+    package="0603",
+    voltage="50V",
+    dielectric="X7R",
+    mpn="GCM188R71H104KA57J",
+    manufacturer="Murata",
+    P1=V3V3,
+    P2=GND,
+)
+Capacitor(
+    name="C5",
+    value="100nF",
+    package="0603",
+    voltage="50V",
+    dielectric="X7R",
+    mpn="GCM188R71H104KA57J",
+    manufacturer="Murata",
+    P1=V3V3,
+    P2=GND,
+)
 
 # PCA9685 and external RGB removed. Use XIAO onboard GPIO21 status LED.
-# D0 gates BOTH motor rail and MOSFET; use timed on/off events, not LDO PWM.
-MotorLDO(name="U6", VIN=VBAT, VOUT=MOTOR_3V3, GND=GND, EN=HAPTIC_ARM)
-Resistor(name="R15", value="100kohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=HAPTIC_ARM, P2=GND)
+# U6 is enabled whenever the protected cell is connected; D0 controls only Q1.
+# This removes the former ambiguous simultaneous LDO-enable/MOSFET-gate edge.
+MotorLDO(name="U6", VIN=VBAT, VOUT=MOTOR_3V3, GND=GND, EN=VBAT)
 for ref, rail in [("C7", VBAT), ("C8", MOTOR_3V3)]:
-    Capacitor(name=ref, value="10uF", package="0805", voltage="25V", dielectric="X5R",
-        mpn="CC0805KRX5R8BB106", manufacturer="YAGEO", P1=rail, P2=GND)
-Resistor(name="R7", value="100ohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100RL", manufacturer="YAGEO", P1=HAPTIC_ARM, P2=MOTOR_GATE)
-Resistor(name="R8", value="100kohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=MOTOR_GATE, P2=GND)
+    Capacitor(
+        name=ref,
+        value="10uF",
+        package="0805",
+        voltage="25V",
+        dielectric="X5R",
+        mpn="CC0805KRX5R8BB106",
+        manufacturer="YAGEO",
+        P1=rail,
+        P2=GND,
+    )
+Resistor(
+    name="R7",
+    value="100ohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07100RL",
+    manufacturer="YAGEO",
+    P1=HAPTIC_DRIVE,
+    P2=MOTOR_GATE,
+)
+Resistor(
+    name="R8",
+    value="100kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07100KL",
+    manufacturer="YAGEO",
+    P1=MOTOR_GATE,
+    P2=GND,
+)
 MOSFET_AO3400A_SOT23(name="Q1", G=MOTOR_GATE, S=GND, D=MOTOR_N)
 Flyback(name="D1", K=MOTOR_3V3, A=MOTOR_N)
 B2B_PH_K_S(name="J3", PIN_1=MOTOR_3V3, PIN_2=MOTOR_N)
 
 # Standalone PDM capture and SPI storage. No Sense expansion or camera circuits.
+# J4 is the active Molex 104031-0811 push-pull socket; its detect switch is unused.
 # IM69D130 datasheet: 1.62-3.6 V; SELECT low selects one PDM edge/channel.
 # C9 is the required local 100 nF VDD bypass. R23 holds CLOCK low for the
 # datasheet's clock-off mode. A ~100 ohm DATA termination is optional and must
 # be decided from the eventual trace length/ringing; do not add it blindly.
 Microphone(name="MK1", VDD=V3V3, GND=GND, CLOCK=PDM_CLK, DATA=PDM_DATA)
-MicroSD(name="J4", VDD=V3V3, GND=GND, CLK=SD_CLK, CS=SD_CS,
-    MOSI=SD_MOSI, MISO=SD_MISO, DAT1=SD_DAT1, DAT2=SD_DAT2)
+MicroSD(name="J4", VDD=V3V3, GND=GND, CLK=SD_CLK, CS=SD_CS, MOSI=SD_MOSI, MISO=SD_MISO, DAT1=SD_DAT1, DAT2=SD_DAT2)
 for ref in ["C9", "C10"]:
-    Capacitor(name=ref, value="100nF", package="0603", voltage="50V", dielectric="X7R",
-        mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=V3V3, P2=GND)
-Capacitor(name="C11", value="10uF", package="0805", voltage="25V", dielectric="X5R",
-    mpn="CC0805KRX5R8BB106", manufacturer="YAGEO", P1=V3V3, P2=GND)
+    Capacitor(
+        name=ref,
+        value="100nF",
+        package="0603",
+        voltage="50V",
+        dielectric="X7R",
+        mpn="GCM188R71H104KA57J",
+        manufacturer="Murata",
+        P1=V3V3,
+        P2=GND,
+    )
+Capacitor(
+    name="C11",
+    value="10uF",
+    package="0805",
+    voltage="25V",
+    dielectric="X5R",
+    mpn="CC0805KRX5R8BB106",
+    manufacturer="YAGEO",
+    P1=V3V3,
+    P2=GND,
+)
 for ref, a, b in [("R16", PDM_CLK_MCU, PDM_CLK), ("R17", SD_CLK_MCU, SD_CLK)]:
-    Resistor(name=ref, value="33ohm", package="0603", power="100mW",
-        mpn="RC0603FR-0733RL", manufacturer="YAGEO", P1=a, P2=b)
-for ref, signal in [("R18", SD_CS), ("R19", SD_MOSI), ("R20", SD_MISO),
-                    ("R21", SD_DAT1), ("R22", SD_DAT2)]:
-    Resistor(name=ref, value="47kohm", package="0603", power="100mW",
-        mpn="RC0603FR-0747KL", manufacturer="YAGEO", P1=signal, P2=V3V3)
-Resistor(name="R23", value="100kohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=PDM_CLK, P2=GND)
+    Resistor(
+        name=ref, value="33ohm", package="0603", power="100mW", mpn="RC0603FR-0733RL", manufacturer="YAGEO", P1=a, P2=b
+    )
+for ref, signal in [("R18", SD_CS), ("R19", SD_MOSI), ("R20", SD_MISO), ("R21", SD_DAT1), ("R22", SD_DAT2)]:
+    Resistor(
+        name=ref,
+        value="47kohm",
+        package="0603",
+        power="100mW",
+        mpn="RC0603FR-0747KL",
+        manufacturer="YAGEO",
+        P1=signal,
+        P2=V3V3,
+    )
+Resistor(
+    name="R23",
+    value="100kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07100KL",
+    manufacturer="YAGEO",
+    P1=PDM_CLK,
+    P2=GND,
+)
 
 # C1/C2: exact MPNs from docs/bom.md and retained manufacturer datasheets.
-# R1/R2: DigiKey 311-100KHRCT-ND; R3: 311-2.00KHRCT-ND.
+# R1: DigiKey 311-100KHRCT-ND.
 # These are supplier identities, not a live stock or price guarantee.
-Capacitor(name="C1", value="100nF", package="0603", voltage="50V", dielectric="X7R",
-    mpn="GCM188R71H104KA57J", manufacturer="Murata", P1=VBAT, P2=GND)
-Capacitor(name="C2", value="10uF", package="0805", voltage="25V", dielectric="X5R",
-    mpn="CC0805KRX5R8BB106", manufacturer="YAGEO", P1=VBAT, P2=GND)
-Resistor(name="R1", value="100kohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=RECORD_BUTTON, P2=V3V3)
-Resistor(name="R2", value="100kohm", package="0603", power="100mW",
-    mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=AMP_SD, P2=GND)
-Resistor(name="R3", value="2kohm", package="0603", power="100mW",
-    mpn="RC0603FR-072KL", manufacturer="YAGEO", P1=AMP_ENABLE, P2=AMP_SD)
+Capacitor(
+    name="C1",
+    value="100nF",
+    package="0603",
+    voltage="50V",
+    dielectric="X7R",
+    mpn="GCM188R71H104KA57J",
+    manufacturer="Murata",
+    P1=VBAT,
+    P2=GND,
+)
+Capacitor(
+    name="C2",
+    value="10uF",
+    package="0805",
+    voltage="25V",
+    dielectric="X5R",
+    mpn="CC0805KRX5R8BB106",
+    manufacturer="YAGEO",
+    P1=VBAT,
+    P2=GND,
+)
+Resistor(
+    name="R1",
+    value="100kohm",
+    package="0603",
+    power="100mW",
+    mpn="RC0603FR-07100KL",
+    manufacturer="YAGEO",
+    P1=RECORD_BUTTON,
+    P2=V3V3,
+)
 
 # Harness polarity is explicit, not implied by JST housing shape.
 B2B_PH_K_S(name="J1", PIN_1=VBAT, PIN_2=GND)
-BM02B(name="J2", PIN_1=SPK_P, PIN_2=SPK_N)
 PTS841GKSMTR(name="SW1", SW1=RECORD_BUTTON, SW2=GND)
-# Standby switch only: OFF grounds reset and amplifier shutdown. It does NOT
+# Standby switch only: OFF grounds reset. It does NOT
 # disconnect the cell/charger. Do not route full load through 0.3 A contacts.
-CK_JS202011AQN(name="SW2", POLE1_COMMON=MCU_EN, POLE1_THROW_A=GND,
-    POLE2_COMMON=AMP_SD, POLE2_THROW_A=GND)
+CK_JS202011AQN(name="SW2", POLE1_COMMON=MCU_EN, POLE1_THROW_A=GND)
 for i in range(4):
     MountingHole(name="H" + str(i + 1), diameter="M2", plating="Mechanical")
+
 
 def sourced_passives(c):
     if not hasattr(c, "mpn"):
@@ -172,6 +409,7 @@ def sourced_passives(c):
         c.supplier_part_number = sku
         c.properties["supplier"] = supplier
         c.properties["supplier_part_number"] = sku
+
 
 Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers=[sourced_passives])
 
@@ -199,6 +437,35 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch C9.C x=200.0000 y=2350.0000 rot=0
 # pcb:sch C10.C x=2050.0000 y=2250.0000 rot=0
 # pcb:sch C11.C x=2900.0000 y=2250.0000 rot=0
+# pcb:sch C12.C x=5500.0000 y=300.0000 rot=0
+# pcb:sch C13.C x=6700.0000 y=250.0000 rot=0
+# pcb:sch C14.C x=6900.0000 y=250.0000 rot=0
+# pcb:sch C15.C x=6500.0000 y=1400.0000 rot=0
+# pcb:sch C16.C x=6900.0000 y=1400.0000 rot=0
+# pcb:sch C17.C x=7300.0000 y=1400.0000 rot=0
+# pcb:sch C18.C x=7700.0000 y=1400.0000 rot=0
+# pcb:sch C19.C x=8100.0000 y=1400.0000 rot=0
+# pcb:sch C20.C x=8100.0000 y=1750.0000 rot=0
+# pcb:sch C21.C x=7700.0000 y=1750.0000 rot=0
+# pcb:sch C22.C x=7300.0000 y=1750.0000 rot=0
+# pcb:sch C23.C x=6900.0000 y=1750.0000 rot=0
+# pcb:sch C24.C x=6500.0000 y=1750.0000 rot=0
+# pcb:sch C25.C x=6500.0000 y=2100.0000 rot=0
+# pcb:sch C26.C x=6900.0000 y=2100.0000 rot=0
+# pcb:sch C27.C x=7300.0000 y=2100.0000 rot=0
+# pcb:sch C28.C x=7700.0000 y=2100.0000 rot=0
+# pcb:sch C29.C x=8100.0000 y=2100.0000 rot=0
+# pcb:sch C30.C x=8100.0000 y=2450.0000 rot=0
+# pcb:sch C31.C x=7700.0000 y=2450.0000 rot=0
+# pcb:sch C32.C x=7300.0000 y=2450.0000 rot=0
+# pcb:sch C33.C x=6900.0000 y=2450.0000 rot=0
+# pcb:sch C34.C x=6500.0000 y=2450.0000 rot=0
+# pcb:sch C35.C x=6500.0000 y=2800.0000 rot=0
+# pcb:sch C36.C x=6900.0000 y=2800.0000 rot=0
+# pcb:sch C37.C x=7300.0000 y=2800.0000 rot=0
+# pcb:sch C38.C x=7700.0000 y=2800.0000 rot=0
+# pcb:sch C39.C x=8100.0000 y=2800.0000 rot=0
+# pcb:sch C40.C x=8100.0000 y=550.0000 rot=0
 # pcb:sch D1.D x=4800.0000 y=2050.0000 rot=0
 # pcb:sch GND.1 x=38.1000 y=635.0000 rot=0
 # pcb:sch GND.2 x=101.6000 y=1333.5000 rot=0
@@ -221,9 +488,34 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch H3.MH x=4800.0000 y=3600.0000 rot=0
 # pcb:sch H4.MH x=5250.0000 y=3600.0000 rot=0
 # pcb:sch J1.J_B2B_PH_K_S x=100.0000 y=550.0000 rot=0
-# pcb:sch J2.J_BM02B_ATTRIBUTED x=5200.0000 y=650.0000 rot=0
 # pcb:sch J3.J_B2B_PH_K_S x=5450.0000 y=2400.0000 rot=0
 # pcb:sch J4.SD x=2500.0000 y=2650.0000 rot=0
+# pcb:sch L1.L x=6300.0000 y=300.0000 rot=0
+# pcb:sch LED1.RGB x=6400.0000 y=1200.0000 rot=0
+# pcb:sch LED2.RGB x=6800.0000 y=1200.0000 rot=0
+# pcb:sch LED3.RGB x=7200.0000 y=1200.0000 rot=0
+# pcb:sch LED4.RGB x=7600.0000 y=1200.0000 rot=0
+# pcb:sch LED5.RGB x=8000.0000 y=1200.0000 rot=0
+# pcb:sch LED6.RGB x=8000.0000 y=1550.0000 rot=0
+# pcb:sch LED7.RGB x=7600.0000 y=1550.0000 rot=0
+# pcb:sch LED8.RGB x=7200.0000 y=1550.0000 rot=0
+# pcb:sch LED9.RGB x=6800.0000 y=1550.0000 rot=0
+# pcb:sch LED10.RGB x=6400.0000 y=1550.0000 rot=0
+# pcb:sch LED11.RGB x=6400.0000 y=1900.0000 rot=0
+# pcb:sch LED12.RGB x=6800.0000 y=1900.0000 rot=0
+# pcb:sch LED13.RGB x=7200.0000 y=1900.0000 rot=0
+# pcb:sch LED14.RGB x=7600.0000 y=1900.0000 rot=0
+# pcb:sch LED15.RGB x=8000.0000 y=1900.0000 rot=0
+# pcb:sch LED16.RGB x=8000.0000 y=2250.0000 rot=0
+# pcb:sch LED17.RGB x=7600.0000 y=2250.0000 rot=0
+# pcb:sch LED18.RGB x=7200.0000 y=2250.0000 rot=0
+# pcb:sch LED19.RGB x=6800.0000 y=2250.0000 rot=0
+# pcb:sch LED20.RGB x=6400.0000 y=2250.0000 rot=0
+# pcb:sch LED21.RGB x=6400.0000 y=2600.0000 rot=0
+# pcb:sch LED22.RGB x=6800.0000 y=2600.0000 rot=0
+# pcb:sch LED23.RGB x=7200.0000 y=2600.0000 rot=0
+# pcb:sch LED24.RGB x=7600.0000 y=2600.0000 rot=0
+# pcb:sch LED25.RGB x=8000.0000 y=2600.0000 rot=0
 # pcb:sch MK1.MIC x=750.0000 y=2600.0000 rot=0
 # pcb:sch MOTOR_3V3.1 x=4038.6000 y=1955.8000 rot=0
 # pcb:sch MOTOR_3V3.2 x=4305.3000 y=1485.9000 rot=0
@@ -231,13 +523,10 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch MOTOR_3V3.4 x=5410.2000 y=1930.4000 rot=0
 # pcb:sch Q1.Q_AO3400A x=4850.0000 y=2800.0000 rot=0
 # pcb:sch R1.R x=2000.0000 y=200.0000 rot=0
-# pcb:sch R2.R x=4000.0000 y=1200.0000 rot=0
-# pcb:sch R3.R x=3750.0000 y=950.0000 rot=0
 # pcb:sch R4.R x=1100.0000 y=200.0000 rot=0
 # pcb:sch R5.R x=1500.0000 y=200.0000 rot=0
 # pcb:sch R7.R x=4100.0000 y=2650.0000 rot=0
 # pcb:sch R8.R x=4450.0000 y=3200.0000 rot=0
-# pcb:sch R15.R x=3500.0000 y=2400.0000 rot=0
 # pcb:sch R16.R x=200.0000 y=2850.0000 rot=0
 # pcb:sch R17.R x=1900.0000 y=2800.0000 rot=0
 # pcb:sch R18.R x=1800.0000 y=3300.0000 rot=0
@@ -246,16 +535,20 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch R21.R x=2850.0000 y=3300.0000 rot=0
 # pcb:sch R22.R x=3200.0000 y=3300.0000 rot=0
 # pcb:sch R23.R x=550.0000 y=3200.0000 rot=0
-# pcb:sch R24.R x=3800.0000 y=350.0000 rot=0
+# pcb:sch R25.R x=6700.0000 y=650.0000 rot=0
+# pcb:sch R26.R x=6900.0000 y=650.0000 rot=0
+# pcb:sch R27.R x=5500.0000 y=700.0000 rot=0
+# pcb:sch R28.R x=5900.0000 y=950.0000 rot=0
 # pcb:sch SW1.SW_PTS841 x=2000.0000 y=600.0000 rot=0
 # pcb:sch SW2.SW_JS202011AQN x=2400.0000 y=1550.0000 rot=0
 # pcb:sch TP3.TP x=1150.0000 y=600.0000 rot=0
 # pcb:sch TP4.TP x=1550.0000 y=850.0000 rot=0
 # pcb:sch U1.XIAO x=2450.0000 y=850.0000 rot=0
-# pcb:sch U2.MAX98357AETE_T x=4350.0000 y=650.0000 rot=0
 # pcb:sch U3.FG x=650.0000 y=550.0000 rot=0
 # pcb:sch U4.IMU x=650.0000 y=1600.0000 rot=0
+# pcb:sch U5.U_TPS61023 x=5900.0000 y=300.0000 rot=0
 # pcb:sch U6.LDO x=3900.0000 y=2050.0000 rot=0
+# pcb:sch U7.U_TPS22918 x=7500.0000 y=450.0000 rot=0
 # pcb:sch V3V3.1 x=114.3000 y=1181.1000 rot=0
 # pcb:sch V3V3.2 x=114.3000 y=2324.1000 rot=0
 # pcb:sch V3V3.3 x=609.6000 y=1536.7000 rot=0

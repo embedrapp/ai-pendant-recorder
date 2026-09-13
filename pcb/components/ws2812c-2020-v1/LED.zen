@@ -1,0 +1,12 @@
+"""Worldsemi WS2812C-2020-V1 low-current 2020 addressable RGB LED."""
+DI = io("DI", Net)
+DO = io("DO", Net)
+VDD = io("VDD", Power)
+GND = io("GND", Ground)
+Component(name="RGB", prefix="LED",
+    symbol=Symbol(library="WS2812C_2020_V1.kicad_sym", name="WS2812C_2020_V1"),
+    footprint=File("WS2812C_2020_V1.kicad_mod"),
+    part=Part(mpn="WS2812C-2020-V1", manufacturer="Worldsemi"),
+    datasheet="https://datasheet.lcsc.com/datasheet/pdf/09f4c697250f44092a00c11d7628f2c6.pdf?productCode=C2976072",
+    description="2.0 mm addressable RGB LED, 5 mA/channel, 3.7-5.3 V, LCSC C2976072",
+    pins={"DO": DO, "GND": GND, "DI": DI, "VDD": VDD})
