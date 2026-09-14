@@ -1,0 +1,29 @@
+"""TI TPS2553DBVR precision current-limited high-side power switch."""
+
+VIN = io(Power(voltage="2.5V - 6.5V"))
+VOUT = io(Power(voltage="0V - 6.5V"))
+GND = io(Ground)
+EN = io(Net("TPS2553_EN"))
+
+Component(
+    name="U_TPS2553",
+    prefix="U",
+    description="TI TPS2553DBVR active-high precision current-limited power switch",
+    symbol=Symbol(library="TPS2553DBV.kicad_sym", name="TPS2553DBV"),
+    footprint=File("../tps22918/assets/SOT-23-6.kicad_mod"),
+    part=Part(mpn="TPS2553DBVR", manufacturer="Texas Instruments"),
+    datasheet="https://www.ti.com/lit/gpn/TPS2553",
+    pins={
+        "IN": VIN,
+        "GND": GND,
+        "EN": EN,
+        "~{FAULT}": NotConnected(),
+        "ILIM": VIN,
+        "OUT": VOUT,
+    },
+    properties={
+        "current_limit_configuration": "ILIM shorted to IN",
+        "current_limit_range": "50 mA minimum, 75 mA typical, 100 mA maximum",
+        "package": "DBV SOT-23-6",
+    },
+)
