@@ -396,68 +396,16 @@ for i in range(4):
     MountingHole(name="H" + str(i + 1), diameter="M2", plating="Mechanical")
 
 
-PURCHASE_LINKS = {
-    "GCM188R71H104KA57J": "https://www.digikey.in/en/products/detail/murata-electronics/GCM188R71H104KA57J/4380305",
-    "CC0805KRX5R8BB106": "https://www.mouser.in/en/ProductDetail/YAGEO/CC0805KRX5R8BB106?qs=CNuWj9FTWYDQ%252BJODP2bXGA%3D%3D",
-    "NSVR0320MW2T1G": "https://in.element14.com/on-semiconductor/nsvr0320mw2t1g/schottky-diode-20v-sod-323/dp/2533249",
-    "B2B-PH-K-S": "https://www.digikey.in/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611",
-    "104031-0811": "https://www.mouser.in/en/ProductDetail/Molex/104031-0811?qs=udsGRKD4nA3Tvy7wqky%252BuA%3D%3D",
-    "AO3400A": "https://www.digikey.in/en/products/detail/alpha-omega-semiconductor-inc/AO3400A/1855772",
-    "RC0603FR-07100KL": "https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889",
-    "RC0603FR-074K7L": "https://www.digikey.in/en/products/detail/yageo/RC0603FR-074K7L/727212",
-    "RC0603FR-07100RL": "https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100RL/726888",
-    "JS202011AQN": "https://www.digikey.in/en/products/detail/c-k/JS202011AQN/1640096",
-    "113991114": "https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html",
-    "MAX17048G+T10": "https://www.digikey.in/en/products/detail/analog-devices-inc-maxim-integrated/MAX17048G-T10/3758921?s=N4IgTCBcDaILIEEAaBGA7ABgCwA4DiA1ACooYgC6AvkA",
-    "BMI270": "https://www.digikey.in/en/products/detail/bosch-sensortec/BMI270/9974486",
-    "WS2812C-2020-V1": "https://www.lcsc.com/product-detail/C2976072.html",
-    "GRM155R71C104KA88D": "https://in.element14.com/murata/grm155r71c104ka88d/cap-mlcc-0-1uf-x7r-16v-0402/dp/4326785",
-    "TPS61023DRLR": "https://www.mouser.in/en/ProductDetail/Texas-Instruments/TPS61023DRLR?qs=BJlw7L4Cy7%2FfEnwYuWeGOg%3D%3D",
-    "TPS22918DBVR": "https://www.mouser.in/en/ProductDetail/Texas-Instruments/TPS22918DBVR?qs=f4l5qYp%2Fy%252B5F7w5ZAgmi7A%3D%3D",
-    "XEL4030-102MEC": "https://www.mouser.in/en/ProductDetail/Coilcraft/XEL4030-102MEC?qs=chTDxNqvsynxP6L4IWrGOQ%3D%3D",
-    "GRM21BR61A226ME44L": "https://www.mouser.in/en/ProductDetail/Murata-Electronics/GRM21BR61A226ME44L?qs=eeBpzGFlv%2B8tSfxib2AMhw%3D%3D",
-    "RC0603FR-07732KL": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-07732KL/727376",
-    "GRM1555C1E102JA01D": "https://www.mouser.in/en/ProductDetail/Murata-Electronics/GRM1555C1E102JA01D?qs=y02iAgv9n62vwTD5aUQSxQ%3D%3D",
-    "IM69D130V01XTSA1": "https://in.element14.com/infineon/im69d130v01xtsa1/mems-microphone-3-6v-module/dp/2986420",
-    "AP2112K-3.3TRG1": "https://in.element14.com/diodes-inc/ap2112k-3-3trg1/ldo-fixed-3-3v-0-6a-sot-25-85deg/dp/3257429",
-    "RC0603FR-0733RL": "https://in.element14.com/yageo/rc0603fr-0733rl/res-33r-1-0-1w-0603-thick-film/dp/9238301",
-    "RC0603FR-0747KL": "https://in.element14.com/yageo/rc0603fr-0747kl/res-47k-1-0-1w-0603-thick-film/dp/9238689",
-    "RC0603FR-07470RL": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-07470RL/727256",
-    "PTS841GKSMTR LFS": "https://www.digikey.com/en/products/detail/c-k/PTS841GKSMTR-LFS/10445315"
-}
-DATASHEET_INDEX = {
-    "IM69D130V01XTSA1": "ds_097425d603a5861ea83c",
-    "AP2112K-3.3TRG1": "ds_943f1f6e10cbb0789dbb",
-    "GRM1555C1E102JA01D": "ds_baaefb1272b27c705358",
-    "GRM21BR61A226ME44L": "ds_9d09f353be4df0f321db",
-    "GRM155R71C104KA88D": "ds_30c2edbd41f53ac917fb",
-    "TPS61023DRLR": "ds_c3d679f9c6eab3a775cd",
-    "TPS22918DBVR": "ds_61aa790c3c3008f98c5e",
-    "104031-0811": "ds_f2a383fc62e80e613220",
-    "XEL4030-102MEC": "ds_293e09d408f8109bb968",
-    "WS2812C-2020-V1": "ds_f7eaed7171762f8cbf8e",
-    "RC0603FR-07100KL": "ds_7f87b9b9c3e0a80c68cc",
-    "RC0603FR-074K7L": "ds_7f87b9b9c3e0a80c68cc",
-    "RC0603FR-07100RL": "ds_7f87b9b9c3e0a80c68cc",
-    "RC0603FR-07732KL": "ds_7f87b9b9c3e0a80c68cc",
-    "RC0603FR-0733RL": "ds_7f87b9b9c3e0a80c68cc",
-    "RC0603FR-0747KL": "ds_7f87b9b9c3e0a80c68cc",
-    "RC0603FR-07470RL": "ds_7f87b9b9c3e0a80c68cc"
-}
-
 def sourced_passives(c):
     if not hasattr(c, "mpn"):
         return
-    if c.mpn in PURCHASE_LINKS:
-        c.properties["source_url"] = PURCHASE_LINKS[c.mpn]
-        c.properties["note"] = "User-confirmed purchase link and in-stock status; no numeric stock or price provided."
-    if c.mpn in DATASHEET_INDEX:
-        c.properties["datasheet"] = "https://www.embedr.app/api/datasheets/" + DATASHEET_INDEX[c.mpn] + "/pdf"
     sources = {
         "RC0603FR-07100KL": ("YAGEO", "DigiKey", "311-100KHRCT-ND"),
+        "RC0603FR-072KL": ("YAGEO", "DigiKey", "311-2.00KHRCT-ND"),
         "PTS841GKSMTR LFS": ("C&K", "DigiKey", "108-PTS841GKSMTRLFSCT-ND"),
         "JS202011AQN": ("C&K", "DigiKey", "401-2000-ND"),
         "B2B-PH-K-S": ("J.S.T. Mfg. Co., Ltd.", "DigiKey", "455-1704-ND"),
+        "BM02B-SRSS-TB(LF)(SN)": ("JST", "DigiKey", "455-1788-1-ND"),
     }
     if c.mpn in sources:
         mfr, supplier, sku = sources[c.mpn]

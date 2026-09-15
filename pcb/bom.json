@@ -2,7 +2,7 @@
   "version": 2,
   "source": "zener-evaluation",
   "sourceFile": "/Users/rishabhsinha/EmbedrProjects/ai_pendant_recorder/pcb/ai_pendant_recorder.zen",
-  "generatedAt": "2026-09-13T11:01:04.247Z",
+  "generatedAt": "2026-09-15T06:50:15.345Z",
   "displayCurrency": "USD",
   "buildQty": 1,
   "items": [
@@ -40,7 +40,12 @@
       "description": "100nF 50V X7R",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "ddd8bca8aa13202b508cd95d"
+      "itemKey": "ddd8bca8aa13202b508cd95d",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/murata-electronics/GCM188R71H104KA57J/4380305",
+        "updatedAt": "2026-09-15T06:50:14.071Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 5,
@@ -74,7 +79,12 @@
       "description": "10uF 25V X5R",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "9796d6418457ad303412e4f5"
+      "itemKey": "9796d6418457ad303412e4f5",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/en/ProductDetail/YAGEO/CC0805KRX5R8BB106?qs=CNuWj9FTWYDQ%252BJODP2bXGA%3D%3D",
+        "updatedAt": "2026-09-15T06:50:14.074Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 2,
@@ -102,7 +112,14 @@
       "description": "22uF 10V X5R",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "a696a5aa977275adc01f9de6"
+      "itemKey": "a696a5aa977275adc01f9de6",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/en/ProductDetail/Murata-Electronics/GRM21BR61A226ME44L?qs=eeBpzGFlv%2B8tSfxib2AMhw%3D%3D",
+        "datasheetId": "ds_9d09f353be4df0f321db",
+        "updatedAt": "2026-09-15T06:49:29.479Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_9d09f353be4df0f321db"
     },
     {
       "quantity": 25,
@@ -176,7 +193,16 @@
       "description": "100nF 16V X7R",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "8558df28fde8b94104353b7b"
+      "itemKey": "8558df28fde8b94104353b7b",
+      "sourcing": {
+        "supplier": "element14",
+        "supplierPartNumber": "4326785",
+        "sourceUrl": "https://in.element14.com/murata/grm155r71c104ka88d/cap-mlcc-0-1uf-x7r-16v-0402/dp/4326785",
+        "datasheetId": "ds_30c2edbd41f53ac917fb",
+        "updatedAt": "2026-09-15T06:48:53.443Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_30c2edbd41f53ac917fb"
     },
     {
       "quantity": 1,
@@ -202,7 +228,15 @@
       "description": "1nF 25V C0G",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "4ffc83eb9fb8e3843c179527"
+      "itemKey": "4ffc83eb9fb8e3843c179527",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/en/ProductDetail/Murata-Electronics/GRM1555C1E102JA01D?qs=y02iAgv9n62vwTD5aUQSxQ%3D%3D",
+        "datasheetId": "ds_baaefb1272b27c705358",
+        "note": "User confirms stock. Manufacturer search flags NRND; lifecycle review before production.",
+        "updatedAt": "2026-09-15T06:49:29.481Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_baaefb1272b27c705358"
     },
     {
       "quantity": 1,
@@ -228,7 +262,12 @@
       "description": "",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "b3bf47385996e4e83ff1c6f6"
+      "itemKey": "b3bf47385996e4e83ff1c6f6",
+      "sourcing": {
+        "sourceUrl": "https://in.element14.com/on-semiconductor/nsvr0320mw2t1g/schottky-diode-20v-sod-323/dp/2533249",
+        "updatedAt": "2026-09-15T06:50:14.075Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 2,
@@ -256,7 +295,12 @@
       "description": "JST PH series 2-position top-entry shrouded through-hole header, 2.00 mm pitch.",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "58bdb4b44e31a1a5f25bf09c"
+      "itemKey": "58bdb4b44e31a1a5f25bf09c",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611",
+        "updatedAt": "2026-09-15T06:50:14.076Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 1,
@@ -282,7 +326,14 @@
       "description": "Active 1.42 mm push-pull microSD socket; front entry; normally-open card detect",
       "datasheet": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/104/104031/1040310811_sd.pdf",
       "configuration": "Configured",
-      "itemKey": "ece8d48445378ad829ee0c2d"
+      "itemKey": "ece8d48445378ad829ee0c2d",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/en/ProductDetail/Molex/104031-0811?qs=udsGRKD4nA3Tvy7wqky%252BuA%3D%3D",
+        "datasheetId": "ds_f2a383fc62e80e613220",
+        "updatedAt": "2026-09-15T06:49:29.484Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_f2a383fc62e80e613220"
     },
     {
       "quantity": 1,
@@ -308,7 +359,14 @@
       "description": "1 uH +/-20%, 9 A Isat, 9.78 mOhm max DCR shielded inductor",
       "datasheet": "https://www.coilcraft.com/getmedia/8245f050-f190-4295-8c41-7c03d662ee3d/xel4030.pdf",
       "configuration": "Configured",
-      "itemKey": "62a56fd825eedd38e21acea7"
+      "itemKey": "62a56fd825eedd38e21acea7",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/en/ProductDetail/Coilcraft/XEL4030-102MEC?qs=chTDxNqvsynxP6L4IWrGOQ%3D%3D",
+        "datasheetId": "ds_293e09d408f8109bb968",
+        "updatedAt": "2026-09-15T06:49:29.484Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_293e09d408f8109bb968"
     },
     {
       "quantity": 25,
@@ -382,7 +440,16 @@
       "description": "2.0 mm addressable RGB LED, 5 mA/channel, 3.7-5.3 V, LCSC C2976072",
       "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/09f4c697250f44092a00c11d7628f2c6.pdf?productCode=C2976072",
       "configuration": "Configured",
-      "itemKey": "9a199368604b063a3f220034"
+      "itemKey": "9a199368604b063a3f220034",
+      "sourcing": {
+        "supplier": "LCSC",
+        "supplierPartNumber": "C2976072",
+        "sourceUrl": "https://www.lcsc.com/product-detail/C2976072.html",
+        "datasheetId": "ds_f7eaed7171762f8cbf8e",
+        "updatedAt": "2026-09-15T06:50:14.077Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_f7eaed7171762f8cbf8e"
     },
     {
       "quantity": 1,
@@ -408,7 +475,17 @@
       "description": "Bottom-port PDM microphone; SELECT low; place 100nF at VDD and provide PCB acoustic opening",
       "datasheet": "https://www.infineon.com/row/public/documents/24/49/infineon-im69d130-datasheet-en.pdf",
       "configuration": "Configured",
-      "itemKey": "04c22d025597497aa00b993c"
+      "itemKey": "04c22d025597497aa00b993c",
+      "sourcing": {
+        "supplier": "element14",
+        "supplierPartNumber": "2986420",
+        "sourceUrl": "https://in.element14.com/infineon/im69d130v01xtsa1/mems-microphone-3-6v-module/dp/2986420",
+        "datasheetId": "ds_097425d603a5861ea83c",
+        "note": "User-confirmed in stock; quantity and price unspecified.",
+        "updatedAt": "2026-09-15T06:48:53.437Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_097425d603a5861ea83c"
     },
     {
       "quantity": 1,
@@ -434,7 +511,12 @@
       "description": "Alpha & Omega Semiconductor AO3400A 30 V N-channel MOSFET in SOT-23",
       "datasheet": "https://www.aosmd.com/res/datasheets/AO3400A.pdf",
       "configuration": "Configured",
-      "itemKey": "054955013c8cf012a3e0701c"
+      "itemKey": "054955013c8cf012a3e0701c",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/alpha-omega-semiconductor-inc/AO3400A/1855772",
+        "updatedAt": "2026-09-15T06:50:14.078Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 5,
@@ -468,7 +550,14 @@
       "description": "100k 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "bcc0d1bdda12bed402fd765b"
+      "itemKey": "bcc0d1bdda12bed402fd765b",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:50:14.079Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 2,
@@ -496,7 +585,14 @@
       "description": "4.7k 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "3d5cf095bd18741fc134a4f9"
+      "itemKey": "3d5cf095bd18741fc134a4f9",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/yageo/RC0603FR-074K7L/727212",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:50:14.079Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 1,
@@ -522,7 +618,14 @@
       "description": "100 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "6ee57b4c0b1d852fad6fc39d"
+      "itemKey": "6ee57b4c0b1d852fad6fc39d",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100RL/726888",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:50:14.080Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 2,
@@ -550,7 +653,16 @@
       "description": "33 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "ef8577d7c08d00a36fe800a7"
+      "itemKey": "ef8577d7c08d00a36fe800a7",
+      "sourcing": {
+        "supplier": "element14",
+        "supplierPartNumber": "9238301",
+        "sourceUrl": "https://in.element14.com/yageo/rc0603fr-0733rl/res-33r-1-0-1w-0603-thick-film/dp/9238301",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:48:53.439Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 5,
@@ -584,7 +696,16 @@
       "description": "47k 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "9f353de10023636f25b367f5"
+      "itemKey": "9f353de10023636f25b367f5",
+      "sourcing": {
+        "supplier": "element14",
+        "supplierPartNumber": "9238689",
+        "sourceUrl": "https://in.element14.com/yageo/rc0603fr-0747kl/res-47k-1-0-1w-0603-thick-film/dp/9238689",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:48:53.440Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 1,
@@ -610,7 +731,14 @@
       "description": "732k 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "30138aee6c108b5fef849072"
+      "itemKey": "30138aee6c108b5fef849072",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-07732KL/727376",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:50:14.081Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 1,
@@ -636,7 +764,16 @@
       "description": "470 100mW",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "cfc25097bf1dabf11a01a2e6"
+      "itemKey": "cfc25097bf1dabf11a01a2e6",
+      "sourcing": {
+        "supplier": "DigiKey",
+        "supplierPartNumber": "311-470HRCT-ND",
+        "sourceUrl": "https://www.digikey.com/en/products/detail/yageo/RC0603FR-07470RL/727256",
+        "datasheetId": "ds_7f87b9b9c3e0a80c68cc",
+        "updatedAt": "2026-09-15T06:48:53.443Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
       "quantity": 1,
@@ -662,7 +799,12 @@
       "description": "",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "e4fd77f6734ae195cef65b7b"
+      "itemKey": "e4fd77f6734ae195cef65b7b",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.com/en/products/detail/c-k/PTS841GKSMTR-LFS/10445315",
+        "updatedAt": "2026-09-15T06:50:14.082Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 1,
@@ -688,7 +830,12 @@
       "description": "C&K JS202011AQN DPDT ON-ON slide switch, right-angle THT, 0.3 A at 6 VDC",
       "datasheet": "https://www.ckswitches.com/media/1422/js.pdf",
       "configuration": "Configured",
-      "itemKey": "54274611c47ce9acb354e0ca"
+      "itemKey": "54274611c47ce9acb354e0ca",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/c-k/JS202011AQN/1640096",
+        "updatedAt": "2026-09-15T06:50:14.083Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 1,
@@ -714,7 +861,12 @@
       "description": "Base XIAO ESP32S3, no Sense expansion, direct-solder SMD",
       "datasheet": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/",
       "configuration": "Configured",
-      "itemKey": "dc4bcb65dc8e6691e025251b"
+      "itemKey": "dc4bcb65dc8e6691e025251b",
+      "sourcing": {
+        "sourceUrl": "https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html",
+        "updatedAt": "2026-09-15T06:50:14.083Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 1,
@@ -740,7 +892,12 @@
       "description": "Analog Devices/Maxim MAX17048G+T10 1-cell Li+ ModelGauge fuel gauge, 8-TDFN-EP",
       "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/max17048-max17049.pdf",
       "configuration": "Configured",
-      "itemKey": "a6390addaf4c761deb0c6d96"
+      "itemKey": "a6390addaf4c761deb0c6d96",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/analog-devices-inc-maxim-integrated/MAX17048G-T10/3758921",
+        "updatedAt": "2026-09-15T06:50:14.084Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 1,
@@ -766,7 +923,12 @@
       "description": "",
       "datasheet": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi270-ds000.pdf",
       "configuration": "Configured",
-      "itemKey": "864f4dd01f799bb668f2a1b7"
+      "itemKey": "864f4dd01f799bb668f2a1b7",
+      "sourcing": {
+        "sourceUrl": "https://www.digikey.in/en/products/detail/bosch-sensortec/BMI270/9974486",
+        "updatedAt": "2026-09-15T06:50:14.085Z",
+        "updatedBy": "agent"
+      }
     },
     {
       "quantity": 1,
@@ -792,7 +954,14 @@
       "description": "TI TPS61023DRLR 0.5 V to 5.5 V, 3.7 A synchronous boost converter",
       "datasheet": "https://www.ti.com/lit/ds/symlink/tps61023.pdf",
       "configuration": "Configured",
-      "itemKey": "fdab4cb44e0c40a5f68cd4ab"
+      "itemKey": "fdab4cb44e0c40a5f68cd4ab",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/en/ProductDetail/Texas-Instruments/TPS61023DRLR?qs=BJlw7L4Cy7%2FfEnwYuWeGOg%3D%3D",
+        "datasheetId": "ds_c3d679f9c6eab3a775cd",
+        "updatedAt": "2026-09-15T06:49:29.482Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_c3d679f9c6eab3a775cd"
     },
     {
       "quantity": 1,
@@ -818,7 +987,16 @@
       "description": "",
       "datasheet": "",
       "configuration": "Configured",
-      "itemKey": "de293b91471bb8b696d39d8c"
+      "itemKey": "de293b91471bb8b696d39d8c",
+      "sourcing": {
+        "supplier": "element14",
+        "supplierPartNumber": "3257429",
+        "sourceUrl": "https://in.element14.com/diodes-inc/ap2112k-3-3trg1/ldo-fixed-3-3v-0-6a-sot-25-85deg/dp/3257429",
+        "datasheetId": "ds_943f1f6e10cbb0789dbb",
+        "updatedAt": "2026-09-15T06:48:53.438Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_943f1f6e10cbb0789dbb"
     },
     {
       "quantity": 1,
@@ -844,7 +1022,14 @@
       "description": "TI TPS22918DBVR 1 V to 5.5 V, 2 A, 52 mOhm load switch",
       "datasheet": "https://www.ti.com/lit/gpn/TPS22918",
       "configuration": "Configured",
-      "itemKey": "1f1c0803d5ad3aec8074dca4"
+      "itemKey": "1f1c0803d5ad3aec8074dca4",
+      "sourcing": {
+        "sourceUrl": "https://www.mouser.in/ProductDetail/Texas-Instruments/TPS22918DBVR?qs=f4l5qYp%2Fy%252B5F7w5ZAgmi7A%3D%3D",
+        "datasheetId": "ds_61aa790c3c3008f98c5e",
+        "updatedAt": "2026-09-15T06:49:29.483Z",
+        "updatedBy": "agent"
+      },
+      "datasheetId": "ds_61aa790c3c3008f98c5e"
     }
   ],
   "summary": {
@@ -853,8 +1038,8 @@
     "populatedCount": 96,
     "configuredCount": 96,
     "needsDetailsCount": 0,
-    "sourcedCount": 4,
+    "sourcedCount": 11,
     "dnpCount": 0
   },
-  "sourceMtimeMs": 1789297259602.0615
+  "sourceMtimeMs": 1789454822628.0881
 }

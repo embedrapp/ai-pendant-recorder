@@ -10,33 +10,33 @@ remains time-sensitive. See [validation and GPIO map](base-redesign.md).
 
 | Qty | Source refs | MPN | Value / function | Existing sourcing link |
 |---:|---|---|---|---|
-| 6 | C1 / C3 / C4 / C5 / C9 / C10 | GCM188R71H104KA57J | 100nF 50V X7R | [Purchase](https://www.digikey.in/en/products/detail/murata-electronics/GCM188R71H104KA57J/4380305) |
-| 5 | C2 / C7 / C8 / C11 / C12 | CC0805KRX5R8BB106 | 10uF 25V X5R | [Purchase](https://www.mouser.in/en/ProductDetail/YAGEO/CC0805KRX5R8BB106?qs=CNuWj9FTWYDQ%252BJODP2bXGA%3D%3D) |
-| 1 | D1 | NSVR0320MW2T1G | NSVR0320 | [Purchase](https://in.element14.com/on-semiconductor/nsvr0320mw2t1g/schottky-diode-20v-sod-323/dp/2533249) |
-| 2 | J1 / J3 | B2B-PH-K-S | JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical | [Purchase](https://www.digikey.in/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611) |
-| 1 | J4 | 104031-0811 | Molex 1.42 mm push-pull microSD socket with detect | [Purchase](https://www.mouser.in/en/ProductDetail/Molex/104031-0811?qs=udsGRKD4nA3Tvy7wqky%252BuA%3D%3D) |
-| 1 | MK1 | IM69D130V01XTSA1 | IM69D130 | [Purchase](https://in.element14.com/infineon/im69d130v01xtsa1/mems-microphone-3-6v-module/dp/2986420) |
-| 1 | Q1 | AO3400A | SOT-23 | [Purchase](https://www.digikey.in/en/products/detail/alpha-omega-semiconductor-inc/AO3400A/1855772) |
-| 5 | R1 / R8 / R23 / R26 / R27 | RC0603FR-07100KL | 100k 100mW | [Purchase](https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889) |
-| 2 | R4 / R5 | RC0603FR-074K7L | 4.7k 100mW | [Purchase](https://www.digikey.in/en/products/detail/yageo/RC0603FR-074K7L/727212) |
-| 1 | R7 | RC0603FR-07100RL | 100 100mW | [Purchase](https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100RL/726888) |
-| 2 | R16 / R17 | RC0603FR-0733RL | 33 100mW | [Purchase](https://in.element14.com/yageo/rc0603fr-0733rl/res-33r-1-0-1w-0603-thick-film/dp/9238301) |
-| 5 | R18 / R19 / R20 / R21 / R22 | RC0603FR-0747KL | 47k 100mW | [Purchase](https://in.element14.com/yageo/rc0603fr-0747kl/res-47k-1-0-1w-0603-thick-film/dp/9238689) |
-| 1 | SW1 | PTS841GKSMTR LFS | PTS841GK | [Purchase](https://www.digikey.com/en/products/detail/c-k/PTS841GKSMTR-LFS/10445315) |
-| 1 | SW2 | JS202011AQN | SW_CK_JS202011AQN_DPDT_Angled | [Purchase](https://www.digikey.in/en/products/detail/c-k/JS202011AQN/1640096) |
-| 1 | U1 | 113991114 | XIAO | [Purchase](https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html) |
-| 1 | U3 | MAX17048G+T10 | kicad_footprint | [Purchase](https://www.digikey.in/en/products/detail/analog-devices-inc-maxim-integrated/MAX17048G-T10/3758921?s=N4IgTCBcDaILIEEAaBGA7ABgCwA4DiA1ACooYgC6AvkA) |
-| 1 | U4 | BMI270 | BMI270 | [Purchase](https://www.digikey.in/en/products/detail/bosch-sensortec/BMI270/9974486) |
-| 1 | U6 | AP2112K-3.3TRG1 | AP2112K_3V3 | [Purchase](https://in.element14.com/diodes-inc/ap2112k-3-3trg1/ldo-fixed-3-3v-0-6a-sot-25-85deg/dp/3257429) |
-| 25 | LED1–LED25 | WS2812C-2020-V1 | 2.0 mm addressable RGB, 5 mA/channel | [Purchase](https://www.lcsc.com/product-detail/C2976072.html) |
-| 25 | C15–C39 | GRM155R71C104KA88D | 100 nF 16 V X7R 0402, one per pixel | [Purchase](https://in.element14.com/murata/grm155r71c104ka88d/cap-mlcc-0-1uf-x7r-16v-0402/dp/4326785) |
-| 1 | U5 | TPS61023DRLR | 5 V synchronous boost converter | [Purchase](https://www.mouser.in/en/ProductDetail/Texas-Instruments/TPS61023DRLR?qs=BJlw7L4Cy7%2FfEnwYuWeGOg%3D%3D) |
-| 1 | U7 | TPS22918DBVR | 2 A load switch, switched LED rail | [Purchase](https://www.mouser.in/en/ProductDetail/Texas-Instruments/TPS22918DBVR?qs=f4l5qYp%2Fy%252B5F7w5ZAgmi7A%3D%3D) |
-| 1 | L1 | XEL4030-102MEC | 1 uH shielded power inductor | [Purchase](https://www.mouser.in/en/ProductDetail/Coilcraft/XEL4030-102MEC?qs=chTDxNqvsynxP6L4IWrGOQ%3D%3D) |
-| 2 | C13 / C14 | GRM21BR61A226ME44L | 22 uF 10 V X5R 0805 | [Purchase](https://www.mouser.in/en/ProductDetail/Murata-Electronics/GRM21BR61A226ME44L?qs=eeBpzGFlv%2B8tSfxib2AMhw%3D%3D) |
-| 1 | R25 | RC0603FR-07732KL | 732k 1% boost feedback | [Purchase](https://www.digikey.com/en/products/detail/yageo/RC0603FR-07732KL/727376) |
-| 1 | R28 | RC0603FR-07470RL | 470 ohm LED data series resistor | [Purchase](https://www.digikey.com/en/products/detail/yageo/RC0603FR-07470RL/727256) |
-| 1 | C40 | GRM1555C1E102JA01D | 1 nF 25 V C0G 0402, TPS22918 rise-time control | [Purchase](https://www.mouser.in/en/ProductDetail/Murata-Electronics/GRM1555C1E102JA01D?qs=y02iAgv9n62vwTD5aUQSxQ%3D%3D) |
+| 6 | C1 / C3 / C4 / C5 / C9 / C10 | GCM188R71H104KA57J | 100nF 50V X7R | [existing supplier](https://www.digikey.in/en/products/detail/murata-electronics/GCM188R71H104KA57J/4380305) |
+| 4 | C2 / C7 / C8 / C11 | CC0805KRX5R8BB106 | 10uF 25V X5R | [existing supplier](https://www.mouser.in/en/ProductDetail/YAGEO/CC0805KRX5R8BB106?qs=CNuWj9FTWYDQ%252BJODP2bXGA%3D%3D) |
+| 1 | D1 | NSVR0320MW2T1G | NSVR0320 | [existing supplier](https://in.element14.com/on-semiconductor/nsvr0320mw2t1g/schottky-diode-20v-sod-323/dp/2533249) |
+| 2 | J1 / J3 | B2B-PH-K-S | JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical | [existing supplier](https://www.digikey.in/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611) |
+| 1 | J4 | 104031-0811 | Molex 1.42 mm push-pull microSD socket with detect | [Molex](https://www.molex.com/en-us/products/part-detail/1040310811) |
+| 1 | MK1 | IM69D130V01XTSA1 | IM69D130 | **Link needed** |
+| 1 | Q1 | AO3400A | SOT-23 | [existing supplier](https://www.digikey.in/en/products/detail/alpha-omega-semiconductor-inc/AO3400A/1855772) |
+| 5 | R1 / R8 / R23 / R26 / R27 | RC0603FR-07100KL | 100k 100mW | [existing supplier](https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100KL/726889) |
+| 2 | R4 / R5 | RC0603FR-074K7L | 4.7k 100mW | [existing supplier](https://www.digikey.in/en/products/detail/yageo/RC0603FR-074K7L/727212) |
+| 1 | R7 | RC0603FR-07100RL | 100 100mW | [existing supplier](https://www.digikey.in/en/products/detail/yageo/RC0603FR-07100RL/726888) |
+| 2 | R16 / R17 | RC0603FR-0733RL | 33 100mW | **Link needed** |
+| 5 | R18 / R19 / R20 / R21 / R22 | RC0603FR-0747KL | 47k 100mW | **Link needed** |
+| 1 | SW1 | PTS841GKSMTR LFS | PTS841GK | **Link needed** |
+| 1 | SW2 | JS202011AQN | SW_CK_JS202011AQN_DPDT_Angled | [existing supplier](https://www.digikey.in/en/products/detail/c-k/JS202011AQN/1640096) |
+| 1 | U1 | 113991114 | XIAO | [Seeed base board](https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html); India supplier link needed |
+| 1 | U3 | MAX17048G+T10 | kicad_footprint | [existing supplier](https://www.digikey.in/en/products/detail/analog-devices-inc-maxim-integrated/MAX17048G-T10/3758921?s=N4IgTCBcDaILIEEAaBGA7ABgCwA4DiA1ACooYgC6AvkA) |
+| 1 | U4 | BMI270 | BMI270 | [existing supplier](https://www.digikey.in/en/products/detail/bosch-sensortec/BMI270/9974486) |
+| 1 | U6 | AP2112K-3.3TRG1 | AP2112K_3V3 | **Link needed** |
+| 25 | LED1–LED25 | WS2812C-2020-V1 | 2.0 mm addressable RGB, 5 mA/channel | [LCSC C2976072](https://www.lcsc.com/product-detail/C2976072.html) |
+| 25 | C15–C39 | GRM155R71C104KA88D | 100 nF 16 V X7R 0402, one per pixel | [Murata](https://pim.murata.com/en-us/pim/details?partNum=GRM155R71C104KA88D) |
+| 1 | U5 | TPS61023DRLR | 5 V synchronous boost converter | [TI](https://www.ti.com/product/TPS61023) |
+| 1 | U7 | TPS22918DBVR | 2 A load switch, switched LED rail | [TI](https://www.ti.com/product/TPS22918) |
+| 1 | L1 | XEL4030-102MEC | 1 uH shielded power inductor | [Coilcraft](https://www.coilcraft.com/en-us/products/power/shielded-inductors/molded-inductor/xel/xel4030/xel4030-102/) |
+| 2 | C13 / C14 | GRM21BR61A226ME44L | 22 uF 10 V X5R 0805 | [Murata](https://pim.murata.com/en-sg/pim/details?partNum=GRM21BR61A226ME44L) |
+| 1 | R25 | RC0603FR-07732KL | 732k 1% boost feedback | [DigiKey](https://www.digikey.com/en/products/detail/yageo/RC0603FR-07732KL/727376) |
+| 1 | R28 | RC0603FR-07470RL | 470 ohm LED data series resistor | **Link needed** |
+| 1 | C40 | GRM1555C1E102JA01D | 1 nF 25 V C0G 0402, TPS22918 rise-time control | [Murata](https://pim.murata.com/en-us/pim/details?partNum=GRM1555C1E102JA01D) |
 
 ## Off-board / assembly procurement
 
@@ -84,6 +84,3 @@ remains time-sensitive. See [validation and GPIO map](base-redesign.md).
 - Charge the protected Adafruit 1578 through the XIAO ESP32S3 onboard battery charger/USB path, subject to polarity and bench compatibility verification.
 - Limit the LED rail design target to 100 mA; full-matrix white is prohibited.
 - Freeze IM69D130V01XTSA1, Molex 104031-0811, and the existing regulated 3.3 V haptic architecture. The exact motor remains a downstream procurement/fit qualification.
-
-## Finalized carrier sourcing
-Links confirmed in stock by user; no numeric inventory or prices provided. Exact components unchanged. Motor/card/acoustic procurement and manufacturing release remain open. C40 manufacturer search flags NRND: retain approved part, review lifecycle before production.

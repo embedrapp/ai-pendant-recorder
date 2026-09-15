@@ -46,6 +46,25 @@ The confirmed product target is no more than 100 mA on the 5 V LED rail.
 
 ## Physical intent
 
+### LED-control implementation update
+
+- Animator alone owns data and rail switching after setup. Storage faults request
+  FAULT instead of cutting power concurrently with a transmission.
+- Startup holds data low, enables the rail, waits a provisional 10 ms, sends
+  black, and waits 2 ms before animation. Shutdown sends black, holds data low,
+  waits 2 ms, then removes power; no transmissions occur while powered off.
+- The 24/255 cap and one/five-pixel animations remain. Recording output is halved
+  conservatively for SD load. LED_INHIBIT/LED_OFF provide a request/acknowledgment
+  contract for future motor control; HEAVY_LOAD dims future radio activity.
+  Motor and radio activity are not currently implemented.
+- Low-battery automatic inhibition is NOT implemented: the fuel-gauge driver and
+  measured cutoff/recovery thresholds remain required. Do not invent a voltage
+  threshold or treat firmware as enforcing measured 100 mA rail current.
+- The schematic now reads as five left-to-right rows, preserving exact chain
+  connectivity. Physical layout, copper, and component selection are unchanged.
+- Current configured firmware target is esp32dev, not the hardware XIAO ESP32S3;
+  correct-target build/bench validation is required before flashing.
+
 Place the LEDs as a geometrically regular 5x5 square at board center, with
 uniform pitch and identical orientation. Place each bypass capacitor directly
 beside its pixel. Keep U5/L1 and their high-current switching loop outside the

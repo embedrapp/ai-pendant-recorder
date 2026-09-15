@@ -21,6 +21,9 @@ struct Block { uint16_t size; uint8_t data[1024]; };
 QueueHandle_t blocks;
 EventGroupHandle_t events;
 constexpr EventBits_t RUN=1, FAULT=2, ACTIVE=4;
+// Reserved integration requests: producers set/clear requests; only animator
+// owns the LED rail/data after setup. Future motor code must await LED_OFF.
+constexpr EventBits_t LED_INHIBIT=8, LED_OFF=16, HEAVY_LOAD=32;
 Preferences prefs;
 File chunk;
 String tempPath;
@@ -165,7 +168,7 @@ void writer(void*) {
     } else if (!recording && !(xEventGroupGetBits(events)&ACTIVE) && uxQueueMessagesWaiting(blocks)==0) {
       healthy=finishChunk();
     }
-    if (!healthy) { digitalWrite(ledEnable,LOW); vTaskDelay(pdMS_TO_TICKS(100)); }
+    if (!healthy) { xEventGroupSetBits(events,FAULT); vTaskDelay(pdMS_TO_TICKS(100)); }
   }
 }
 
@@ -175,16 +178,30 @@ uint16_t matrixIndex(uint8_t x,uint8_t y) {
 
 void animator(void*) {
   uint8_t phase=0;
+  bool powered=false;
+  pixels.begin(); pixels.setBrightness(pixelBrightnessCap); pixels.clear();
   digitalWrite(ledData,LOW);
-  vTaskDelay(pdMS_TO_TICKS(2));
-  digitalWrite(ledEnable,HIGH);
-  vTaskDelay(pdMS_TO_TICKS(8)); // boost start plus TPS22918 CT-controlled ramp
-  pixels.begin(); pixels.setBrightness(pixelBrightnessCap); pixels.clear(); pixels.show();
+  xEventGroupSetBits(events,LED_OFF);
   for (;;) {
     EventBits_t state=xEventGroupGetBits(events);
-    if (state&FAULT) {
-      pixels.clear(); pixels.show(); digitalWrite(ledEnable,LOW);
-      vTaskDelay(pdMS_TO_TICKS(100)); continue;
+    if (state&(FAULT|LED_INHIBIT)) {
+      if (powered) {
+        pixels.clear(); pixels.show();
+        digitalWrite(ledData,LOW);
+        vTaskDelay(pdMS_TO_TICKS(2)); // latch the black frame before rail removal
+        digitalWrite(ledEnable,LOW); powered=false;
+      }
+      xEventGroupSetBits(events,LED_OFF);
+      vTaskDelay(pdMS_TO_TICKS(20)); continue;
+    }
+    if (!powered) {
+      xEventGroupClearBits(events,LED_OFF);
+      digitalWrite(ledData,LOW);
+      digitalWrite(ledEnable,HIGH);
+      vTaskDelay(pdMS_TO_TICKS(10)); // provisional ramp margin; verify on scope
+      pixels.clear(); pixels.show(); powered=true;
+      vTaskDelay(pdMS_TO_TICKS(2));
+      continue; // recheck inhibits before any lit frame
     }
     pixels.clear();
     if (state&RUN) {
@@ -201,6 +218,14 @@ void animator(void*) {
         {4,4},{3,4},{2,4},{1,4},{0,4},{0,3},{0,2},{0,1}};
       const uint8_t* p=orbit[(phase/4U)%16U];
       pixels.setPixelColor(matrixIndex(p[0],p[1]),pixels.Color(0,6,28));
+    }
+    // Conservative recording/write-load reduction, without repeatedly changing
+    // NeoPixel's lossy global brightness setting. Future upload uses HEAVY_LOAD.
+    if (state&(RUN|HEAVY_LOAD)) {
+      for (uint16_t i=0;i<pixelCount;++i) {
+        uint32_t c=pixels.getPixelColor(i);
+        pixels.setPixelColor(i,uint8_t(c>>16)/2,uint8_t(c>>8)/2,uint8_t(c)/2);
+      }
     }
     pixels.show(); phase=(phase+1U)&63U;
     vTaskDelay(pdMS_TO_TICKS(40));

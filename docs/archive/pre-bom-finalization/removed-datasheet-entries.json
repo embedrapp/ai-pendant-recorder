@@ -1,0 +1,195 @@
+[
+  {
+    "id": "ea3071ca5ee5a6069eba534fa39a10f34c9fb742ee42135a69ab4156bfa0f5de",
+    "name": "JST SH manufacturer series drawing",
+    "chunkCount": 4,
+    "imageCount": 0,
+    "processedAt": "2026-09-07 12:53:21.121000+00:00"
+  },
+  {
+    "id": "ds_d1cc6c97cc87d2511ece",
+    "name": "7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module",
+    "originalFilename": "7semi-max17048-breakout.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_d1cc6c97cc87d2511ece",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_d1cc6c97cc87d2511ece/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_d1cc6c97cc87d2511ece/search",
+    "chunkCount": 4,
+    "imageCount": 6,
+    "processedAt": "2026-09-08 07:15:26.992000+00:00"
+  },
+  {
+    "id": "46d1f33d6de0c5ff81b80471a1f5973744574150349fc1152e5967f51f017052",
+    "name": "generic-lp603450-1100mah",
+    "chunkCount": 1,
+    "imageCount": 1,
+    "processedAt": "2026-09-08 07:32:49.117000+00:00"
+  },
+  {
+    "id": "2deded92b54c7650416c99a80187807477e9ba68ca6c65943069f55f4b3c2075",
+    "name": "JST SH series datasheet",
+    "chunkCount": 2,
+    "imageCount": 2,
+    "processedAt": "2026-09-08 07:17:01.538000+00:00"
+  },
+  {
+    "id": "854cef1bdd425960960004eff3d349d25336df7faa065dccf9fd64be6cbcf0bf",
+    "name": "Same Sky CMS-16093-078X speaker datasheet",
+    "chunkCount": 6,
+    "imageCount": 6,
+    "processedAt": "2026-09-08 15:14:35.205000+00:00"
+  },
+  {
+    "id": "43d8fc8d3f7e39f0f9c21c2bf722aae6e65334d89e6bc0cbe2543b41e386283e",
+    "name": "Kingbright APGF0607 RGB LED datasheet",
+    "chunkCount": 4,
+    "imageCount": 4,
+    "processedAt": "2026-09-08 15:12:41.376000+00:00"
+  },
+  {
+    "id": "7bfcfd0566d5b2068527fc8307d6ce65ada867812a473e3c2e883ec8b1703f8b",
+    "name": "7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module (local)",
+    "chunkCount": 6,
+    "imageCount": 6,
+    "processedAt": "2026-09-08 07:17:02.142000+00:00"
+  },
+  {
+    "id": "636a2f1f12dba6d8a8be3817c067e20b3dcb9d23b5924e11af8e5077d5cb5a22",
+    "name": "QX Flat 1027 motor datasheet",
+    "chunkCount": 8,
+    "imageCount": 9,
+    "processedAt": "2026-09-08 15:14:35.591000+00:00"
+  },
+  {
+    "id": "7b6f0ae72708ca4b38126f84b5407a3e970a94cb60bc1a0afdaeb25a23d839bb",
+    "name": "Yageo RC series datasheet",
+    "chunkCount": 11,
+    "imageCount": 11,
+    "processedAt": "2026-09-08 07:17:02.452000+00:00"
+  },
+  {
+    "id": "5f73267ddde6c69a4d5b057c51ee04548695805b6f06a52ea3b3765b823d586a",
+    "name": "Seeed XIAO ESP32S3 Sense documentation",
+    "chunkCount": 12,
+    "imageCount": 11,
+    "processedAt": "2026-09-08 15:12:41.844000+00:00"
+  },
+  {
+    "id": "08c8df5d99eda52b415097c2edafd4d78d869db8dfb0a9821d0c23ff1276f251",
+    "name": "MAX98357A/MAX98357B datasheet",
+    "chunkCount": 45,
+    "imageCount": 38,
+    "processedAt": "2026-09-08 15:12:44.825000+00:00"
+  },
+  {
+    "id": "ef8d376f2ec356e29172eb9e053819a0ebdcc576dba7fc9ab0505c568427920f",
+    "name": "Diodes AP2112 datasheet",
+    "chunkCount": 19,
+    "imageCount": 18,
+    "processedAt": "2026-09-08 15:15:21.903000+00:00"
+  },
+  {
+    "id": "8224252d259a7ab09d19748a461970627f8b28029857a224c747e0de25040c0c",
+    "name": "XIAO ESP32S3 Sense expansion board schematic v1.0",
+    "chunkCount": 1,
+    "imageCount": 1,
+    "processedAt": "2026-09-08 16:15:41.829000+00:00"
+  },
+  {
+    "id": "a19b36c3a960f67ebf0ab7fc5220423ca427c167cbb38a53e619b14226e8955d",
+    "name": "Hirose DM3 Series Catalog",
+    "chunkCount": 13,
+    "imageCount": 12,
+    "processedAt": "2026-09-09 08:58:55.287000+00:00"
+  },
+  {
+    "id": "7d6c2bebd1da22cec7376747a6cad97b2d1548825e917f51ba3b73939bd8b541",
+    "name": "Infineon IM69D130 Datasheet v1.0",
+    "chunkCount": 17,
+    "imageCount": 16,
+    "processedAt": "2026-09-09 08:59:48.084000+00:00"
+  },
+  {
+    "id": "3f3ea398038f586862c09cf68f420018c90617aa54c198a5827d783849b226ee",
+    "name": "WLY 104050 3.7V 2500mAh datasheet 2024-10-15",
+    "chunkCount": 16,
+    "imageCount": 16,
+    "processedAt": "2026-09-09 15:49:36.260000+00:00"
+  },
+  {
+    "id": "ds_b7fb91f2061f12331cfb",
+    "name": "601145/3.7V/300mAh Rechargeable Li-ion Battery",
+    "originalFilename": "R177590.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_b7fb91f2061f12331cfb",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_b7fb91f2061f12331cfb/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_b7fb91f2061f12331cfb/search",
+    "chunkCount": 40,
+    "imageCount": 17,
+    "processedAt": "2026-09-12 14:02:16.690000+00:00"
+  },
+  {
+    "id": "ds_0e23a8409cdb4cf03c15",
+    "name": "LP 451860 3.7V 500mAh LiPo Battery Pack with PCM",
+    "originalFilename": "DNK451860-3.7V-500mAh-Lipo-Battery-Specification.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_0e23a8409cdb4cf03c15",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_0e23a8409cdb4cf03c15/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_0e23a8409cdb4cf03c15/search",
+    "chunkCount": 11,
+    "imageCount": 12,
+    "processedAt": "2026-09-12 14:19:51.338000+00:00"
+  },
+  {
+    "id": "ds_6d584bb85d5bf7cad8f9",
+    "name": "Li-Polymer 503562 1200mAh 3.7V with PCM",
+    "originalFilename": "C101-_Li-Polymer_503562_1200mAh_3.7V_with_PCM_APPROVED_8.18.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_6d584bb85d5bf7cad8f9",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_6d584bb85d5bf7cad8f9/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_6d584bb85d5bf7cad8f9/search",
+    "chunkCount": 21,
+    "imageCount": 9,
+    "processedAt": "2026-09-12 15:01:36.254000+00:00"
+  },
+  {
+    "id": "ds_dcee32f4e0c985211bc8",
+    "name": "PKCELL LP-523334 500mAh 3.7V Li-Polymer Battery with PCM",
+    "originalFilename": "Datasheet.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_dcee32f4e0c985211bc8",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_dcee32f4e0c985211bc8/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_dcee32f4e0c985211bc8/search",
+    "chunkCount": 20,
+    "imageCount": 9,
+    "processedAt": "2026-09-12 18:22:38.959000+00:00"
+  },
+  {
+    "id": "ds_ad43a6b5d6b1ed7523c8",
+    "name": "SK6805-EC15 REV04",
+    "originalFilename": "Datasheet.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_ad43a6b5d6b1ed7523c8",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_ad43a6b5d6b1ed7523c8/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_ad43a6b5d6b1ed7523c8/search",
+    "chunkCount": 43,
+    "imageCount": 34,
+    "processedAt": "2026-09-13 08:13:36.544000+00:00"
+  },
+  {
+    "id": "ds_28541a55241341db5790",
+    "name": "TPS22950x 5.5-V, 3.2-A, 34-m\u03a9 Adjustable Current Limited Load Switch",
+    "originalFilename": "TPS22950.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_28541a55241341db5790",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_28541a55241341db5790/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_28541a55241341db5790/search",
+    "chunkCount": 70,
+    "imageCount": 59,
+    "processedAt": "2026-09-13 14:31:45.148000+00:00"
+  },
+  {
+    "id": "ds_ed7db4eb314a5967bd25",
+    "name": "TI TPS2552 TPS2553 Adjustable Current-Limited Power Switch",
+    "originalFilename": "tps2553.pdf",
+    "pageUrl": "https://www.embedr.app/datasheets/ds_ed7db4eb314a5967bd25",
+    "markdownUrl": "https://www.embedr.app/api/datasheets/ds_ed7db4eb314a5967bd25/markdown",
+    "searchUrl": "https://www.embedr.app/api/datasheets/ds_ed7db4eb314a5967bd25/search",
+    "chunkCount": 94,
+    "imageCount": 60,
+    "processedAt": "2026-09-13 14:42:38.810000+00:00"
+  }
+]

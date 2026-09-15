@@ -1,0 +1,344 @@
+manifest_version: 1
+name: ai_pendant_recorder
+version: 0.1.0
+board:
+  platform: espressif32
+  board: esp32dev
+  framework: arduino
+build:
+  build_flags: []
+  lib_deps: []
+  monitor_speed: 115200
+project:
+  id: acfc6a9e-d7ba-4831-a7be-59411fc41cc7
+source:
+  entry: src/main.cpp
+  source_dirs:
+    - src
+  include_dirs: []
+capabilities:
+  firmware:
+    enabled: true
+    provider: embedr-cli
+    target_id: esp32dev
+    environment: esp32-s3
+    actions: {}
+  pcb:
+    enabled: true
+    provider: pcb-sidecar
+    workspace: pcb
+    actions: {}
+components: []
+connections: []
+datasheets:
+  - id: ea3071ca5ee5a6069eba534fa39a10f34c9fb742ee42135a69ab4156bfa0f5de
+    name: JST SH manufacturer series drawing
+    chunkCount: 4
+    imageCount: 0
+    processedAt: 2026-09-07T12:53:21.121Z
+  - id: ds_6387b39722da309d0fd7
+    name: pts841
+    originalFilename: Littelfuse-CK-Tactile-PTS841-Series-Datasheet.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_6387b39722da309d0fd7
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_6387b39722da309d0fd7/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_6387b39722da309d0fd7/search
+    chunkCount: 11
+    imageCount: 14
+    processedAt: 2026-09-07T12:57:05.896Z
+  - id: ds_d1cc6c97cc87d2511ece
+    name: 7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module
+    originalFilename: 7semi-max17048-breakout.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_d1cc6c97cc87d2511ece
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_d1cc6c97cc87d2511ece/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_d1cc6c97cc87d2511ece/search
+    chunkCount: 4
+    imageCount: 6
+    processedAt: 2026-09-08T07:15:26.992Z
+  - id: 46d1f33d6de0c5ff81b80471a1f5973744574150349fc1152e5967f51f017052
+    name: generic-lp603450-1100mah
+    chunkCount: 1
+    imageCount: 1
+    processedAt: 2026-09-08T07:32:49.117Z
+  - id: 2deded92b54c7650416c99a80187807477e9ba68ca6c65943069f55f4b3c2075
+    name: JST SH series datasheet
+    chunkCount: 2
+    imageCount: 2
+    processedAt: 2026-09-08T07:17:01.538Z
+  - id: df048d455a0ac039d643118b6b8a421c83d9aae4991b29d47b72a2b80a5d1cd9
+    name: yageo-cc0805krx5r8bb106
+    chunkCount: 4
+    imageCount: 3
+    processedAt: 2026-09-08T07:39:00.438Z
+  - id: 2d23a2bd5def52869ce95756913f1be4d24d3f8de7961fb45f1161116a705eec
+    name: NSVR0320 diode datasheet
+    chunkCount: 4
+    imageCount: 4
+    processedAt: 2026-09-08T15:12:41.006Z
+  - id: 4e41351f09263b950a29282923e6f6ef7c5bc95b538fe8db9d1d1e4a8c082918
+    name: Sunrom JST PH harness datasheet
+    chunkCount: 5
+    imageCount: 3
+    processedAt: 2026-09-08T07:17:01.705Z
+  - id: 447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96
+    name: JST PH series datasheet
+    chunkCount: 5
+    imageCount: 5
+    processedAt: 2026-09-08T07:17:01.772Z
+  - id: 854cef1bdd425960960004eff3d349d25336df7faa065dccf9fd64be6cbcf0bf
+    name: Same Sky CMS-16093-078X speaker datasheet
+    chunkCount: 6
+    imageCount: 6
+    processedAt: 2026-09-08T15:14:35.205Z
+  - id: 43d8fc8d3f7e39f0f9c21c2bf722aae6e65334d89e6bc0cbe2543b41e386283e
+    name: Kingbright APGF0607 RGB LED datasheet
+    chunkCount: 4
+    imageCount: 4
+    processedAt: 2026-09-08T15:12:41.376Z
+  - id: 9c60d0b6c1ddc7609a4b788a91181468d8ffe6c3e9ba425c3d8ffc5ba88c5033
+    name: AO3400A datasheet
+    chunkCount: 5
+    imageCount: 5
+    processedAt: 2026-09-08T15:12:41.381Z
+  - id: 7c9c6ab89d64f98dcc287a2646c8fdceb7bc00973e170807c5de820f69a716bf
+    name: pts841
+    chunkCount: 3
+    imageCount: 3
+    processedAt: 2026-09-08T07:32:49.225Z
+  - id: 7bfcfd0566d5b2068527fc8307d6ce65ada867812a473e3c2e883ec8b1703f8b
+    name: 7Semi MAX17048 LiPoly-LiIon Fuel Gauge Module (local)
+    chunkCount: 6
+    imageCount: 6
+    processedAt: 2026-09-08T07:17:02.142Z
+  - id: 636a2f1f12dba6d8a8be3817c067e20b3dcb9d23b5924e11af8e5077d5cb5a22
+    name: QX Flat 1027 motor datasheet
+    chunkCount: 8
+    imageCount: 9
+    processedAt: 2026-09-08T15:14:35.591Z
+  - id: 7b6f0ae72708ca4b38126f84b5407a3e970a94cb60bc1a0afdaeb25a23d839bb
+    name: Yageo RC series datasheet
+    chunkCount: 11
+    imageCount: 11
+    processedAt: 2026-09-08T07:17:02.452Z
+  - id: ddb26ebfb6b0f88321f77bbc8f3ca328b3369e1de92cb3bb4d766251cfa4bae4
+    name: C&K JS series JS202011AQN datasheet
+    chunkCount: 15
+    imageCount: 15
+    processedAt: 2026-09-08T07:17:02.714Z
+  - id: 5f73267ddde6c69a4d5b057c51ee04548695805b6f06a52ea3b3765b823d586a
+    name: Seeed XIAO ESP32S3 Sense documentation
+    chunkCount: 12
+    imageCount: 11
+    processedAt: 2026-09-08T15:12:41.844Z
+  - id: 5a29828795fe4b9b8282c7c7fc77e7859fd5e25a64e208257ed25be08ef2402a
+    name: murata-gcm188r71h104ka57j
+    chunkCount: 35
+    imageCount: 32
+    processedAt: 2026-09-08T07:39:02.094Z
+  - id: 08c8df5d99eda52b415097c2edafd4d78d869db8dfb0a9821d0c23ff1276f251
+    name: MAX98357A/MAX98357B datasheet
+    chunkCount: 45
+    imageCount: 38
+    processedAt: 2026-09-08T15:12:44.825Z
+  - id: 70dc8eef0e012276dcdc58b6dce64af08258304bcf865ceace64e856b8029330
+    name: MAX17048/MAX17049 datasheet
+    chunkCount: 24
+    imageCount: 19
+    processedAt: 2026-09-08T15:12:45.081Z
+  - id: f68ce3c74f011a80bbe4b0279c4abe9609a71a5dcda75a951381d77112e005fb
+    name: BMI270 datasheet
+    chunkCount: 169
+    imageCount: 150
+    processedAt: 2026-09-08T15:12:49.784Z
+  - id: ef8d376f2ec356e29172eb9e053819a0ebdcc576dba7fc9ab0505c568427920f
+    name: Diodes AP2112 datasheet
+    chunkCount: 19
+    imageCount: 18
+    processedAt: 2026-09-08T15:15:21.903Z
+  - id: 8224252d259a7ab09d19748a461970627f8b28029857a224c747e0de25040c0c
+    name: XIAO ESP32S3 Sense expansion board schematic v1.0
+    chunkCount: 1
+    imageCount: 1
+    processedAt: 2026-09-08T16:15:41.829Z
+  - id: 15993097cd695d177af352f4664ca91290a99c833f51d122d1165ef222f9923c
+    name: Base XIAO ESP32S3 v1.4 schematic
+    chunkCount: 5
+    imageCount: 4
+    processedAt: 2026-09-09T03:45:16.009Z
+  - id: a19b36c3a960f67ebf0ab7fc5220423ca427c167cbb38a53e619b14226e8955d
+    name: Hirose DM3 Series Catalog
+    chunkCount: 13
+    imageCount: 12
+    processedAt: 2026-09-09T08:58:55.287Z
+  - id: a9958dc4cbb34664c42799ed79b2e08c5e536d176f371610089f8af730265c67
+    name: Seeed XIAO ESP32S3 Schematic v1.1
+    chunkCount: 1
+    imageCount: 1
+    processedAt: 2026-09-09T08:58:53.374Z
+  - id: f017a729dc45a900d6f05c0e446c914bf601c52b138ed0b1acf81544c147dcf5
+    name: Seeed XIAO ESP32S3 SKU 113991114 Product Datasheet
+    chunkCount: 8
+    imageCount: 8
+    processedAt: 2026-09-09T08:58:53.524Z
+  - id: 7d6c2bebd1da22cec7376747a6cad97b2d1548825e917f51ba3b73939bd8b541
+    name: Infineon IM69D130 Datasheet v1.0
+    chunkCount: 17
+    imageCount: 16
+    processedAt: 2026-09-09T08:59:48.084Z
+  - id: 3f3ea398038f586862c09cf68f420018c90617aa54c198a5827d783849b226ee
+    name: WLY 104050 3.7V 2500mAh datasheet 2024-10-15
+    chunkCount: 16
+    imageCount: 16
+    processedAt: 2026-09-09T15:49:36.260Z
+  - id: ds_b7fb91f2061f12331cfb
+    name: 601145/3.7V/300mAh Rechargeable Li-ion Battery
+    originalFilename: R177590.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_b7fb91f2061f12331cfb
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_b7fb91f2061f12331cfb/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_b7fb91f2061f12331cfb/search
+    chunkCount: 40
+    imageCount: 17
+    processedAt: 2026-09-12T14:02:16.690Z
+  - id: ds_0e23a8409cdb4cf03c15
+    name: LP 451860 3.7V 500mAh LiPo Battery Pack with PCM
+    originalFilename: DNK451860-3.7V-500mAh-Lipo-Battery-Specification.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_0e23a8409cdb4cf03c15
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_0e23a8409cdb4cf03c15/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_0e23a8409cdb4cf03c15/search
+    chunkCount: 11
+    imageCount: 12
+    processedAt: 2026-09-12T14:19:51.338Z
+  - id: ds_6d584bb85d5bf7cad8f9
+    name: Li-Polymer 503562 1200mAh 3.7V with PCM
+    originalFilename: C101-_Li-Polymer_503562_1200mAh_3.7V_with_PCM_APPROVED_8.18.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_6d584bb85d5bf7cad8f9
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_6d584bb85d5bf7cad8f9/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_6d584bb85d5bf7cad8f9/search
+    chunkCount: 21
+    imageCount: 9
+    processedAt: 2026-09-12T15:01:36.254Z
+  - id: ds_dcee32f4e0c985211bc8
+    name: PKCELL LP-523334 500mAh 3.7V Li-Polymer Battery with PCM
+    originalFilename: Datasheet.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_dcee32f4e0c985211bc8
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_dcee32f4e0c985211bc8/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_dcee32f4e0c985211bc8/search
+    chunkCount: 20
+    imageCount: 9
+    processedAt: 2026-09-12T18:22:38.959Z
+  - id: ds_ad43a6b5d6b1ed7523c8
+    name: SK6805-EC15 REV04
+    originalFilename: Datasheet.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_ad43a6b5d6b1ed7523c8
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_ad43a6b5d6b1ed7523c8/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_ad43a6b5d6b1ed7523c8/search
+    chunkCount: 43
+    imageCount: 34
+    processedAt: 2026-09-13T08:13:36.544Z
+  - id: ds_f7eaed7171762f8cbf8e
+    name: WS2812C-2020-V1
+    originalFilename: 09f4c697250f44092a00c11d7628f2c6.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_f7eaed7171762f8cbf8e
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_f7eaed7171762f8cbf8e/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_f7eaed7171762f8cbf8e/search
+    chunkCount: 32
+    imageCount: 31
+    processedAt: 2026-09-13T08:18:57.394Z
+  - id: ds_293e09d408f8109bb968
+    name: Shielded Power Inductors XEL4030
+    originalFilename: xel4030.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_293e09d408f8109bb968
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_293e09d408f8109bb968/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_293e09d408f8109bb968/search
+    chunkCount: 10
+    imageCount: 31
+    processedAt: 2026-09-13T10:24:54.977Z
+  - id: ds_f2a383fc62e80e613220
+    name: MicroSD Card Socket Push-Pull 1.42H Normal Type
+    originalFilename: 1040310811_sd.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_f2a383fc62e80e613220
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_f2a383fc62e80e613220/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_f2a383fc62e80e613220/search
+    chunkCount: 6
+    imageCount: 10
+    processedAt: 2026-09-13T14:23:40.292Z
+  - id: ds_28541a55241341db5790
+    name: TPS22950x 5.5-V, 3.2-A, 34-mΩ Adjustable Current Limited Load Switch
+    originalFilename: TPS22950.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_28541a55241341db5790
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_28541a55241341db5790/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_28541a55241341db5790/search
+    chunkCount: 70
+    imageCount: 59
+    processedAt: 2026-09-13T14:31:45.148Z
+  - id: ds_bac306ed49998cb30409
+    name: Li-Polymer 503035 500mAh 3.7V with PCM
+    originalFilename: Datasheet.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_bac306ed49998cb30409
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_bac306ed49998cb30409/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_bac306ed49998cb30409/search
+    chunkCount: 20
+    imageCount: 9
+    processedAt: 2026-09-13T14:34:36.050Z
+  - id: ds_ed7db4eb314a5967bd25
+    name: TI TPS2552 TPS2553 Adjustable Current-Limited Power Switch
+    originalFilename: tps2553.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_ed7db4eb314a5967bd25
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_ed7db4eb314a5967bd25/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_ed7db4eb314a5967bd25/search
+    chunkCount: 94
+    imageCount: 60
+    processedAt: 2026-09-13T14:42:38.810Z
+  - id: ds_097425d603a5861ea83c
+    name: IM69D130
+    originalFilename: infineon-im69d130-datasheet-en.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_097425d603a5861ea83c
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_097425d603a5861ea83c/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_097425d603a5861ea83c/search
+    chunkCount: 29
+    imageCount: 24
+    processedAt: 2026-09-15T06:31:11.000Z
+  - id: ds_943f1f6e10cbb0789dbb
+    name: AP2112K-3.3TRG1
+    originalFilename: AP2112.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_943f1f6e10cbb0789dbb
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_943f1f6e10cbb0789dbb/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_943f1f6e10cbb0789dbb/search
+    chunkCount: 43
+    imageCount: 54
+    processedAt: 2026-09-15T06:32:13.958Z
+  - id: ds_30c2edbd41f53ac917fb
+    name: Murata GRM155R71C104KA88D
+    originalFilename: GRM155R71C104KA88D-Murata-datasheet-6387203.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_30c2edbd41f53ac917fb
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_30c2edbd41f53ac917fb/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_30c2edbd41f53ac917fb/search
+    chunkCount: 6
+    imageCount: 4
+    processedAt: 2026-09-15T06:33:48.386Z
+  - id: ds_9d09f353be4df0f321db
+    name: GRM21BR61A226ME44L
+    originalFilename: grm21br61a226me44.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_9d09f353be4df0f321db
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_9d09f353be4df0f321db/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_9d09f353be4df0f321db/search
+    chunkCount: 9
+    imageCount: 17
+    processedAt: 2026-09-15T06:34:57.415Z
+  - id: ds_baaefb1272b27c705358
+    name: Murata GRM1555C1E102JA01D
+    originalFilename: GRM1555C1E102JA01_01A.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_baaefb1272b27c705358
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_baaefb1272b27c705358/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_baaefb1272b27c705358/search
+    chunkCount: 90
+    imageCount: 60
+    processedAt: 2026-09-15T06:39:48.875Z
+  - id: ds_7f87b9b9c3e0a80c68cc
+    name: RC0603 Chip Resistor Surface Mount
+    originalFilename: RC0603.pdf
+    pageUrl: https://www.embedr.app/datasheets/ds_7f87b9b9c3e0a80c68cc
+    markdownUrl: https://www.embedr.app/api/datasheets/ds_7f87b9b9c3e0a80c68cc/markdown
+    searchUrl: https://www.embedr.app/api/datasheets/ds_7f87b9b9c3e0a80c68cc/search
+    chunkCount: 32
+    imageCount: 21
+    processedAt: 2026-09-15T06:43:34.447Z
