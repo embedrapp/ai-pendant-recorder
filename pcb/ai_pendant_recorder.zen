@@ -12,7 +12,7 @@
 # embedr:schematic-graphic {"id":"led-row3","type":"section","x":5850,"y":2700,"strokeWidth":1.5,"lineStyle":"solid","width":3750,"height":750,"text":"03C / LED11–15  →  LED_CHAIN_15 to row 4","fontSize":26,"bold":true}
 # embedr:schematic-graphic {"id":"led-row4","type":"section","x":5850,"y":3500,"strokeWidth":1.5,"lineStyle":"solid","width":3750,"height":750,"text":"03D / LED16–20  →  LED_CHAIN_20 to row 5","fontSize":26,"bold":true}
 # embedr:schematic-graphic {"id":"led-row5","type":"section","x":5850,"y":4300,"strokeWidth":1.5,"lineStyle":"solid","width":3750,"height":750,"text":"03E / LED21–25  /  End of chain","fontSize":26,"bold":true}
-"""Base-XIAO audio carrier schematic draft; see docs/base-redesign.md validation gates."""
+"""Base-XIAO audio carrier schematic draft; see docs/current-design.md validation gates."""
 
 Capacitor = Module("@stdlib/generics/Capacitor.zen")
 Resistor = Module("@stdlib/generics/Resistor.zen")

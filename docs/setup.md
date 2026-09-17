@@ -1,3 +1,12 @@
-# Setup and flashing
+# Firmware setup
 
-Use a FAT32 microSD card no larger than 32 GB. Copy the private API and Wi-Fi values into `include/config.h`; never commit credentials. Build and flash the `esp32-s3` environment over USB-C. The onboard PDM microphone uses GPIO41 (DATA) and GPIO42 (CLK); these are integrated Sense-board connections. The backend must provide authenticated HTTPS endpoints for audio/image upload, transcription, summaries, Q&A, and TTS. Provider adapters should keep ElevenLabs/OpenAI keys server-side. Home Assistant should use a scoped token or MQTT credentials. Dashboard, retention, consent, and participant-privacy policy remain deployment responsibilities.
+Entry point: `src/main.cpp`; framework: Arduino/PlatformIO.
+Environment `esp32-s3` currently selects `esp32dev` with `esp-builtin`, an
+incompatible configuration for the actual base XIAO ESP32S3. Correct-target
+selection and a successful build are required before flashing. Cleanup does
+not authorize a target change.
+
+Use a qualified FAT32 microSD card; microphone is the external carrier PDM
+IM69D130, not a Sense expansion microphone. See [pin map](current-design.md).
+Network configuration is presently unused. Never commit real credentials.
+Bench-test rail droop, charge behavior, SD writes, audio and LED sequencing.

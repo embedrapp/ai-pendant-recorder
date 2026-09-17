@@ -1,10 +1,12 @@
-# AI Second Brain pendant PCB Workspace
+# Electronics workspace
 
-This sidecar workspace stores native Zener (`.zen`) schematic and PCB sources for the Embedr project.
+Primary source: `ai_pendant_recorder.zen`. Sourcing is stored in its
+`PURCHASE_LINKS`/`DATASHEET_INDEX` maps and the persisted `bom.json` overlay.
+`bom.csv` is generated; do not hand-edit it.
 
-- Firmware remains managed through `embedr.yaml` and PlatformIO.
-- Hardware source-of-truth for schematic and PCB work lives under `pcb/`.
-- U1 is the exact Seeed Studio XIAO ESP32S3 Sense, SKU 113991115.
-- U2 is the direct MAX98357AETE+T TQFN implementation from the indexed datasheet.
-- D1/GPIO2 is the record button; D8/D7/D6 carry I2S BCLK/DIN/LRCLK.
-- Build, inspect the netlist, generate the board, then perform placement and DRC review.
+`pts841-fixture.zen` is a retained switch fixture. Its JST-SH package remains
+required by that fixture even though it is not in the pendant BOM.
+
+`layout/`, `layout-base/`, fixture layouts and `backups/` are preserved artifacts;
+no cleanup operation moves copper or establishes physical readiness. Archived
+packages/scripts are under `../archive/repo-cleanup/pcb/` and are historical.

@@ -1,10 +1,10 @@
 # Base-XIAO recorder with 5x5 RGB matrix — procurement BOM (DRAFT)
 
-**Not released for purchase/assembly.** Supersedes the Sense/603450/RGB BOM.
+**Carrier sourcing finalized; not released for assembly.** Supersedes the Sense/603450/RGB BOM.
 Generated from `pcb/bom.csv`; electrical source refs may differ from physical KiCad refs.
 Prior BOM and historical prices: `pcb/backups/pre-base-redesign/bom.md`.
-Live stock and price were checked only for BAT1 at selection time; all sourcing
-remains time-sensitive. See [validation and GPIO map](base-redesign.md).
+Purchase links were confirmed in stock by the user; no numerical inventory
+or current prices were provided. Availability remains time-sensitive. See [validation and GPIO map](current-design.md).
 
 ## Carrier PCB components
 
@@ -66,8 +66,8 @@ remains time-sensitive. See [validation and GPIO map](base-redesign.md).
   `mechanical/front-battery-notes.md`. UN38.3/MSDS applicability, India shipping,
   delivered-pack metrology and load/thermal testing remain required.
 - Added base 113991114, IM69D130V01XTSA1 microphone, Molex 104031-0811 socket, C9/C10/C11, and R16–R23. The former DM3D-SF candidate is superseded.
-- New unique resistors needing links: RC0603FR-0733RL (33 ohm, 2 pcs), RC0603FR-0747KL (47k, 5 pcs).
-- AP2112K-3.3TRG1 was already in the circuit but lacks a saved sourcing link.
+- Resistor purchasing links are saved in the carrier table and structured BOM.
+- AP2112K-3.3TRG1 sourcing is saved in Zen and the structured BOM.
 - Additional 100nF/10uF/100k parts reuse existing MPN links; no new passive selection needed for those.
 - H1–H4 and TP3/TP4 are PCB features, not purchased components. Mounting hardware remains mechanical-design TBD.
 - Flyback D1 cathode is MOTOR_3V3, NOT VBAT.
