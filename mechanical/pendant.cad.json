@@ -5,10 +5,10 @@
  "parameters":{
   "edge_radius":{"type":"number","label":"Front and rear exterior edge radius","value":1.0,"unit":"mm","min":0.3,"max":1.1},
   "wall":{"type":"number","label":"PA12 prototype wall","value":1.6,"unit":"mm","min":1.2,"max":2.5},
-  "board_gap":{"type":"number","label":"Board perimeter clearance","value":0.5,"unit":"mm","min":0.3,"max":1},
+  "board_gap":{"type":"number","label":"Board perimeter clearance — trial fit","value":0.3,"unit":"mm","min":0.3,"max":1},
   "rear_depth":{"type":"number","label":"Rear battery compartment depth","value":10,"unit":"mm","min":10,"max":13},
-  "front_height":{"type":"number","label":"Front exterior Z above board bottom","value":12,"unit":"mm","min":12,"max":16},
-  "usb_z":{"type":"number","label":"Provisional USB center Z","value":4.2,"unit":"mm","min":3,"max":6},
+  "front_height":{"type":"number","label":"Front exterior Z above board bottom — provisional fit","value":8,"unit":"mm","min":8,"max":16},
+  "usb_z":{"type":"number","label":"Provisional rear USB center Z","value":-2.58,"unit":"mm","min":-6,"max":-1},
   "slider_z":{"type":"number","label":"Provisional standby actuator Z","value":3,"unit":"mm","min":2,"max":5},
   "record_height":{"type":"number","label":"Provisional switch height above PCB","value":2.5,"unit":"mm","min":1.5,"max":4}
  },

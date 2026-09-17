@@ -1,3 +1,6 @@
+# pcb:brd J1 x=94.0000 y=49.0000 rot=180 side=bottom
+# pcb:brd U1 x=88.0830 y=97.0000 rot=0 side=bottom
+# pcb:brd J3 x=104.0000 y=49.0000 rot=180 side=bottom
 # embedr:schematic-graphic {"id":"revision-warning","type":"note","x":0,"y":3850,"strokeWidth":1.5,"lineStyle":"solid","width":5500,"height":250,"text":"BASE XIAO 113991114. Preserved routed PCB is obsolete. LED rail target 100 mA, not hardware-limited. 24/255 brightness cap; no full-white panel. Physical 5x5 serpentine placement remains separate from this left-to-right schematic.","fontSize":23,"bold":false}
 # embedr:schematic-graphic {"id":"battery-section","type":"section","x":-100,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":1800,"height":1150,"text":"01  BATTERY / FUEL GAUGE / I2C","fontSize":28,"bold":true}
 # embedr:schematic-graphic {"id":"controller-section","type":"section","x":1800,"y":-100,"strokeWidth":1.5,"lineStyle":"solid","width":1600,"height":2000,"text":"02  CONTROLLER / RECORD / STANDBY","fontSize":28,"bold":true}

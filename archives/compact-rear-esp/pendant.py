@@ -40,7 +40,7 @@ def gen_step():
         boss=hole(2.0,seam+.2-t,x,y,t)-hole(.8,seam-t-.8,x,y,t-.1)
         lid+=boss
     # USB bottom opening, provisional Z center measured from PCB datum.
-    usb=Pos(-3,-l/2+3,p['usb_z'])*Rot(90,0,0)*extrude(RectangleRounded(10,4.4,1.8),amount=6)
+    usb=Pos(0,-l/2+3,p['usb_z'])*Rot(90,0,0)*extrude(RectangleRounded(10,4.4,1.8),amount=6)
     base-=usb
     # Left microSD mouth plus shallow finger scallop. No lid removal required.
     sy=comps['J4']['pose']['y']+.095
@@ -72,7 +72,7 @@ def gen_step():
         baffle-=block(3.2,3.2,top,a['pose']['x'],a['pose']['y'],t+1.9)
     # Battery is behind PCB, never in the optical path. Removable insulated sled.
     # Rear connector bay starts near Y=30; battery remains below it.
-    by=9; floor=-rear+wall+.3
+    by=8; floor=-rear+wall+.3
     tray=rr(32.4,38.4,1.2,floor,.8,0,by)
     tray+=block(.9,38.4,3,-15.75,by,floor+.8)
     tray+=block(.9,38.4,3,15.75,by,floor+.8)
@@ -88,16 +88,12 @@ def gen_step():
     base+=hole(1.5,rear-wall-.4,mx,my,-rear+wall)
     base-=hole(.6,rear+.2,mx,my,-rear-.1)
     seal=hole(1.4,.4,mx,my,-.4)-hole(.6,.6,mx,my,-.5)
-    # Visible top-edge eyelet. Through-opening along Z; outside PCB cavity.
-    # Broad root overlaps the top wall without entering connector space.
-    eye_z=-rear+2
-    eye=rr(12,9,2.5,eye_z,4,0,l/2+3)
-    eye=fillet([e for e in eye.edges() if abs(e.center().Z-eye_z)<.0001 or abs(e.center().Z-(eye_z+4))<.0001],.6)
-    eye-=rr(6,3,1.2,eye_z-.2,4.4,0,l/2+3.5)
-    base+=eye
+    # Flush rear lanyard bridge kept outside battery chamber.
+    base-=block(9,1.8,2,0,37,-rear-.1)
+    base+=block(12,1.0,2.5,0,38.2,-rear+wall)
     # Offboard motor envelope from archived QX drawing: max D10.1 x H2.8.
     # Place below battery, away from microphone; coupled to rear through adhesive.
-    motor_x,motor_y=12.5,-24
+    motor_x,motor_y=0,-23
     adhesive=hole(5.05,.15,motor_x,motor_y,-rear+wall)
     motor=hole(5.05,2.8,motor_x,motor_y,-rear+wall+.15)
     cradle=hole(5.9,1.5,motor_x,motor_y,-rear+wall)-hole(5.25,1.7,motor_x,motor_y,-rear+wall-.1)

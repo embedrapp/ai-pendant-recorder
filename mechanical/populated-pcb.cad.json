@@ -1,0 +1,7 @@
+{
+ "schemaVersion":1,"id":"populated-pcb","name":"Detailed populated PCB — KiCad STEP",
+ "import":{"path":"mechanical/imports/populated-pcb.step"},
+ "parameters":{},
+ "assumptions":[{"id":"coverage","label":"Export coverage","value":"KiCad attached models; MK1, U5, U3 and J4 failed model resolution. Attached models may be generic rather than exact manufacturer geometry.","confidence":"measured","source":"mechanical/imports/kicad-step-export.log"}],
+ "checks":["valid-solids"]
+}
