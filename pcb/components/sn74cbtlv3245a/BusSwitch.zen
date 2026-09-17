@@ -1,0 +1,30 @@
+"""TI SN74CBTLV3245APWR, PW TSSOP-20. See provenance.md."""
+VCC = io("VCC", Power)
+GND = io("GND", Ground)
+OE_N = io("OE_N", Net)
+A1 = io("A1", Net)
+A2 = io("A2", Net)
+A3 = io("A3", Net)
+A4 = io("A4", Net)
+A5 = io("A5", Net)
+A6 = io("A6", Net)
+A7 = io("A7", Net)
+A8 = io("A8", Net)
+B1 = io("B1", Net)
+B2 = io("B2", Net)
+B3 = io("B3", Net)
+B4 = io("B4", Net)
+B5 = io("B5", Net)
+B6 = io("B6", Net)
+B7 = io("B7", Net)
+B8 = io("B8", Net)
+A = [A1, A2, A3, A4, A5, A6, A7, A8]
+B = [B1, B2, B3, B4, B5, B6, B7, B8]
+# Pin 1 is typed no_connect in the symbol; do not assign it a net.
+pins = {"VCC": VCC, "GND": GND, "OE_N": OE_N}
+for i in range(8):
+    pins["A" + str(i + 1)] = A[i]
+    pins["B" + str(i + 1)] = B[i]
+Component(name="BUS", prefix="U", symbol=Symbol(library="BusSwitch.kicad_sym", name="SN74CBTLV3245A"),
+    footprint=File("TSSOP-20.kicad_mod"), part=Part(mpn="SN74CBTLV3245APWR", manufacturer="Texas Instruments"),
+    datasheet="https://www.ti.com/lit/ds/symlink/sn74cbtlv3245a.pdf", pins=pins)

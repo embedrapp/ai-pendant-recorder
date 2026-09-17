@@ -10,6 +10,7 @@
   (lib (name "embedr_ai_pendant_recorder_components_motor-diode") (type "KiCad") (uri "${KIPRJMOD}/../components/motor-diode") (options "") (descr ""))
   (lib (name "embedr_ai_pendant_recorder_components_motor-ldo") (type "KiCad") (uri "${KIPRJMOD}/../components/motor-ldo") (options "") (descr ""))
   (lib (name "embedr_ai_pendant_recorder_components_pts841gksmtr") (type "KiCad") (uri "${KIPRJMOD}/../components/pts841gksmtr") (options "") (descr ""))
+  (lib (name "embedr_ai_pendant_recorder_components_sn74cbtlv3245a") (type "KiCad") (uri "${KIPRJMOD}/../components/sn74cbtlv3245a") (options "") (descr ""))
   (lib (name "embedr_ai_pendant_recorder_components_tps22918_assets") (type "KiCad") (uri "${KIPRJMOD}/../components/tps22918/assets") (options "") (descr ""))
   (lib (name "embedr_ai_pendant_recorder_components_tps61023_assets") (type "KiCad") (uri "${KIPRJMOD}/../components/tps61023/assets") (options "") (descr ""))
   (lib (name "embedr_ai_pendant_recorder_components_ws2812c-2020-v1") (type "KiCad") (uri "${KIPRJMOD}/../components/ws2812c-2020-v1") (options "") (descr ""))

@@ -26,5 +26,23 @@ motor selection/start-stall current, low-battery behavior, independent ERC,
 schematic label cleanup, new PCB placement/routing/DRC/DFM and enclosure fit.
 Historical board checks and mechanical revisions do not close these gates.
 
-Source-only BOM build passed with 102 components before repository cleanup.
-See current tool results for post-cleanup validation; no manufacturing release.
+Standby source build passes with 115 components. U9 gates only the boost/motor
+branch (VBAT_PERIPH); J1, XIAO battery input and fuel gauge remain on VBAT.
+This is peripheral gating, not battery/charger isolation. SW2 carries control
+current only. USB charging remains connected; USB data operation is not promised
+while ESP32 EN is grounded.
+
+The current PCB Edge.Cuts has four lines and four joined 3 mm corner arcs,
+extents X=82..118 mm, Y=44..120 mm (36 x 76 mm). See compact-placement.md.
+The placement helper does not
+resolve these arcs and reports boundary containment unknown; this is not evidence
+that the outline is absent. Historical 28 x 70 mm enclosure input is obsolete.
+Enclosure fit and switch access still require a mechanical revision, not an
+assumption that the existing enclosure fits this larger board.
+
+Latest repair removes explicit net assignment to the bus-switch symbol's NC pin,
+moves R30 from (110.5,101.5) to (110.5,100.5) mm, and replaces unresolved board
+title variables with literal draft identification. No copper has been routed.
+Power-transition/backfeed behavior, current budgets, SW2 physical position labels,
+schematic readability and board/source synchronization remain review gates.
+See current check results; no routing or manufacturing release.

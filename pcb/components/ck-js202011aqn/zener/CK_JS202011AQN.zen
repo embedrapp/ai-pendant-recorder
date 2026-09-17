@@ -31,6 +31,6 @@ Component(
         "contact_rating": "0.3 A at 6 VDC; 0.1 A at 30 VDC",
         "mounting": "right-angle through-hole",
         "electrical_life": "5,000 make-and-break cycles at 0.3 A / 6 VDC",
-        "project_usage": "Use one pole in series with the positive 1S LiPo lead; common pins are 2 and 5.",
+        "project_usage": "Pole 1 holds reset in standby; pole 2 controls peripheral load switches. No load current through contacts. Commons 2 and 5.",
     },
 )

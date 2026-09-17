@@ -33,29 +33,10 @@ RGBPixel = Module("./components/ws2812c-2020-v1/LED.zen")
 Boost = Module("./components/tps61023/zener/BOOST_CONVERTER_TPS61023_DRL.zen")
 LoadSwitch = Module("./components/tps22918/zener/LOAD_SWITCH_TPS22918_DBV.zen")
 BoostInductor = Module("./components/xel4030-102mec/Inductor.zen")
-BusSwitch = Module("./components/sn74cbtlv3245a/BusSwitch.zen")
 
 GND = Ground()
 VBAT = Power(voltage="3.7V")
 V3V3 = Power(voltage="3.3V")
-V3V3_AON = Power(voltage="3.3V")
-VBAT_PERIPH = Power(voltage="3.7V")
-RUN_ENABLE = Net()
-ISOLATE_N = Net()
-PERIPH_RISE = Net()
-BAT_RISE = Net()
-HOST_SDA = Net()
-HOST_SCL = Net()
-HOST_PDM_CLK = Net()
-HOST_PDM_DATA = Net()
-HOST_SD_CLK = Net()
-HOST_SD_CS = Net()
-HOST_SD_MOSI = Net()
-HOST_SD_MISO = Net()
-HOST_IMU_INT = Net()
-HOST_LED_ENABLE = Net()
-HOST_LED_DATA = Net()
-HOST_HAPTIC = Net()
 MCU_EN = Net()
 RECORD_BUTTON = Net()
 FG_SDA = Net()
@@ -88,57 +69,30 @@ XIAO(
     name="U1",
     GND=GND,
     VBAT=VBAT,
-    V3V3=V3V3_AON,
-    D0=HOST_HAPTIC,
+    V3V3=V3V3,
+    D0=HAPTIC_DRIVE,
     D1=RECORD_BUTTON,
-    D2=HOST_LED_ENABLE,
-    D3=HOST_LED_DATA,
-    D4_SDA=HOST_SDA,
-    D5_SCL=HOST_SCL,
+    D2=LED_ENABLE,
+    D3=LED_DATA_MCU,
+    D4_SDA=FG_SDA,
+    D5_SCL=FG_SCL,
     EN=MCU_EN,
-    D8_SCK=HOST_SD_CLK,
-    D9_MISO=HOST_SD_MISO,
-    D10_MOSI=HOST_SD_MOSI,
-    MTCK=HOST_SD_CS,
-    MTDO=HOST_IMU_INT,
-    MTDI=HOST_PDM_DATA,
-    MTMS=HOST_PDM_CLK,
+    D8_SCK=SD_CLK_MCU,
+    D9_MISO=SD_MISO,
+    D10_MOSI=SD_MOSI,
+    MTCK=SD_CS,
+    MTDO=IMU_INT,
+    MTDI=PDM_DATA,
+    MTMS=PDM_CLK_MCU,
 )
-
-# Hardware standby: J1 VBAT remains directly connected to XIAO and fuel gauge.
-# U9 gates only the boost/motor branch, NOT the battery-to-charger connection.
-# Both peripheral input rails are switched; bus switches isolate GPIO in standby.
-# SW2 pole 2: low=standby, high=run; R29 defines the break-before-make state.
-LoadSwitch(name="U8", VIN=V3V3_AON, VOUT=V3V3, GND=GND, ON=RUN_ENABLE, CT=PERIPH_RISE, QOD=V3V3)
-LoadSwitch(name="U9", VIN=VBAT, VOUT=VBAT_PERIPH, GND=GND, ON=RUN_ENABLE, CT=BAT_RISE, QOD=VBAT_PERIPH)
-for ref, rail in [("C41", PERIPH_RISE), ("C42", BAT_RISE)]:
-    Capacitor(name=ref, value="1nF", package="0402", voltage="25V", dielectric="C0G", mpn="GRM1555C1E102JA01D", manufacturer="Murata", P1=rail, P2=GND)
-for ref, rail in [("C43", V3V3_AON), ("C44", VBAT)]:
-    Capacitor(name=ref, value="10uF", package="0805", voltage="25V", dielectric="X5R", mpn="CC0805KRX5R8BB106", manufacturer="YAGEO", P1=rail, P2=GND)
-Resistor(name="R29", value="100kohm", package="0603", power="100mW", mpn="RC0603FR-07100KL", manufacturer="YAGEO", P1=RUN_ENABLE, P2=GND)
-# Q2 inverts RUN_ENABLE. Isolation ICs use switched VCC and Ioff protection.
-MOSFET_AO3400A_SOT23(name="Q2", G=RUN_ENABLE, S=GND, D=ISOLATE_N)
-Resistor(name="R30", value="4.7kohm", package="0603", power="100mW", mpn="RC0603FR-074K7L", manufacturer="YAGEO", P1=ISOLATE_N, P2=V3V3)
-BusSwitch(name="U10", VCC=V3V3, GND=GND, OE_N=ISOLATE_N,
-    A1=HOST_SD_CLK, B1=SD_CLK_MCU, A2=HOST_SD_CS, B2=SD_CS,
-    A3=HOST_SD_MOSI, B3=SD_MOSI, A4=HOST_SD_MISO, B4=SD_MISO,
-    A5=HOST_PDM_CLK, B5=PDM_CLK_MCU, A6=HOST_PDM_DATA, B6=PDM_DATA,
-    A7=HOST_SDA, B7=FG_SDA, A8=HOST_SCL, B8=FG_SCL)
-BusSwitch(name="U11", VCC=V3V3, GND=GND, OE_N=ISOLATE_N,
-    A1=HOST_IMU_INT, B1=IMU_INT, A2=HOST_LED_ENABLE, B2=LED_ENABLE,
-    A3=HOST_LED_DATA, B3=LED_DATA_MCU, A4=HOST_HAPTIC, B4=HAPTIC_DRIVE,
-    A5=GND, B5=NotConnected(), A6=GND, B6=NotConnected(),
-    A7=GND, B7=NotConnected(), A8=GND, B8=NotConnected())
-for ref in ["C45", "C46"]:
-    Capacitor(name=ref, value="100nF", package="0402", voltage="16V", dielectric="X7R", mpn="GRM155R71C104KA88D", manufacturer="Murata", P1=V3V3, P2=GND)
 
 # 5x5 central addressable RGB matrix. Worldsemi WS2812C-2020-V1 is the
 # low-current 5 mA/channel variant, powered from a switched 5 V boost rail.
 # Datasheet: 3.7-5.3 V supply, VIH >=2.7 V, 100 nF local bypass per pixel.
 # Firmware must keep LED_ENABLE low at reset, drive LED_DATA low before enable,
 # globally cap brightness, and never run full-white LEDs with the vibration motor.
-Boost(name="U5", VIN=VBAT_PERIPH, VOUT=BOOST_5V, GND=GND, SW=LED_SW, EN=LED_ENABLE, FB=LED_FB)
-BoostInductor(name="L1", P1=VBAT_PERIPH, P2=LED_SW)
+Boost(name="U5", VIN=VBAT, VOUT=BOOST_5V, GND=GND, SW=LED_SW, EN=LED_ENABLE, FB=LED_FB)
+BoostInductor(name="L1", P1=VBAT, P2=LED_SW)
 Resistor(
     name="R25",
     value="732kohm",
@@ -187,7 +141,7 @@ Capacitor(
     dielectric="X5R",
     mpn="CC0805KRX5R8BB106",
     manufacturer="YAGEO",
-    P1=VBAT_PERIPH,
+    P1=VBAT,
     P2=GND,
 )
 for ref in ["C13", "C14"]:
@@ -300,9 +254,10 @@ Capacitor(
 )
 
 # PCA9685 and external RGB removed. Use XIAO onboard GPIO21 status LED.
-# U6 is supplied only in RUN; D0 independently controls Q1.
-MotorLDO(name="U6", VIN=VBAT_PERIPH, VOUT=MOTOR_3V3, GND=GND, EN=VBAT_PERIPH)
-for ref, rail in [("C7", VBAT_PERIPH), ("C8", MOTOR_3V3)]:
+# U6 is enabled whenever the protected cell is connected; D0 controls only Q1.
+# This removes the former ambiguous simultaneous LDO-enable/MOSFET-gate edge.
+MotorLDO(name="U6", VIN=VBAT, VOUT=MOTOR_3V3, GND=GND, EN=VBAT)
+for ref, rail in [("C7", VBAT), ("C8", MOTOR_3V3)]:
     Capacitor(
         name=ref,
         value="10uF",
@@ -428,16 +383,15 @@ Resistor(
     mpn="RC0603FR-07100KL",
     manufacturer="YAGEO",
     P1=RECORD_BUTTON,
-    P2=V3V3_AON,
+    P2=V3V3,
 )
 
 # Harness polarity is explicit, not implied by JST housing shape.
 B2B_PH_K_S(name="J1", PIN_1=VBAT, PIN_2=GND)
 PTS841GKSMTR(name="SW1", SW1=RECORD_BUTTON, SW2=GND)
-# STANDBY: poles 1-2 and 4-5 close. RUN: 2-3 and 5-6 close.
-# Only control current traverses contacts. XIAO internal charging is unchanged.
-CK_JS202011AQN(name="SW2", POLE1_COMMON=MCU_EN, POLE1_THROW_A=GND,
-    POLE2_COMMON=RUN_ENABLE, POLE2_THROW_A=GND, POLE2_THROW_B=V3V3_AON)
+# Standby switch only: OFF grounds reset. It does NOT
+# disconnect the cell/charger. Do not route full load through 0.3 A contacts.
+CK_JS202011AQN(name="SW2", POLE1_COMMON=MCU_EN, POLE1_THROW_A=GND)
 for i in range(4):
     MountingHole(name="H" + str(i + 1), diameter="M2", plating="Mechanical")
 
@@ -569,12 +523,6 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch C38.C x=8600.0000 y=4850.0000 rot=0
 # pcb:sch C39.C x=9300.0000 y=4850.0000 rot=0
 # pcb:sch C40.C x=8100.0000 y=550.0000 rot=0
-# pcb:sch C41.C x=2900.0000 y=4650.0000 rot=0
-# pcb:sch C42.C x=2900.0000 y=5350.0000 rot=0
-# pcb:sch C43.C x=1600.0000 y=4200.0000 rot=0
-# pcb:sch C44.C x=1600.0000 y=5000.0000 rot=0
-# pcb:sch C45.C x=1750.0000 y=5850.0000 rot=0
-# pcb:sch C46.C x=3950.0000 y=5850.0000 rot=0
 # pcb:sch D1.D x=4800.0000 y=2050.0000 rot=0
 # pcb:sch GND.1 x=38.1000 y=635.0000 rot=0
 # pcb:sch GND.2 x=101.6000 y=1333.5000 rot=0
@@ -631,7 +579,6 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch MOTOR_3V3.3 x=4711.7000 y=1930.4000 rot=0
 # pcb:sch MOTOR_3V3.4 x=5410.2000 y=1930.4000 rot=0
 # pcb:sch Q1.Q_AO3400A x=4850.0000 y=2800.0000 rot=0
-# pcb:sch Q2.Q_AO3400A x=3600.0000 y=4600.0000 rot=0
 # pcb:sch R1.R x=2000.0000 y=200.0000 rot=0
 # pcb:sch R4.R x=1100.0000 y=200.0000 rot=0
 # pcb:sch R5.R x=1500.0000 y=200.0000 rot=0
@@ -649,10 +596,8 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch R26.R x=6900.0000 y=650.0000 rot=0
 # pcb:sch R27.R x=5500.0000 y=700.0000 rot=0
 # pcb:sch R28.R x=5900.0000 y=950.0000 rot=0
-# pcb:sch R29.R x=1200.0000 y=4700.0000 rot=0
-# pcb:sch R30.R x=4000.0000 y=4300.0000 rot=0
 # pcb:sch SW1.SW_PTS841 x=2000.0000 y=600.0000 rot=0
-# pcb:sch SW2.SW_JS202011AQN x=600.0000 y=4400.0000 rot=0
+# pcb:sch SW2.SW_JS202011AQN x=2400.0000 y=1550.0000 rot=0
 # pcb:sch TP3.TP x=1150.0000 y=600.0000 rot=0
 # pcb:sch TP4.TP x=1550.0000 y=850.0000 rot=0
 # pcb:sch U1.XIAO x=2450.0000 y=850.0000 rot=0
@@ -661,10 +606,6 @@ Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers
 # pcb:sch U5.U_TPS61023 x=5900.0000 y=300.0000 rot=0
 # pcb:sch U6.LDO x=3900.0000 y=2050.0000 rot=0
 # pcb:sch U7.U_TPS22918 x=7500.0000 y=450.0000 rot=0
-# pcb:sch U8.U_TPS22918 x=2200.0000 y=4400.0000 rot=0
-# pcb:sch U9.U_TPS22918 x=2200.0000 y=5100.0000 rot=0
-# pcb:sch U10.BUS x=1500.0000 y=6200.0000 rot=0
-# pcb:sch U11.BUS x=3700.0000 y=6200.0000 rot=0
 # pcb:sch V3V3.1 x=114.3000 y=1181.1000 rot=0
 # pcb:sch V3V3.2 x=114.3000 y=2324.1000 rot=0
 # pcb:sch V3V3.3 x=609.6000 y=1536.7000 rot=0

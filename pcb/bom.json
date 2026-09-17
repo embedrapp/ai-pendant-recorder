@@ -2,7 +2,7 @@
   "version": 2,
   "source": "zener-evaluation",
   "sourceFile": "/Users/rishabhsinha/EmbedrProjects/ai_pendant_recorder/pcb/ai_pendant_recorder.zen",
-  "generatedAt": "2026-09-15T06:50:15.345Z",
+  "generatedAt": "2026-09-17T02:11:54.369Z",
   "displayCurrency": "USD",
   "buildQty": 1,
   "items": [
@@ -48,20 +48,24 @@
       }
     },
     {
-      "quantity": 5,
+      "quantity": 7,
       "references": [
         "C2",
         "C7",
         "C8",
         "C11",
-        "C12"
+        "C12",
+        "C43",
+        "C44"
       ],
       "zenerPaths": [
         "ai_pendant_recorder.zen:<root>.C2.C",
         "ai_pendant_recorder.zen:<root>.C7.C",
         "ai_pendant_recorder.zen:<root>.C8.C",
         "ai_pendant_recorder.zen:<root>.C11.C",
-        "ai_pendant_recorder.zen:<root>.C12.C"
+        "ai_pendant_recorder.zen:<root>.C12.C",
+        "ai_pendant_recorder.zen:<root>.C43.C",
+        "ai_pendant_recorder.zen:<root>.C44.C"
       ],
       "populate": true,
       "value": "10uF 25V X5R",
@@ -122,7 +126,7 @@
       "datasheetId": "ds_9d09f353be4df0f321db"
     },
     {
-      "quantity": 25,
+      "quantity": 27,
       "references": [
         "C15",
         "C16",
@@ -148,7 +152,9 @@
         "C36",
         "C37",
         "C38",
-        "C39"
+        "C39",
+        "C45",
+        "C46"
       ],
       "zenerPaths": [
         "ai_pendant_recorder.zen:<root>.C15.C",
@@ -175,7 +181,9 @@
         "ai_pendant_recorder.zen:<root>.C36.C",
         "ai_pendant_recorder.zen:<root>.C37.C",
         "ai_pendant_recorder.zen:<root>.C38.C",
-        "ai_pendant_recorder.zen:<root>.C39.C"
+        "ai_pendant_recorder.zen:<root>.C39.C",
+        "ai_pendant_recorder.zen:<root>.C45.C",
+        "ai_pendant_recorder.zen:<root>.C46.C"
       ],
       "populate": true,
       "value": "100nF 16V X7R",
@@ -205,12 +213,16 @@
       "datasheetId": "ds_30c2edbd41f53ac917fb"
     },
     {
-      "quantity": 1,
+      "quantity": 3,
       "references": [
-        "C40"
+        "C40",
+        "C41",
+        "C42"
       ],
       "zenerPaths": [
-        "ai_pendant_recorder.zen:<root>.C40.C"
+        "ai_pendant_recorder.zen:<root>.C40.C",
+        "ai_pendant_recorder.zen:<root>.C41.C",
+        "ai_pendant_recorder.zen:<root>.C42.C"
       ],
       "populate": true,
       "value": "1nF 25V C0G",
@@ -488,12 +500,14 @@
       "datasheetId": "ds_097425d603a5861ea83c"
     },
     {
-      "quantity": 1,
+      "quantity": 2,
       "references": [
-        "Q1"
+        "Q1",
+        "Q2"
       ],
       "zenerPaths": [
-        "ai_pendant_recorder.zen:<root>.Q1.Q_AO3400A"
+        "ai_pendant_recorder.zen:<root>.Q1.Q_AO3400A",
+        "ai_pendant_recorder.zen:<root>.Q2.Q_AO3400A"
       ],
       "populate": true,
       "value": "",
@@ -519,20 +533,22 @@
       }
     },
     {
-      "quantity": 5,
+      "quantity": 6,
       "references": [
         "R1",
         "R8",
         "R23",
         "R26",
-        "R27"
+        "R27",
+        "R29"
       ],
       "zenerPaths": [
         "ai_pendant_recorder.zen:<root>.R1.R",
         "ai_pendant_recorder.zen:<root>.R8.R",
         "ai_pendant_recorder.zen:<root>.R23.R",
         "ai_pendant_recorder.zen:<root>.R26.R",
-        "ai_pendant_recorder.zen:<root>.R27.R"
+        "ai_pendant_recorder.zen:<root>.R27.R",
+        "ai_pendant_recorder.zen:<root>.R29.R"
       ],
       "populate": true,
       "value": "100k 100mW",
@@ -560,14 +576,16 @@
       "datasheetId": "ds_7f87b9b9c3e0a80c68cc"
     },
     {
-      "quantity": 2,
+      "quantity": 3,
       "references": [
         "R4",
-        "R5"
+        "R5",
+        "R30"
       ],
       "zenerPaths": [
         "ai_pendant_recorder.zen:<root>.R4.R",
-        "ai_pendant_recorder.zen:<root>.R5.R"
+        "ai_pendant_recorder.zen:<root>.R5.R",
+        "ai_pendant_recorder.zen:<root>.R30.R"
       ],
       "populate": true,
       "value": "4.7k 100mW",
@@ -999,12 +1017,16 @@
       "datasheetId": "ds_943f1f6e10cbb0789dbb"
     },
     {
-      "quantity": 1,
+      "quantity": 3,
       "references": [
-        "U7"
+        "U7",
+        "U8",
+        "U9"
       ],
       "zenerPaths": [
-        "ai_pendant_recorder.zen:<root>.U7.U_TPS22918"
+        "ai_pendant_recorder.zen:<root>.U7.U_TPS22918",
+        "ai_pendant_recorder.zen:<root>.U8.U_TPS22918",
+        "ai_pendant_recorder.zen:<root>.U9.U_TPS22918"
       ],
       "populate": true,
       "value": "",
@@ -1030,16 +1052,44 @@
         "updatedBy": "agent"
       },
       "datasheetId": "ds_61aa790c3c3008f98c5e"
+    },
+    {
+      "quantity": 2,
+      "references": [
+        "U10",
+        "U11"
+      ],
+      "zenerPaths": [
+        "ai_pendant_recorder.zen:<root>.U10.BUS",
+        "ai_pendant_recorder.zen:<root>.U11.BUS"
+      ],
+      "populate": true,
+      "value": "",
+      "package": "TSSOP-20",
+      "mount": "",
+      "manufacturer": "Texas Instruments",
+      "mpn": "SN74CBTLV3245APWR",
+      "matcher": "",
+      "supplier": "",
+      "supplierPartNumber": "",
+      "sourceUrl": "",
+      "lifecycle": "",
+      "qualifications": [],
+      "alternatives": [],
+      "description": "",
+      "datasheet": "https://www.ti.com/lit/ds/symlink/sn74cbtlv3245a.pdf",
+      "configuration": "Configured",
+      "itemKey": "b1a4a260fcedd20f8981e3bf"
     }
   ],
   "summary": {
-    "lineItems": 27,
-    "componentCount": 96,
-    "populatedCount": 96,
-    "configuredCount": 96,
+    "lineItems": 28,
+    "componentCount": 109,
+    "populatedCount": 109,
+    "configuredCount": 109,
     "needsDetailsCount": 0,
     "sourcedCount": 11,
     "dnpCount": 0
   },
-  "sourceMtimeMs": 1789455403300.2085
+  "sourceMtimeMs": 1789612882834.5837
 }
