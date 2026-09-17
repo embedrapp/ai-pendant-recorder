@@ -1,3 +1,0 @@
-# Taller PCB revision
-
-Extend existing 44x60 PCB to 44x86 mm, KiCad X78..122, Y44..130. Preserve two layers, all 43 parts, connectivity, schematic positions, edge switches/LEDs and USB. Move upper mounting holes to Y47. Put tall battery/motor/speaker connectors in new top band outside battery tray. This permits lowering tray from Z9.5 to Z5.2 while retaining assumed component clearance. Rear screws, top speaker and cap remain. Existing unrouted board preserved before editing; routing and DRC remain separate gates. Sense 15 mm assumed stack limits front face to Z18.5; do not claim an ultra-thin production result.

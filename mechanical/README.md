@@ -1,95 +1,29 @@
-# Quiet pendant — DEVELOPMENT, not manufacturing release
+# Quiet pendant — replacement design in progress
 
-**Active redesign notice:** the wired speaker and complete audio-output chain are
-removed. The selected battery basis is Adafruit 1578 / protected PKCELL 1S
-500 mAh. A centered 5x5 WS2812C-2020-V1 matrix now requires a new diffuser/light
-guide and enclosure opening. Existing generators still contain legacy speaker
-geometry and remain historical until rebuilt against the revised PCB.
+Previous work is preserved in `archives/mechanical-before-modular.zip`; ZIP integrity was checked successfully. PCB and electrical source were not modified.
 
-**PCB update notice:** The carrier now has 15 footprints, a 28 x 70 mm chamfered
-outline and four aligned mounting holes. This enclosure revision has NOT been
-rebuilt against that board. Read `../docs/pcb-release-review.md` for current
-conflicts: front-versus-side record actuation, connector tails over the cell,
-module stack height and missing exact acoustic/antenna geometry. Historical
-no-outline/no-hole statements below describe the enclosure's original build input.
+## Current status
+Latest rounded-edge revision: `rev-dd4c058d619f6b4cd912a214ceafe78eeedb2c6028a4c96ea232415ae9614592`, built successfully with 14 solids, 40.4 × 80.2 × 22.2 mm. Added 1 mm front/rear exterior perimeter fillets while retaining 5 mm plan-view corners. Visual and interference review remain outstanding.
 
-Source: `pendant.py`; parameters and uncertainty register: `pendant.cad.json`.
-Current successful revision: `rev-ec844702af50c0b20748c6d12a1ec81089e2805f71f6472f5c0b91bda5bc5e73`.
-Source, parameters and PCB context were current at this build. Earlier box/single-shell
-revisions were diagnostic builds, NOT finished designs.
+Wearing orientation reviewed: lanyard at +Y (upper end), ESP/USB at -Y (lower end), LED face toward +Z (outward), battery at -Z (toward wearer). ESP remains concealed behind the opaque front cover; it shares the PCB component side with the LEDs, but is not a visible enclosure feature. No PCB positions or sides changed, including J1/J3, following the latest request to leave placement unchanged. The reference image supplies styling inspiration only, never dimensions.
 
-## Form and modeled features
+Cloud generation now succeeds: revision `rev-1c98ebbe336384207eaa3cfde102f646772768f8a58efb91052e5d43dfd30b42`. STEP inspection reports 14 solids and overall bounds 40.4 × 80.2 × 22.2 mm including the slider. STEP, interactive previews and snapshot were generated. This establishes solid geometry, not interference-free fit or manufacturing readiness.
 
-32 x 76 x 19.5 mm main body; 24 mm total including 3 mm clothing backer and
-1.5 mm garment gap. Rounded 5 mm plan corners, intended matte charcoal PA12.
-This is elongated, but NOT yet an aggressively thin wearable; exact stack metrology
-and side-by-side rather than stacked battery placement are the next miniaturization gate.
+Camera hardware, camera lid and camera aperture are explicitly out of scope. The front cover is the enclosure closure with an LED diffuser and record key, not a camera lid. Historical camera-related assets remain only in the preservation archive.
 
-Four separate solids: rear shell, front cover, removable battery tray, clothing backer.
-The STEP preserves separate solids; named assembly hierarchy is not retained by the
-current flattened-compound export workaround.
+## Design intent
+One assembled design with separately labelled rear chassis, front cover, removable battery sled, flush optical cassette, 25-well optical baffle, record key, standby slider, acoustic gasket, and reference envelopes. Nominal source-defined exterior is 40.2 × 80.2 × 22.2 mm before small actuator protrusions; this is not a measured STEP result. PA12 is a prototype process assumption, not a production decision.
 
-- Front camera bore: 6.6 mm with 8.2 mm shallow bezel.
-- Microphone: 1.2 mm dedicated bore and underside gasket land; its X/Y are explicit
-  provisional parameters, NOT aligned to a measured microphone location.
-- Legacy speaker dot grid/seat remains in old CAD source only and must be removed;
-  reserve the front center for the RGB diffuser and optical isolation instead.
-- Top USB opening, recessed right-side switch/button openings.
-- microSD: lid-off service, deliberately no exposed dust-catching external slot.
-- Four PCB standoffs and front screw channels, slip-fit cover skirt.
-- Open-top LiPo tray, lead notch and strap slots. Nominal cell 20 x 34 x 4 mm;
-  21 x 35 mm tray cavity, 0.6 mm tray floor. The battery is not modeled or selected.
-- Four blind magnet pockets in each shell/backer; hidden backer lanyard tunnel.
+PCB frame: actual 36 × 76 × 1.62 mm board, KiCad origin (100,82), X=KiCad X, Y=-KiCad Y, Z=board front. Four 2.2 mm mounting drills are present. Board SHA256: `3e52957dc9727d29010f24683fd51a6ffb657d00eb5b7edb2c28d70e766c7b87`.
 
-## Proposed assembly, requiring prototype confirmation
+## Unfinished engineering — do not fabricate
+- Inspect the generated assembly visually and complete geometric acceptance beyond solid validity.
+- Verify battery identity and full cell/PCM/lead dimensions; current battery envelope is provisional, not a verified drawing extraction.
+- Verify microSD insertion direction from the exact socket drawing. Current left opening and simplified socket reference are NOT validated against its overhanging courtyard.
+- Verify USB mating face, plug overmold reach and height, switch actuation direction/travel, and mated JST cable routing.
+- Complete separate PCB carrier, positive battery retention, optical cassette retention, captured controls, fastener selection and screw bodies, motor cradle and lead path. Current mounting pillars alone are not a modular carrier.
+- BMI270 is an inertial sensor and ordinarily needs no exterior aperture. Confirm whether another externally exposed sensor was intended.
+- Retain charging access in both slider positions. CAD cannot establish switched-supply or GPIO-backfeed behavior; electrical/firmware verification remains separate.
+- Perform pairwise interference, tolerance, tool-access, removal-path and enclosure closure checks; inspect current-revision renders and export STEP only after success.
 
-1. Install magnet pairs with correct polarity and qualified retention/encapsulation.
-2. Fit insulated cell in tray; use a non-compressive strap and route leads out the notch.
-3. Lower tray into locators, then install carrier PCB onto standoffs. Keep underside
-   components, solder points and battery wires outside the cell envelope.
-4. Fit the RGB diffuser/light guide only after LED pitch, cover gap, isolation-wall
-   geometry and material transmission are validated on the revised PCB.
-5. Fit a closed-cell mic gasket from the REAL microphone sound inlet to its dedicated
-   cover land. Keep the microphone acoustically isolated from enclosure cavities.
-6. Verify camera lens depth/FOV, cable clearance and control travel before closing.
-7. Fit cover and qualified small plastic-thread screws. Pilot bores are provisional;
-   screw MPN, length, torque and cycle life are not released.
-
-## Evidence and release blockers
-
-Cloud build and STEP inspection succeeded: four shapes, inspectable solid geometry,
-32 x 76 x 24 mm assembly bounds. A snapshot was generated, but no image pixels were
-available to the agent for direct visual inspection. No whole-assembly interference,
-minimum-wall analysis, acoustic validation, hardware fit or physical prototype tests
-have passed. A successful solid check is NOT a manufacturing/fit check.
-
-Canonical PCB context reports NO Edge.Cuts, NO mounting holes and unknown component
-heights. Its fallback 100 x 80 bounds are NOT PCB intent. Existing components are not
-inside this proposed mechanical coordinate system. No PCB source or placement was
-changed in this mechanical pass. Proposed 27 x 67 carrier and mounting centers must
-be reconciled with real footprints, hole-edge clearances, USB mating plane and RF layout.
-
-Before release:
-
-- Select exact protected cell, speaker, controls, magnets, fasteners and mating leads.
-  Validate LiPo charging/power isolation and cell expansion per supplier; do not clamp
-  a pouch cell or allow fastener tips to reach it.
-- Fix exact XIAO Sense camera revision (OV2640 versus OV3660), installed orientation,
-  mic inlet center and stack heights. Verify lens clearance and FOV at worst tolerance.
-- Revise mic port to actual coordinates; select gasket height/compression and test
-  speech response, grille attenuation, speaker leakage/feedback and clothing rub noise.
-- Reserve the external antenna and coax bend envelope, away from magnets, cell,
-  speaker metal and body; test worn RF performance. No RF pocket is verified yet.
-- Validate screw/boss strength, lid skirt overlap, tray retention, insertion paths,
-  USB plug overmold clearance, microSD extraction, button travel and strain relief.
-- Soften exposed front/back perimeter edges with process-qualified edge radii; the
-  present rounded outline alone does not remove every sharp perimeter edge.
-- Confirm MJF/SLS service minimum features: 0.6 mm tray floor and fine grille may need
-  thickening or secondary drilling. Injection molding needs a separate draft/tooling review.
-- Verify magnet retention/holding force through representative clothing. Add implant
-  warnings; use a breakaway neck cord, not an untested non-breakaway tether.
-- Test skin temperature during recording, Wi-Fi upload, charging and playback; sweat,
-  drop, snag, abrasion, chemical resistance and skin-contact finish. No IP rating claimed.
-- Complete PCB components, placement, routing, ERC/DRC/DFM and same-revision exports.
-
-No fabrication files should be ordered from this development concept.
+Proposed service sequence: remove rear screws, lift front cover and optical module, unplug battery, lift PCB/carrier, then remove battery sled without peeling adhesive from the cell. This sequence remains to be validated geometrically. No fit, sealing, strength, charging safety or manufacturing readiness is claimed.

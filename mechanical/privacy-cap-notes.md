@@ -1,7 +1,0 @@
-# Coaxial screw-on privacy cap
-
-Replaces the 27 x 17 mm sliding carriage, rails and handle with a 14.6 mm diameter circular cap, 4.2 mm above the lid. The cap is centered on the existing provisional camera datum; the 9 mm optical bore is unchanged. A shallow 7 x 1.2 mm fingernail/coin recess replaces the protruding grip.
-
-Custom right-handed round thread: 1.5 mm lead, 2 mm helical length, 0.45 mm bead radius, 0.25 mm nominal groove clearance. This is not a standard metric thread. The annular cap rim seats against the lid; roof-to-collar clearance is 0.3 mm. Camera collar is integrated into the lid, not a loose frame. Cap uses opaque material; light blocking, torque retention and wear require a physical test.
-
-Generator asserts one valid cap solid and <0.001 mm3 cap/lid interference at seated and six sampled unscrewing poses. This is sampled CAD geometry only, not continuous-motion, thread strength or print validation. PETG 0.4 mm nozzle / 0.2 mm layers remain provisional; print a cap and collar coupon before the complete lid. Keep removed cap away from children; no tether is modeled. Camera protrusion and field of view still require real module measurements. PCB and all other mechanisms are unchanged.

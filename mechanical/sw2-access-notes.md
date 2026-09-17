@@ -1,5 +1,0 @@
-# SW2 user access correction
-
-Move only SW2 X111.8 -> 113.3, Y86/90 degrees retained. PCB edge X118; F.Fab body ends X116.95, actuator tip X118.95. Outer pad copper ends X117.3 (0.7 mm edge margin), drills end X117.05. Courtyard overhang is intentional, not copper overhang.
-
-Add a separate captive standby-slider with inward actuator socket, internal retention flange and outer protective rails. Slider finger surface reaches X121, guards X121.8 (CAD X21 and21.8). Trial 2 mm throw, 2.1 mm socket width and actuator Z around3.5 are provisional; verify physical switch height, throw and tolerances before printing for use. Assemble slider from inside before PCB; flange prevents outward extraction. Check both endpoints and intermediate travel against shell. Source and persistence helper must retain X113.3; no board regeneration or routing needed.

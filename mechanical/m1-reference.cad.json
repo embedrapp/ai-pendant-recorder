@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "id": "m1-reference",
-  "name": "M1 QX-1027 reference envelope",
-  "source": "mechanical/missing-references.py",
-  "parameters": {"component": {"type": "text", "label": "Reference identity", "value": "motor"}},
-  "assumptions": [{"id": "identity", "label": "Not verified Robu part", "value": "QX-1027-3.0-07: diameter 10 +0.1/-0 mm, thickness 2.7 +/-0.1 mm, adhesive 0.15 mm. Leads 27 +/-2 mm omitted pending exit geometry.", "confidence": "datasheet", "source": "docs/datasheets/qx-flat-1027.pdf p9; docs/compact-redesign.md"}],
-  "checks": [{"id": "valid-solids", "label": "Valid reference solids only", "required": true}]
-}
