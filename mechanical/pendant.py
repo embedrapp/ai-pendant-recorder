@@ -88,13 +88,18 @@ def gen_step():
     base+=hole(1.5,rear-wall-.4,mx,my,-rear+wall)
     base-=hole(.6,rear+.2,mx,my,-rear-.1)
     seal=hole(1.4,.4,mx,my,-.4)-hole(.6,.6,mx,my,-.5)
-    # Visible top-edge eyelet. Through-opening along Z; outside PCB cavity.
-    # Broad root overlaps the top wall without entering connector space.
-    eye_z=-rear+2
-    eye=rr(12,9,2.5,eye_z,4,0,l/2+3)
-    eye=fillet([e for e in eye.edges() if abs(e.center().Z-eye_z)<.0001 or abs(e.center().Z-(eye_z+4))<.0001],.6)
-    eye-=rr(6,3,1.2,eye_z-.2,4.4,0,l/2+3.5)
+    # Slim side-profile U loop inspired by reference; chain passes along X.
+    # Local X maps to Y and local Y to Z. Root stops outside inner wall.
+    # D-profile: straight parallel arms into wall, semicircle only at tip.
+    # Local root X=-1; arc center X=2.5; tip X=8 relative to wall.
+    eye=block(3.5,11,3.6,.75,0,-1.8)+hole(5.5,3.6,2.5,0,-1.8)
+    eye-=block(10,14,5,-6,0,-2.5)
+    eye=fillet([e for e in eye.edges() if abs(abs(e.center().Z)-1.8)<.0001],.45)
+    opening=block(5.5,7,4,-.25,0,-2)+hole(3.5,4,2.5,0,-2)
+    eye-=opening
+    eye=Pos(0,l/2,-rear+6)*Rot(0,0,90)*Rot(90,0,0)*eye
     base+=eye
+    assert len(base.solids())==1,'Eyelet must join the chassis as one solid'
     # Offboard motor envelope from archived QX drawing: max D10.1 x H2.8.
     # Place below battery, away from microphone; coupled to rear through adhesive.
     motor_x,motor_y=12.5,-24

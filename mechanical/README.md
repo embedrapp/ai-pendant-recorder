@@ -3,6 +3,7 @@
 Previous work is preserved in `archives/mechanical-before-modular.zip`; ZIP integrity was checked successfully. PCB and electrical source were not modified.
 
 ## Current status
+Eyelet revision: replaced flat front-view tab with a slim side-profile rounded U-loop and X-directed chain passage, inspired by the reference image without measuring it. Prototype dimensions: 3.6 mm transverse thickness, 9 × 11 mm outer side profile, rounded 5 × 7 mm opening before root fusion, 8 mm projection beyond top wall. Roots overlap the outer wall by 1 mm without entering the cavity. Chassis single-solid assertion included. Chain/clasp clearance, pull strength and fatigue remain unverified. Other known fit limitations are unchanged.
 ## Current compact rear-ESP candidate (supersedes historical revisions below)
 - U1 flipped to B.Cu and shifted 3 mm left, source anchor (88.083,97) mm, rotation 0. Pad-number/net mapping preserved. J1/J3 remain rear mounted; other board components unchanged.
 - Battery/tray center Y=9 mm (1 mm upward); motor center (12.5,-24) mm, beside ESP. USB opening center X=-3 mm, Z=-2.58 mm is provisional. Motor cradle slightly joins the inner right wall intentionally; motor body remains clear of that wall by nominal 0.75 mm.
