@@ -38,6 +38,25 @@ Fresh checks on the current board:
 
 The remaining DRC error is a 0.21 mm clearance between the IM69D130 acoustic opening and its surrounding ground pad, below the board-wide 0.25 mm hole-clearance rule. The geometry follows Infineon's recommended 0.8 mm sound port and SMD ground-pad land pattern, but the exception still needs an explicit KiCad rule or footprint-level resolution before the PCB checks are fully clean. The library warnings are caused by the standalone KiCad checker not loading the project-managed footprint libraries; they are not geometry violations.
 
+## Mechanical design
+
+### Pendant enclosure
+
+[![Pendant enclosure CAD](docs/images/mechanical-enclosure.png)](docs/images/mechanical-enclosure.png)
+
+The parametric enclosure includes a rounded two-part shell, front optical area,
+record-button opening, side controls/access, and lanyard loop. The latest STEP
+build contains 16 valid solids and measures 40 × 87.785 × 18.2 mm overall,
+including the loop.
+
+### Populated PCB model
+
+[![Populated PCB mechanical model](docs/images/mechanical-populated-pcb.png)](docs/images/mechanical-populated-pcb.png)
+
+The populated-board model is used to coordinate PCB and enclosure geometry.
+Some component models and exact interface heights remain incomplete, so the
+render is a design aid rather than proof of interference-free physical fit.
+
 ## Firmware
 
 The Arduino/PlatformIO firmware currently provides:
