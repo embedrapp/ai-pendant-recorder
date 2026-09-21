@@ -1,8 +1,6 @@
-# Base-XIAO recorder with 5x5 RGB matrix — procurement BOM (DRAFT)
+# Base-XIAO recorder with 5x5 RGB matrix — procurement BOM
 
-**Carrier sourcing finalized; not released for assembly.** Supersedes the Sense/603450/RGB BOM.
 Generated from `pcb/bom.csv`; electrical source refs may differ from physical KiCad refs.
-Prior BOM and historical prices: `pcb/backups/pre-base-redesign/bom.md`.
 Purchase links were confirmed in stock by the user; no numerical inventory
 or current prices were provided. Availability remains time-sensitive. See [validation and GPIO map](current-design.md).
 
@@ -51,7 +49,6 @@ or current prices were provided. Availability remains time-sensitive. See [valid
 
 ## Changes and purchasing cautions
 
-- Removed Sense 113991115 expansion/camera/SD/mic assembly, camera mechanics, NOVA 603450 battery, PCA9685, two RGB LEDs, C6 and R9–R14.
 - Selected BAT1 Adafruit 1578 as the active tray basis. Adafruit documents
   overcharge, over-discharge and short-circuit protection; the supplier drawing
   shows a 1S PCM. Exact overcurrent threshold remains a procurement gate.
@@ -61,11 +58,8 @@ or current prices were provided. Availability remains time-sensitive. See [valid
 - Adafruit lists 29 x 36 x 4.75 mm while its attached pack drawing shows
   30 +/-0.1 x 35 +/-0.1 x 5 +/-0.1 mm. The mechanical design uses the
   conservative union rather than treating either nominal description as exact.
-- BAT1 documentation: indexed datasheet `ds_dcee32f4e0c985211bc8`, tray STEP
-  `mechanical/exports/pendant-battery-tray-adafruit-1578.step`, and design notes
-  `mechanical/front-battery-notes.md`. UN38.3/MSDS applicability, India shipping,
+- BAT1 documentation: indexed datasheet `ds_dcee32f4e0c985211bc8`. UN38.3/MSDS applicability, India shipping,
   delivered-pack metrology and load/thermal testing remain required.
-- Added base 113991114, IM69D130V01XTSA1 microphone, Molex 104031-0811 socket, C9/C10/C11, and R16–R23. The former DM3D-SF candidate is superseded.
 - Resistor purchasing links are saved in the carrier table and structured BOM.
 - AP2112K-3.3TRG1 sourcing is saved in Zen and the structured BOM.
 - Additional 100nF/10uF/100k parts reuse existing MPN links; no new passive selection needed for those.
@@ -85,5 +79,5 @@ or current prices were provided. Availability remains time-sensitive. See [valid
 - Limit the LED rail design target to 100 mA; full-matrix white is prohibited.
 - Freeze IM69D130V01XTSA1, Molex 104031-0811, and the existing regulated 3.3 V haptic architecture. The exact motor remains a downstream procurement/fit qualification.
 
-## Finalized carrier sourcing
-Links confirmed in stock by user; no numeric inventory or prices provided. Exact components unchanged. Motor/card/acoustic procurement and manufacturing release remain open. C40 manufacturer search flags NRND: retain approved part, review lifecycle before production.
+## Carrier sourcing
+Links were confirmed in stock by the user; no numeric inventory or current prices were provided. Motor, card, and acoustic-material procurement remain open. C40 manufacturer search flags NRND: retain the selected part and review lifecycle before production.

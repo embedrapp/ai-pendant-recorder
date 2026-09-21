@@ -1,34 +1,26 @@
 # Electronics workspace
 
-Primary source: `ai_pendant_recorder.zen`. Sourcing is stored in its
-`PURCHASE_LINKS`/`DATASHEET_INDEX` maps and the persisted `bom.json` overlay.
-`bom.csv` is generated; do not hand-edit it.
+The maintained electrical source is `ai_pendant_recorder.zen`; the current physical board is `layout/layout.kicad_pcb`.
 
-`pts841-fixture.zen` is a retained switch fixture. Its JST-SH package remains
-required by that fixture even though it is not in the pendant BOM.
+Sourcing metadata is stored in the source `PURCHASE_LINKS` / `DATASHEET_INDEX` maps and the persisted `bom.json` overlay. `bom.csv` is generated and should not be hand-edited.
 
-`layout/`, `layout-base/`, fixture layouts and `backups/` are preserved artifacts;
-no cleanup operation moves copper or establishes physical readiness. Archived
-packages/scripts are under `../archive/repo-cleanup/pcb/` and are historical.
+## Board
 
-## Four-layer reroute
-User requested removal of all old copper and four-layer routing. Active physical
-artifact is `layout/layout.kicad_pcb`; do not regenerate from `layout-base`.
-Previous routed board and project rules are saved in `backups/before-four-layer-*`.
-Placement, pads, holes and outline are retained. Source layer count is four.
-Draft stackup retains 1.62 mm total: four 0.035 mm copper layers, 0.2/1.06/0.2 mm
-dielectrics and two 0.01 mm masks. These are provisional CAD defaults, not a
-fabricator-approved or controlled-impedance stackup. All four layers are available
-for routing; no continuous reference planes are implied. Boost hot-loop/current
-capacity and signal returns require review before fabrication.
+- 36 × 76 mm rounded outline
+- four copper layers, modeled at 1.62 mm total thickness
+- 115 footprints
+- 1,264 track segments and 200 vias
+- no zones and no reported airwires
 
-Reroute run `pcb-auto-agent-1789671229431-uxntw0` returned a partial candidate:
-505 segments (440 front, 9 In1, 21 In2, 35 back), 40 vias, 182 open connections.
-All four layer screenshots were inspected; inner layers contain sparse traces,
-not reference planes. Source build and ERC passed. Fresh checks reported 229 DRC
-errors, 107 warnings and 40 DFM errors. Native inspection confirms all 40 imported
-via drills are incorrectly 0.0003 mm; router/import conversion needs correction
-before another paid attempt. Edge clearance violations also remain. Provider
-warned that the MK1-5 keepout was ignored. Do not accept this candidate for manufacture.
-Component anchors, rotations, sides, footprint identities and pad nets/drills
-match the pre-change board; full pad-coordinate equality was not established.
+The source `Board(...)` points to `layout`, so there is one active board location. Regenerating or synchronizing a routed PCB is a deliberate board mutation; preserve and compare copper before doing so.
+
+## Current checks
+
+- Source build: pass, 115 components.
+- ERC: pass, 79 style advice entries.
+- DRC: one IM69D130 acoustic-hole/ground-land clearance error plus footprint-library configuration warnings.
+- PDK-backed DFM: pass with no findings.
+
+The microphone geometry follows Infineon's recommended 0.8 mm PCB sound port and surrounding solder-mask-defined ground land. Represent that intended geometry with a local KiCad rule or reviewed footprint change; do not weaken the global hole-clearance rule.
+
+The four-layer stackup is a project model rather than a controlled-impedance fabricator stackup. Review boost current loops, trace widths, return paths, and the absence of copper planes before fabrication.

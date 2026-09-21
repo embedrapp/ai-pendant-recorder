@@ -1,5 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "embedr_ai_pendant_recorder_components_jst-bm02b-srss-tb") (type "KiCad") (uri "${KIPRJMOD}/../components/jst-bm02b-srss-tb") (options "") (descr ""))
-  (lib (name "embedr_ai_pendant_recorder_components_pts841gksmtr") (type "KiCad") (uri "${KIPRJMOD}/../components/pts841gksmtr") (options "") (descr ""))
-)

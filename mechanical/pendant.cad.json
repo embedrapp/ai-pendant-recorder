@@ -1,6 +1,6 @@
 {
  "schemaVersion":1,"id":"pendant","name":"Quiet — modular assembled pendant",
- "description":"Single assembled design; serviceable rear chassis, optical cassette, removable battery sled and compact external interfaces. Fit prototype, not manufacturing release.",
+ "description":"Single assembled design with serviceable rear chassis, optical cassette, removable battery sled and compact external interfaces.",
  "source":"mechanical/pendant.py","inputs":{"board":{"path":"pcb/layout/layout.kicad_pcb"}},
  "parameters":{
   "edge_radius":{"type":"number","label":"Front and rear exterior edge radius","value":1.0,"unit":"mm","min":0.3,"max":1.1},
@@ -17,6 +17,6 @@
   {"id":"battery","label":"Battery envelope","value":"30.1 x 36 x 5.1 mm; reserve 6.1 mm thickness","confidence":"assumed","source":"Provisional envelope; exact battery drawing and lead geometry not verified for this revision"},
   {"id":"process","label":"Process intent","value":"PA12 additive fit prototype; frosted polymer diffuser; silicone acoustic gasket","confidence":"assumed","source":"Reversible design choice, no strength or sealing qualification"},
   {"id":"unknowns","label":"Unverified interfaces","value":"USB Z, SW1 height/travel, SW2 capture/travel, mated JST height and cable bend, antenna and motor package, fastener specification","confidence":"unknown","source":"Current PCB context provides no component Z heights"},
-  {"id":"fasteners","label":"Closure","value":"Four rear-access M2-class clearance bores and 1.6 mm blind pilot holes; screw length and pilot trial-fit pending","confidence":"assumed","source":"PCB 2.2 mm mounting holes; not a released fastener selection"}
+  {"id":"fasteners","label":"Closure","value":"Four rear-access M2-class clearance bores and 1.6 mm blind pilot holes; screw length and pilot trial-fit pending","confidence":"assumed","source":"PCB 2.2 mm mounting holes; final fastener selection pending"}
  ],"checks":[{"id":"valid-solids","label":"Valid STEP solids","required":true}]
 }

@@ -100,7 +100,7 @@ def gen_step():
     eye=Pos(0,l/2,-rear+6)*Rot(0,0,90)*Rot(90,0,0)*eye
     base+=eye
     assert len(base.solids())==1,'Eyelet must join the chassis as one solid'
-    # Offboard motor envelope from archived QX drawing: max D10.1 x H2.8.
+    # Provisional offboard motor envelope: max D10.1 x H2.8.
     # Place below battery, away from microphone; coupled to rear through adhesive.
     motor_x,motor_y=12.5,-24
     adhesive=hole(5.05,.15,motor_x,motor_y,-rear+wall)

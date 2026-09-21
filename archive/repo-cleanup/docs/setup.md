@@ -1,3 +1,0 @@
-# Setup and flashing
-
-Use a FAT32 microSD card no larger than 32 GB. Copy the private API and Wi-Fi values into `include/config.h`; never commit credentials. Build and flash the `esp32-s3` environment over USB-C. The onboard PDM microphone uses GPIO41 (DATA) and GPIO42 (CLK); these are integrated Sense-board connections. The backend must provide authenticated HTTPS endpoints for audio/image upload, transcription, summaries, Q&A, and TTS. Provider adapters should keep ElevenLabs/OpenAI keys server-side. Home Assistant should use a scoped token or MQTT credentials. Dashboard, retention, consent, and participant-privacy policy remain deployment responsibilities.

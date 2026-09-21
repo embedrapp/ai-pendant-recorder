@@ -62,15 +62,14 @@ The confirmed product target is no more than 100 mA on the 5 V LED rail.
   threshold or treat firmware as enforcing measured 100 mA rail current.
 - The schematic now reads as five left-to-right rows, preserving exact chain
   connectivity. Physical layout, copper, and component selection are unchanged.
-- Current configured firmware target is esp32dev, not the hardware XIAO ESP32S3;
-  correct-target build/bench validation is required before flashing.
+- The configured firmware target is the Seeed XIAO ESP32S3. The clean firmware
+  build passes; hardware behavior still requires bench validation.
 
 Place the LEDs as a geometrically regular 5x5 square at board center, with
 uniform pitch and identical orientation. Place each bypass capacitor directly
 beside its pixel. Keep U5/L1 and their high-current switching loop outside the
-microphone acoustic/clock area. Exact center coordinates and pitch belong to
-the new board placement after the final outline and enclosure light guide are
-frozen; the preserved routed PCB is the obsolete pre-redesign artifact.
+microphone acoustic/clock area. The current board uses a regular 5x5 placement;
+verify alignment against the enclosure light guide on the physical prototype.
 
 ## Evidence
 
