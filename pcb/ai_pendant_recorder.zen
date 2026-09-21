@@ -519,7 +519,7 @@ def sourced_passives(c):
         c.properties["supplier_part_number"] = sku
 
 
-Board(name="ai_pendant_recorder", layout_path="layout-base", layers=2, modifiers=[sourced_passives])
+Board(name="ai_pendant_recorder", layout_path="layout-base", layers=4, modifiers=[sourced_passives])
 
 # Physical draft coordinates; retain current board on regeneration.
 
